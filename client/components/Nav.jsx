@@ -16,7 +16,11 @@ const navLinks = [
 const Nav = () => {
   const isUserLoggedIn = false;
 
-  const [toggleDropdown, setToggleDropdown] = useState(true);
+  const [toggleDropdown, setToggleDropdown] = useState(false);
+
+  const closeDropdown = () => {
+    setToggleDropdown(false);
+  };
 
   return (
     <nav className="flex-between w-full mb-16 pt-8">
@@ -26,12 +30,12 @@ const Nav = () => {
           alt="Promptopia Logo"
           width={200}
           height={200}
-          className="object-contain"
+          className="object-contain cursor-pointer"
         />
       </Link>
 
       {/*Mobile Navigation*/}
-      <div className="lg:hidden flex relative">
+      <div className="lg:hidden flex relative  z-10">
         <img
           src="/assets/icons/menu.svg"
           alt="menu"
@@ -42,11 +46,16 @@ const Nav = () => {
 
         {/* Render dropdown menu if toggleDropdown is true */}
         {toggleDropdown && (
-          <div className="dropdown">
+          <div className="dropdown ">
             {isUserLoggedIn ? (
-              <div className="dropdown">
+              <div className="dropdown" onClick={closeDropdown}>
                 {navLinks.map((link, index) => (
-                  <Link key={index} href={link.href}>
+                  <Link
+                    key={index}
+                    href={link.href}
+                    className="cursor-pointer"
+                    onClick={closeDropdown}
+                  >
                     {link.text}
                   </Link>
                 ))}
@@ -59,8 +68,20 @@ const Nav = () => {
                     {link.text}
                   </Link>
                 ))}
-                <button className="yellow_btn w-40">SUPPORT US</button>
-                <button className="outline_btn w-40">REGISTER</button>
+                <Link
+                  href="/support"
+                  className="yellow_btn w-40"
+                  onClick={closeDropdown}
+                >
+                  SUPPORT US
+                </Link>
+                <Link
+                  href="/register"
+                  className="outline_btn"
+                  onClick={closeDropdown}
+                >
+                  REGISTER
+                </Link>
               </div>
             )}
           </div>
@@ -76,7 +97,9 @@ const Nav = () => {
                 {link.text}
               </Link>
             ))}
-            <button className="yellow_btn">SUPPORT US</button>
+            <Link href="/support" className="yellow_btn">
+              SUPPORT US
+            </Link>
           </div>
         ) : (
           <div className="flex items-center gap-5 text-white">
@@ -85,8 +108,12 @@ const Nav = () => {
                 {link.text}
               </Link>
             ))}
-            <button className="yellow_btn">SUPPORT US</button>
-            <button className="outline_btn">REGISTER</button>
+            <Link href="/support" className="yellow_btn">
+              SUPPORT US
+            </Link>
+            <Link href="/register" className="outline_btn">
+              REGISTER
+            </Link>
 
             {}
           </div>

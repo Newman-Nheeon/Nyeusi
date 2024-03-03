@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -71,6 +72,22 @@
   }
 }
 
+.transition-image {
+  transition: transform 0.5s ease;
+}
+
+.zoom-out {
+  transform: scale(0.8); /* Adjust the scale as needed */
+}
+
+.font-inter {
+  font-family: "Inter", sans-serif;
+}
+
+.font-mont {
+  font-family: "Montserrat", sans-serif;
+}
+
 /* Tailwind Styles */
 
 .app {
@@ -78,7 +95,7 @@
 }
 
 .yellow_btn {
-  @apply rounded-[8px] border border-yellow-400 bg-yellow-400 py-1.5 px-5 text-black transition-all hover:bg-yellow-500 hover:text-white text-center text-sm flex items-center justify-center;
+  @apply rounded-[8px] border border-yellow-400 bg-yellow-400 py-1.5 px-5 text-black transition-all hover:bg-yellow-500 hover:text-white text-center text-sm flex items-center justify-center font-mont;
 }
 
 .outline_btn {
@@ -86,7 +103,33 @@
 }
 
 .head_text {
-  @apply mt-5 text-5xl font-extrabold leading-[1.15] text-black sm:text-6xl;
+  @apply text-xl font-semibold leading-[1.15] text-black sm:text-2xl tracking-normal font-mont;
+  /* text-2xl-semibold  mb-[8px] */
+}
+
+.head_para {
+  @apply text-sm sm:text-base tracking-normal font-inter;
+}
+
+.label {
+  @apply text-sm text-slate-700 font-inter;
+}
+
+.input {
+  @apply text-sm text-slate-400 rounded-[6px] border-slate-300 font-sans;
+}
+
+.card {
+  @apply w-auto bg-white  rounded-xl;
+}
+
+.outer_card {
+  @apply p-[12px] rounded-xl;
+
+  /* style={{
+    backgroundColor: "rgba(255, 255, 255, 0.1)",
+    backdropFilter: "blur(14px)",
+  }}; */
 }
 
 .orange_gradient {
