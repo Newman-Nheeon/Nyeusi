@@ -4,6 +4,7 @@ const participantSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   isEmailVerified: { type: Boolean, default: false },
   verificationToken: { type: String, required: false },
+  isFullyRegistered: { type: Boolean, default: false },
   socialMediaHandle: String,
   socialMediaPlatform: String,
   stageName: String,

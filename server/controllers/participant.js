@@ -8,16 +8,29 @@ exports.submitEmail = async (req, res) => {
     return res.status(400).send({ message: 'Email address is required' });
   }
 
-  const verificationToken = crypto.randomBytes(32).toString('hex');
-  
   try {
-    const newUser = new Participant({
+    let participant = await Participant.findOne({ email });
+
+    // Check if the participant has already registered and verified their email
+    if (participant && participant.isEmailVerified) {
+      return res.status(400).send({ message: 'Email is already registered and verified.' });
+    }
+
+    // If already registered but not verified, resend the verification email
+    if (participant && !participant.isEmailVerified) {
+      await emailService.sendVerificationEmail(email, participant.verificationToken);
+      return res.send({ message: 'Verification email resent.' });
+    }
+
+    // New registration
+    const verificationToken = crypto.randomBytes(32).toString('hex');
+    participant = new Participant({
       email,
       verificationToken,
-      isEmailVerified: false, // Corrected field name
+      isEmailVerified: false,
     });
-    await newUser.save();
 
+    await participant.save();
     await emailService.sendVerificationEmail(email, verificationToken);
     res.send({ message: 'Verification email sent.' });
   } catch (error) {
@@ -26,24 +39,54 @@ exports.submitEmail = async (req, res) => {
   }
 };
 
+
 exports.completeRegistration = async (req, res) => {
   const { email, firstName, lastName, stageName, socialMediaHandle, comment, termsAccepted, socialMediaPlatform, profileImage, entryImage } = req.body;
   
   try {
-    const user = await Participant.findOne({ email, isEmailVerified: true }); // Corrected query
+    const user = await Participant.findOne({ email });
+
+    // Check if the user was not found or their email has not been verified
     if (!user) {
-      return res.status(400).send('User not found or email not verified.');
+      return res.status(404).send('User not found.');
     }
-    
-    Object.assign(user, { firstName, lastName, stageName, socialMediaHandle, comment, termsAccepted, socialMediaPlatform, profileImage, entryImage });
+    if (!user.isEmailVerified) {
+      return res.status(400).send('Email not verified.');
+    }
+
+    // Check if the participant is already fully registered
+    if (user.isFullyRegistered) {
+      return res.status(400).send('Participant is already fully registered.');
+    }
+
+    // Validate required fields are filled
+    if (!firstName || !lastName || !stageName || !socialMediaHandle || !comment || !termsAccepted || !socialMediaPlatform || !profileImage || !entryImage) {
+      return res.status(400).send('All fields must be filled to complete registration.');
+    }
+
+    // Update the user with the new data and mark them as fully registered
+    user.firstName = firstName;
+    user.lastName = lastName;
+    user.stageName = stageName;
+    user.socialMediaHandle = socialMediaHandle;
+    user.comment = comment;
+    user.termsAccepted = termsAccepted;
+    user.socialMediaPlatform = socialMediaPlatform;
+    user.profileImage = profileImage;
+    user.entryImage = entryImage;
+    user.isFullyRegistered = true;
+
     await user.save();
     
-    res.send('Registration complete.');
+    res.send('Registration complete. Thank you for completing your registration.');
   } catch (error) {
-    console.error('Error completing registration:', error); // Added console.error for debugging
+    console.error('Error completing registration:', error);
     res.status(500).send('Error completing registration.');
   }
 };
+
+
+
 
 exports.verifyEmail = async (req, res) => {
   const { token } = req.query;
