@@ -1,9 +1,10 @@
-
+// packages
 const dotenv = require('dotenv');
 const express = require('express');
 const mongoose = require("mongoose");
 const cors = require('cors');
-const connectDB = require('./config/db_connect');
+const bodyParser = require('body-parser')
+
 
 const PORT = process.env.PORT || 8080;
 const app = express();
@@ -12,13 +13,13 @@ dotenv.config();
 
 // Imports
 const userRoutes = require('./routes/users');
-
+const connectDB = require('./config/db_connect');
 
 
 // Middlewares
 app.use(express.json());
 app.use(cors());
-
+app.use(bodyParser.json());
 
 // Routes
 app.use('/api', userRoutes);
