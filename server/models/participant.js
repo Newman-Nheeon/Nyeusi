@@ -14,7 +14,7 @@ const participantSchema = new mongoose.Schema({
   entryImage: String, // Store the path or URL to the image
   comment: String,
   termsAccepted: { type: Boolean, default: false }, // Ensure this matches your form/req.body
-  // Add any other necessary fields
+  totalVotes: { type: Number, default: 0 }
 });
 
 const Participant = mongoose.model('Participant', participantSchema);

@@ -24,7 +24,7 @@ exports.sendVerificationEmail = async (email, token) => {
     }, 
       to: email, // List of receivers
       subject: 'Verify Your Email Address', // Subject line
-    html: `<p>Please click on the link to verify your email: <a href="${verificationLink}">${verificationLink}</a></p>`,
+    html: `<p>Please click on the link to verify your email: <a href="${verificationLink}">Verify Email</a></p>`,
   };
 
   await transporter.sendMail(mailOptions);
