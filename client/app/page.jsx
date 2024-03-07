@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import EmailRegistration from "@/components/EmailRegistration";
+import EmailRegistration from "@/components/submit-email";
 import axios from "axios";
 
 const Home = () => {

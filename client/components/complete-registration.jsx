@@ -61,7 +61,7 @@ const socialMediaOptions = [
   { value: "tiktok", label: "TikTok" },
 ];
 
-const Registration = () => {
+const completeRegistration = () => {
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [formValidation, setFormValidation] = useState(false);
   const [formValues, setFormValues] = useState({
@@ -327,4 +327,4 @@ const Registration = () => {
   );
 };
 
-export default Registration;
+export default completeRegistration;

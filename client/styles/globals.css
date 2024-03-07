@@ -66,6 +66,12 @@
   opacity: 0.15;
 }
 
+
+.request-log { color: blue; }
+.response-log { color: green; }
+.error-log { color: red; }
+
+
 @media screen and (max-width: 640px) {
   .main {
     padding: 0;

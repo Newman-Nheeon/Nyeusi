@@ -1,7 +1,7 @@
 import Successful from "@/components/Successful";
-import UserDetails from "@/components/Registration.jsx.jsx";
+import UserDetails from "@/components/complete-registration.jsx";
 import React from "react";
-import Registration from "@/components/Registration.jsx.jsx";
+import Registration from "@/components/complete-registration.jsx";
 
 const SupportUs = () => {
   return <Registration />;

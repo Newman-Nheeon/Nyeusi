@@ -4,6 +4,7 @@ import Link from "next/link";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import axios from 'axios';
 
 import { Button } from "@/components/ui/button";
 import {
@@ -26,20 +27,38 @@ import {
 import { useState } from "react";
 import VerifyEmail from "./VerifyEmail";
 
-const EmailRegistration = ({ type, post, setPost, submitting }) => {
+
+const submitEmail = ({ type, post, setPost, submitting }) => {
   const [emailValid, setEmailValid] = useState(false);
   const [showConfirmation, setShowConfirmation] = useState(false);
+  const [formValues, setFormValues] = useState({email: "" });
+  const [requestLog, setRequestLog] = useState('');
+  const [responseLog, setResponseLog] = useState('');
+  const [errorLog, setErrorLog] = useState('');
 
-  const [formValues, setFormValues] = useState({
-    email: "",
-  });
 
-  const handleSubmit = () => {
-    let emails = {
-      email: formValues.email,
-    };
-    setShowConfirmation(true);
+  const handleSubmit = async () => {
+    if (!emailValid || !formValues.email) return;
+  
+    const apiBaseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
+    const apiURL = `${apiBaseURL}/submit-email`;
+  
+    const emailData = { email: formValues.email };
+    setRequestLog(`Submitting email: ${JSON.stringify(emailData)}`); // Update request log
+  
+    try {
+      const response = await axios.post(apiURL, emailData);
+      setResponseLog(`Response received: ${JSON.stringify(response.data)}`); // Update response log
+      console.log("Verification link sent");
+      setShowConfirmation(true);
+    } catch (error) {
+      const errorMessage = error.response ? JSON.stringify(error.response.data) : error.message;
+      setErrorLog(errorMessage); // Update error log
+      console.error('Error submitting email:', error);
+    }
   };
+  
+
 
   const validateEmail = (value) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -99,6 +118,8 @@ const EmailRegistration = ({ type, post, setPost, submitting }) => {
             </form>
           </CardContent>
           <CardFooter className="flex justify-between">
+          {errorLog && <div className="log error-log">{errorLog}</div>}
+
             <Button
               className="yellow_btn w-full"
               onClick={handleSubmit}
@@ -115,4 +136,4 @@ const EmailRegistration = ({ type, post, setPost, submitting }) => {
   );
 };
 
-export default EmailRegistration;
+export default submitEmail;

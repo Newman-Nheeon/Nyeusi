@@ -36,7 +36,7 @@ const VerifyEmail = () => {
           </CardDescription>
           <CardDescription className="text-sm font-mont text-center w-[370px]">
             Didn't get the mail? {""}
-            <Link href="/support" className="text-yellow-500 font-semibold">
+            <Link href="/" className="text-yellow-500 font-semibold">
               Click to resend Link
             </Link>
           </CardDescription>
