@@ -29,7 +29,7 @@ import {
   SelectLabel,
   SelectValue,
 } from "@/components/ui/select";
-import Confirmation from "./Confirmation";
+import VerifyEmail from "./VerifyEmail";
 import Successful from "./Successful";
 
 const fields = [
@@ -61,7 +61,7 @@ const socialMediaOptions = [
   { value: "tiktok", label: "TikTok" },
 ];
 
-const UserDetails = () => {
+const Registration = () => {
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [formValidation, setFormValidation] = useState(false);
   const [formValues, setFormValues] = useState({
@@ -327,4 +327,4 @@ const UserDetails = () => {
   );
 };
 
-export default UserDetails;
+export default Registration;

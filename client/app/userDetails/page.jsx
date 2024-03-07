@@ -1,4 +1,4 @@
-import UserDetails from "@/components/UserDetails";
+import UserDetails from "@/components/Registration.jsx.jsx";
 import React from "react";
 
 const Users = () => {

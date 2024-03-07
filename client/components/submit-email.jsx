@@ -24,7 +24,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useState } from "react";
-import Confirmation from "./Confirmation";
+import VerifyEmail from "./VerifyEmail";
 
 const EmailRegistration = ({ type, post, setPost, submitting }) => {
   const [emailValid, setEmailValid] = useState(false);
@@ -87,9 +87,6 @@ const EmailRegistration = ({ type, post, setPost, submitting }) => {
                     placeholder="Enter your email address"
                     className="input"
                     value={formValues.email}
-                    helperText={
-                      emailValid ? "" : "Please provide a valid email"
-                    }
                     onChange={handleEmailChange}
                   />
                   {!emailValid && formValues.email !== "" && (
@@ -112,7 +109,7 @@ const EmailRegistration = ({ type, post, setPost, submitting }) => {
           </CardFooter>
         </Card>
       ) : (
-        <Confirmation />
+        <VerifyEmail />
       )}
     </div>
   );

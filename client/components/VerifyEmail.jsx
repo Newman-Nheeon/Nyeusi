@@ -12,7 +12,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-const Confirmation = () => {
+const VerifyEmail = () => {
   return (
     <div
       className="p-[12px] rounded-xl"
@@ -46,4 +46,4 @@ const Confirmation = () => {
   );
 };
 
-export default Confirmation;
+export default VerifyEmail;
