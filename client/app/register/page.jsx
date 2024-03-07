@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
-import EmailRegistration from "@/components/EmailRegistration";
+import EmailRegistration from "@/components/submit-email";
 
 const Register = () => {
   const [submitting, setSubmitting] = useState(false);
