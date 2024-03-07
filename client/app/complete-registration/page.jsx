@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import EmailRegistration from "@/components/submit-email";
+import CompleteRegistration from "@/components/complete-registration";
 
 const Home = () => {
   const [submitting, setSubmitting] = useState(false);
@@ -10,7 +10,7 @@ const Home = () => {
   });
 
   return (
-    <EmailRegistration/>
+    <CompleteRegistration/>
   );
 };
 
