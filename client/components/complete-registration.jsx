@@ -39,9 +39,14 @@ const fields = [
     id: "email",
   },
   {
-    label: "Full Name",
+    label: "First Name",
     placeholder: "Enter your full name",
-    id: "fullName",
+    id: "firstName",
+  },
+  {
+    label: "Last Name",
+    placeholder: "Enter your full name",
+    id: "lastName",
   },
   {
     label: "Stage Name",
@@ -66,9 +71,12 @@ const completeRegistration = () => {
   const [formValidation, setFormValidation] = useState(false);
   const [formValues, setFormValues] = useState({
     email: "",
-    fullName: "",
+    firstName: "",
+    lastName: "",
     stageName: "",
     socialHandle: "",
+    socialMedia: false,
+    uploadImage: "",
     comment: "",
     terms: false,
   });
@@ -100,9 +108,13 @@ const completeRegistration = () => {
       isValid = false;
       console.log("Invalid email:", values.email);
     }
-    if (values.fullName.trim() === "") {
+    if (values.firstName.trim() === "") {
       isValid = false;
-      console.log("Full name is empty");
+      console.log("First name is empty");
+    }
+    if (values.lastName.trim() === "") {
+      isValid = false;
+      console.log("Last name is empty");
     }
     if (values.stageName.trim() === "") {
       isValid = false;
@@ -112,10 +124,14 @@ const completeRegistration = () => {
       isValid = false;
       console.log("Social handle is empty");
     }
-    // if (!values.selectedSocialMedia) {
-    //   isValid = false;
-    //   console.log("Social handle is not picked");
-    // }
+    if (!values.socialMedia) {
+      isValid = false;
+      console.log("Social media is not picked");
+    }
+    if (!values.uploadImage) {
+      isValid = false;
+      console.log("upload image");
+    }
     if (values.comment.trim() === "") {
       isValid = false;
       console.log("Comment is empty");
@@ -129,8 +145,9 @@ const completeRegistration = () => {
   };
 
   const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    const val = type === "checkbox" ? checked : value;
+    const { name, value, type, checked, files } = e.target;
+    const val =
+      type === "checkbox" ? checked : type === "file" ? files[0] : value;
 
     setFormValues((prevState) => ({
       ...prevState,
@@ -138,20 +155,12 @@ const completeRegistration = () => {
     }));
   };
 
-  // const handleSocialMediaSelect = (selectedValue) => {
-  //   console.log("Selected social media:", selectedValue);
-  //   setFormValues((prevState) => ({
-  //     ...prevState,
-  //     selectedSocialMedia: selectedValue,
-  //   }));
-  //   // Update socialMediaSelected state based on whether a social media handle is selected
-  //   setSocialMediaSelected(!!selectedValue);
-  //   console.log("socialMediaSelected:", !!selectedValue);
-  // };
-
-  const submitForm = (formData) => {
-    // This is a placeholder function for handling form submission
-    console.log("Form submitted:", formData);
+  const handleSocialMediaSelect = (selectedValue) => {
+    console.log("Selected social media:", selectedValue);
+    setFormValues((prevState) => ({
+      ...prevState,
+      socialMedia: selectedValue,
+    }));
   };
 
   return (
@@ -203,8 +212,7 @@ const completeRegistration = () => {
                   </div>
                 ))}
 
-                {/* Testing select */}
-                {/* <div className="flex flex-col space-y-1.5">
+                <div className="flex flex-col space-y-1.5">
                   <Label htmlFor="socialmedia" className="label">
                     Select Social Media Handle
                   </Label>
@@ -221,9 +229,9 @@ const completeRegistration = () => {
                         {socialMediaOptions.map((social) => (
                           <SelectItem
                             key={social.value}
-                            value={social.value}
+                            value={social.label}
                             onClick={() =>
-                              handleSocialMediaSelect(social.value)
+                              handleSocialMediaSelect(social.label)
                             }
                           >
                             {social.label}
@@ -232,41 +240,21 @@ const completeRegistration = () => {
                       </SelectGroup>
                     </SelectContent>
                   </Select>
-                </div> */}
+                </div>
 
-                {/* Select part */}
-                {/* <div className="flex flex-col space-y-1.5">
-                  <Label htmlFor="socialmedia" className="label">
-                    Select Social Media Handle
+                <div className="flex flex-col space-y-1.5">
+                  <Label htmlFor="picture" className="label">
+                    Upload Picture
                   </Label>
-
-                  <Select>
-                    <SelectTrigger className="w-full text-sm text-slate-400 rounded-[6px] border-slate-300 font-sans">
-                      <SelectValue placeholder="Select" />
-                    </SelectTrigger>
-                    <SelectContent className=" bg-white">
-                      <SelectGroup>
-                        <SelectLabel className="label">
-                          Social Media
-                        </SelectLabel>
-                        {socials.map((social) => (
-                          <SelectItem
-                            key={social.id}
-                            value={social.label}
-                            onClick={() => handleSocialMediaSelect}
-                          >
-                            {social.label}
-                          </SelectItem>
-                        ))}
-                      </SelectGroup>
-                    </SelectContent>
-                  </Select>
-                  {!validity.socialMedia && (
-                    <span className="text-xs text-red-500">
-                      Please select a social media handle
-                    </span>
-                  )}
-                </div> */}
+                  <Input
+                    id="picture"
+                    name="picture"
+                    type="file"
+                    accept="image/*" // Limit file selection to images
+                    className="input"
+                    onChange={handleChange}
+                  />
+                </div>
 
                 <div className="grid w-full gap-1.5">
                   <Label htmlFor="message" className="label">
@@ -283,13 +271,6 @@ const completeRegistration = () => {
                 </div>
 
                 <div className="flex items-center space-x-2">
-                  {/* <Checkbox
-                  id="terms"
-                  className="text-slate-400 rounded-[4px] border-slate-300"
-                  name="terms"
-                  checked={formValues.terms}
-                  onChange={handleChange}
-                /> */}
                   <input
                     type="checkbox"
                     name="terms"
