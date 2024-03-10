@@ -1,6 +1,6 @@
 "use client";
 
-import axios from 'axios';
+import axios from "axios";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -16,38 +16,36 @@ import { Label } from "@/components/ui/label";
 import { useState } from "react";
 import VerifyEmail from "./VerifyEmail";
 
-
 const submitEmail = ({ type, post, setPost, submitting }) => {
   const [emailValid, setEmailValid] = useState(false);
   const [showConfirmation, setShowConfirmation] = useState(false);
-  const [formValues, setFormValues] = useState({email: "" });
-  const [requestLog, setRequestLog] = useState('');
-  const [responseLog, setResponseLog] = useState('');
-  const [errorLog, setErrorLog] = useState('');
-
+  const [formValues, setFormValues] = useState({ email: "" });
+  const [requestLog, setRequestLog] = useState("");
+  const [responseLog, setResponseLog] = useState("");
+  const [errorLog, setErrorLog] = useState("");
 
   const handleSubmit = async () => {
     if (!emailValid || !formValues.email) return;
-  
+
     const apiBaseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
     const apiURL = `${apiBaseURL}/submit-email`;
-  
+
     const emailData = { email: formValues.email };
     setRequestLog(`Submitting email: ${JSON.stringify(emailData)}`);
-  
+
     try {
       const response = await axios.post(apiURL, emailData);
-      setResponseLog(`Response received: ${JSON.stringify(response.data)}`); 
+      setResponseLog(`Response received: ${JSON.stringify(response.data)}`);
       console.log("Verification link sent");
       setShowConfirmation(true);
     } catch (error) {
-      const errorMessage = error.response ? JSON.stringify(error.response.data) : error.message;
-      setErrorLog(errorMessage); 
-      console.error('Error submitting email:', error);
+      const errorMessage = error.response
+        ? JSON.stringify(error.response.data)
+        : error.message;
+      setErrorLog(errorMessage);
+      console.error("Error submitting email:", error);
     }
   };
-  
-
 
   const validateEmail = (value) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -57,7 +55,7 @@ const submitEmail = ({ type, post, setPost, submitting }) => {
   const handleEmailChange = (e) => {
     const emailValue = e.target.value;
     const isValid = validateEmail(emailValue);
-    setEmailValid(isValid || emailValue === true); /
+    setEmailValid(isValid || emailValue === true);
     setFormValues({
       ...formValues,
       email: emailValue,
@@ -107,7 +105,7 @@ const submitEmail = ({ type, post, setPost, submitting }) => {
             </form>
           </CardContent>
           <CardFooter className="flex justify-between">
-          {errorLog && <div className="log error-log">{errorLog}</div>}
+            {errorLog && <div className="log error-log">{errorLog}</div>}
 
             <Button
               className="yellow_btn w-full"
