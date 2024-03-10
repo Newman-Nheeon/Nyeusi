@@ -1,9 +1,5 @@
 "use client";
 
-import Link from "next/link";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
 import axios from 'axios';
 
 import { Button } from "@/components/ui/button";
@@ -17,13 +13,6 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { useState } from "react";
 import VerifyEmail from "./VerifyEmail";
 
@@ -44,16 +33,16 @@ const submitEmail = ({ type, post, setPost, submitting }) => {
     const apiURL = `${apiBaseURL}/submit-email`;
   
     const emailData = { email: formValues.email };
-    setRequestLog(`Submitting email: ${JSON.stringify(emailData)}`); // Update request log
+    setRequestLog(`Submitting email: ${JSON.stringify(emailData)}`);
   
     try {
       const response = await axios.post(apiURL, emailData);
-      setResponseLog(`Response received: ${JSON.stringify(response.data)}`); // Update response log
+      setResponseLog(`Response received: ${JSON.stringify(response.data)}`); 
       console.log("Verification link sent");
       setShowConfirmation(true);
     } catch (error) {
       const errorMessage = error.response ? JSON.stringify(error.response.data) : error.message;
-      setErrorLog(errorMessage); // Update error log
+      setErrorLog(errorMessage); 
       console.error('Error submitting email:', error);
     }
   };
@@ -68,7 +57,7 @@ const submitEmail = ({ type, post, setPost, submitting }) => {
   const handleEmailChange = (e) => {
     const emailValue = e.target.value;
     const isValid = validateEmail(emailValue);
-    setEmailValid(isValid || emailValue === true); // Set emailValid to true if emailValue is empty
+    setEmailValid(isValid || emailValue === true); /
     setFormValues({
       ...formValues,
       email: emailValue,
