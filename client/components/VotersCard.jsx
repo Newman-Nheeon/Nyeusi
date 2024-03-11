@@ -2,8 +2,6 @@
 
 import React from "react";
 import Image from "next/image";
-import NextNProgress from "nextjs-progressbar";
-import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -65,9 +63,7 @@ const cards = [
   },
 ];
 
-const VotersCard = ({ Component, pageProps }) => {
-  const [progress, setProgress] = React.useState(13);
-
+const VotersCard = () => {
   React.useEffect(() => {
     const timer = setTimeout(() => setProgress(66), 500);
     return () => clearTimeout(timer);
@@ -90,24 +86,7 @@ const VotersCard = ({ Component, pageProps }) => {
           </CardHeader>
 
           <CardContent className="flex-col justify-between px-2 pt-2 pb-0">
-            {/* <div className="flex gap-2">
-              {socialHandles.map((handle, i) => (
-                <Image
-                  key={i}
-                  src={`/assets/icons/${handle.svg}`}
-                  alt="flower"
-                  width={20}
-                  height={20}
-                />
-              ))}
-            </div> */}
-            <div className="">
-              <NextNProgress className="bg-purple-100" />
-            </div>
-
-            <div className="">
-              <p>{card.votes} votes</p>
-            </div>
+            <p>{card.votes} votes</p>
           </CardContent>
 
           <CardFooter className="px-2 pt-6 pb-2">
