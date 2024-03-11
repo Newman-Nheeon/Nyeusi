@@ -27,7 +27,7 @@ const Nav = () => {
       <Link href="/" className="flex">
         <Image
           src="/assets/images/nyeusi-logo.png"
-          alt="Promptopia Logo"
+          alt="nyeusi"
           width={200}
           height={200}
           className="object-contain cursor-pointer"
