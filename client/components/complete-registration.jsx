@@ -1,10 +1,7 @@
 "use client";
 
 import { useState } from "react";
-
 import axios from "axios";
-
-import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
@@ -26,7 +23,6 @@ import {
   SelectLabel,
   SelectValue,
 } from "@/components/ui/select";
-import VerifyEmail from "./VerifyEmail";
 import Successful from "./Successful";
 
 const fields = [
@@ -82,18 +78,11 @@ const completeRegistration = () => {
   const [requestLog, setRequestLog] = useState("");
   const [responseLog, setResponseLog] = useState("");
   const [errorLog, setErrorLog] = useState("");
-  const [emailValid, setEmailValid] = useState(false);
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   let fields = {
-  //     ...formValues,
-  //   };
+  const [selectedValue, setSelectedValue] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Your validation logic...
     const isValid = validateForm(formValues);
     setRequestLog(`Submitting data: ${JSON.stringify(formValues)}`);
     setFormValidation(isValid);
@@ -103,11 +92,10 @@ const completeRegistration = () => {
 
     if (isValid) {
       try {
-        // Call your API to submit the form data using Axios
         const response = await axios.post(apiURL, formValues);
         setResponseLog(`Response received: ${JSON.stringify(response.data)}`);
-        setSubmitted(true); // Set submitted state to true
-        setShowConfirmation(true); // Show confirmation dialogue
+        setSubmitted(true);
+        setShowConfirmation(true);
       } catch (error) {
         const errorMessage = error.response
           ? JSON.stringify(error.response.data)
@@ -142,7 +130,7 @@ const completeRegistration = () => {
       isValid = false;
       console.log("Social handle is empty");
     }
-    if (!values.socialMediaPlatform) {
+    if (!selectedValue) {
       isValid = false;
       console.log("Social media is not picked");
     }
@@ -177,11 +165,11 @@ const completeRegistration = () => {
     }));
   };
 
-  const handleSocialMediaSelect = (selectedValue) => {
-    console.log("Selected social media:", selectedValue);
+  const handleSocialMediaSelect = (event) => {
+    setSelectedValue(event);
     setFormValues((prevState) => ({
       ...prevState,
-      socialMediaPlatform: selectedValue,
+      socialMediaPlatform: event,
     }));
   };
 
@@ -236,19 +224,26 @@ const completeRegistration = () => {
 
                 <div className="flex flex-col space-y-1.5">
                   <Label htmlFor="socialMediaPlatform" className="label">
-                    Select Social Media Handle
+                    Social Media Platform
                   </Label>
-
-                  <select
-                    onChange={(e) => handleSocialMediaSelect(e.target.value)}
+                  <Select
+                    onValueChange={(event) => handleSocialMediaSelect(event)}
                   >
-                    <option value={""}>Select Social Media</option>
-                    {socialMediaOptions.map((social, i) => (
-                      <option key={i} value={social.label}>
-                        {social.label}
-                      </option>
-                    ))}
-                  </select>
+                    <SelectTrigger className=" input">
+                      <SelectValue placeholder="Select a fruit" />
+                    </SelectTrigger>
+                    <SelectContent className="bg-white">
+                      <SelectGroup>
+                        <SelectLabel>Social Handle</SelectLabel>
+
+                        {socialMediaOptions.map((social, i) => (
+                          <SelectItem key={i} value={social.label}>
+                            {social.label}
+                          </SelectItem>
+                        ))}
+                      </SelectGroup>
+                    </SelectContent>
+                  </Select>
                 </div>
 
                 <div className="flex flex-col space-y-1.5">
@@ -264,6 +259,7 @@ const completeRegistration = () => {
                     onChange={handleChange}
                   />
                 </div>
+
                 <div className="flex flex-col space-y-1.5">
                   <Label htmlFor="picture" className="label">
                     Entry Image
