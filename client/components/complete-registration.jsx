@@ -2,10 +2,7 @@
 
 import { useState } from "react";
 
-import Link from "next/link";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
+import axios from "axios";
 
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
@@ -56,7 +53,7 @@ const fields = [
   {
     label: "Social Media Handle",
     placeholder: "Enter your social media handle",
-    id: "socialHandle",
+    id: "socialMediaHandle",
   },
 ];
 
@@ -74,30 +71,47 @@ const completeRegistration = () => {
     firstName: "",
     lastName: "",
     stageName: "",
-    socialHandle: "",
-    socialMedia: false,
-    uploadImage: "",
+    socialMediaHandle: "",
+    socialMediaPlatform: "",
+    profileImage: "",
     comment: "",
-    terms: false,
+    termsAccepted: false,
   });
   const [submitted, setSubmitted] = useState(false);
+  const [requestLog, setRequestLog] = useState("");
+  const [responseLog, setResponseLog] = useState("");
+  const [errorLog, setErrorLog] = useState("");
+  const [emailValid, setEmailValid] = useState(false);
 
-  const handleSubmit = (e) => {
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   let fields = {
+  //     ...formValues,
+  //   };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    let fields = {
-      ...formValues,
-    };
 
-    const isValid = validateForm(fields);
+    // Your validation logic...
+    const isValid = validateForm(formValues);
+    setRequestLog(`Submitting data: ${JSON.stringify(formValues)}`);
     setFormValidation(isValid);
-    if (isValid) {
-      submitForm(fields);
-      setShowConfirmation(true);
-    } else {
-      setShowConfirmation(false);
-    }
 
-    setSubmitted(true);
+    if (isValid) {
+      try {
+        // Call your API to submit the form data using Axios
+        const response = await axios.post("/complete-registration", formValues);
+        setResponseLog(`Response received: ${JSON.stringify(response.data)}`);
+        setSubmitted(true); // Set submitted state to true
+        setShowConfirmation(true); // Show confirmation dialogue
+      } catch (error) {
+        const errorMessage = error.response
+          ? JSON.stringify(error.response.data)
+          : error.message;
+        setErrorLog(errorMessage);
+        console.error("Error submitting form:", error);
+      }
+    }
   };
 
   const validateForm = (values) => {
@@ -120,15 +134,15 @@ const completeRegistration = () => {
       isValid = false;
       console.log("Stage name is empty");
     }
-    if (values.socialHandle.trim() === "") {
+    if (values.socialMediaHandle.trim() === "") {
       isValid = false;
       console.log("Social handle is empty");
     }
-    if (!values.socialMedia) {
+    if (!values.socialMediaPlatform) {
       isValid = false;
       console.log("Social media is not picked");
     }
-    if (!values.uploadImage) {
+    if (!values.profileImage) {
       isValid = false;
       console.log("upload image");
     }
@@ -136,7 +150,7 @@ const completeRegistration = () => {
       isValid = false;
       console.log("Comment is empty");
     }
-    if (!values.terms) {
+    if (!values.termsAccepted) {
       isValid = false;
       console.log("Terms Not accepted");
     }
@@ -159,7 +173,7 @@ const completeRegistration = () => {
     console.log("Selected social media:", selectedValue);
     setFormValues((prevState) => ({
       ...prevState,
-      socialMedia: selectedValue,
+      socialMediaPlatform: selectedValue,
     }));
   };
 
@@ -213,11 +227,21 @@ const completeRegistration = () => {
                 ))}
 
                 <div className="flex flex-col space-y-1.5">
-                  <Label htmlFor="socialmedia" className="label">
+                  <Label htmlFor="socialMediaPlatform" className="label">
                     Select Social Media Handle
                   </Label>
 
-                  <Select>
+                  <select
+                    onChange={(e) => handleSocialMediaSelect(e.target.value)}
+                  >
+                    <option value={""}>Select Social Media</option>
+                    {socialMediaOptions.map((social, i) => (
+                      <option key={i} value={social.label}>
+                        {social.label}
+                      </option>
+                    ))}
+                  </select>
+                  {/* <Select>
                     <SelectTrigger className="w-full text-sm text-slate-400 rounded-[6px] border-slate-300 font-sans">
                       <SelectValue placeholder="Select" />
                     </SelectTrigger>
@@ -239,7 +263,7 @@ const completeRegistration = () => {
                         ))}
                       </SelectGroup>
                     </SelectContent>
-                  </Select>
+                  </Select> */}
                 </div>
 
                 <div className="flex flex-col space-y-1.5">
@@ -247,11 +271,12 @@ const completeRegistration = () => {
                     Upload Picture
                   </Label>
                   <Input
-                    id="picture"
-                    name="picture"
+                    id="profileImage"
+                    name="profileImage"
                     type="file"
                     accept="image/*" // Limit file selection to images
                     className="input"
+                    // value={formValues.profileImage}
                     onChange={handleChange}
                   />
                 </div>
@@ -273,13 +298,13 @@ const completeRegistration = () => {
                 <div className="flex items-center space-x-2">
                   <input
                     type="checkbox"
-                    name="terms"
+                    name="termsAccepted"
                     className="text-slate-400 rounded-[4px] border-slate-300"
-                    checked={formValues.terms}
+                    checked={formValues.termsAccepted}
                     onChange={handleChange}
                   />
                   <label
-                    htmlFor="terms"
+                    htmlFor="termsAccepted"
                     className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                   >
                     Accept terms and conditions
