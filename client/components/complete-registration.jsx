@@ -74,6 +74,7 @@ const completeRegistration = () => {
     socialMediaHandle: "",
     socialMediaPlatform: "",
     profileImage: "",
+    entryImage: "",
     comment: "",
     termsAccepted: false,
   });
@@ -97,10 +98,13 @@ const completeRegistration = () => {
     setRequestLog(`Submitting data: ${JSON.stringify(formValues)}`);
     setFormValidation(isValid);
 
+    const apiBaseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
+    const apiURL = `${apiBaseURL}/complete-registration`;
+
     if (isValid) {
       try {
         // Call your API to submit the form data using Axios
-        const response = await axios.post("/complete-registration", formValues);
+        const response = await axios.post(apiURL, formValues);
         setResponseLog(`Response received: ${JSON.stringify(response.data)}`);
         setSubmitted(true); // Set submitted state to true
         setShowConfirmation(true); // Show confirmation dialogue
@@ -145,6 +149,10 @@ const completeRegistration = () => {
     if (!values.profileImage) {
       isValid = false;
       console.log("upload image");
+    }
+    if (!values.entryImage) {
+      isValid = false;
+      console.log("upload entry image");
     }
     if (values.comment.trim() === "") {
       isValid = false;
@@ -241,29 +249,6 @@ const completeRegistration = () => {
                       </option>
                     ))}
                   </select>
-                  {/* <Select>
-                    <SelectTrigger className="w-full text-sm text-slate-400 rounded-[6px] border-slate-300 font-sans">
-                      <SelectValue placeholder="Select" />
-                    </SelectTrigger>
-                    <SelectContent className=" bg-white">
-                      <SelectGroup>
-                        <SelectLabel className="label">
-                          Social Media
-                        </SelectLabel>
-                        {socialMediaOptions.map((social) => (
-                          <SelectItem
-                            key={social.value}
-                            value={social.label}
-                            onClick={() =>
-                              handleSocialMediaSelect(social.label)
-                            }
-                          >
-                            {social.label}
-                          </SelectItem>
-                        ))}
-                      </SelectGroup>
-                    </SelectContent>
-                  </Select> */}
                 </div>
 
                 <div className="flex flex-col space-y-1.5">
@@ -274,9 +259,21 @@ const completeRegistration = () => {
                     id="profileImage"
                     name="profileImage"
                     type="file"
-                    accept="image/*" // Limit file selection to images
+                    accept="image/*"
                     className="input"
-                    // value={formValues.profileImage}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div className="flex flex-col space-y-1.5">
+                  <Label htmlFor="picture" className="label">
+                    Entry Image
+                  </Label>
+                  <Input
+                    id="entryImage"
+                    name="entryImage"
+                    type="file"
+                    accept="image/*"
+                    className="input"
                     onChange={handleChange}
                   />
                 </div>
@@ -311,9 +308,6 @@ const completeRegistration = () => {
                   </label>
                 </div>
               </div>
-              {/* <Button type="submit" className="yellow_btn w-full">
-              Continue
-            </Button> */}
             </form>
           </CardContent>
           <CardFooter className="flex-col justify-between">
