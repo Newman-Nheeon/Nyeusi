@@ -1,6 +1,6 @@
 const emailService = require('../utils/sendEmail');
 const crypto = require('crypto');
-const Participant = require('../models/participant'); // Corrected model import
+const Participant = require('../models/participant');
 
 exports.submitEmail = async (req, res) => {
   const { email } = req.body;
@@ -13,7 +13,7 @@ exports.submitEmail = async (req, res) => {
 
     // Check if the participant has already registered and verified their email
     if (participant && participant.isEmailVerified) {
-      return res.status(400).send({ message: 'Email is already registered and verified.' });
+      return res.status(400).send({ message: 'Email is already verified.' });
     }
 
     // If already registered but not verified, resend the verification email
@@ -41,30 +41,29 @@ exports.submitEmail = async (req, res) => {
 
 
 exports.completeRegistration = async (req, res) => {
-  const { email, firstName, lastName, stageName, socialMediaHandle, comment, termsAccepted, socialMediaPlatform, profileImage, entryImage } = req.body;
+  const { email, firstName, lastName, stageName, socialMediaHandle, comment, termsAccepted, socialMediaPlatform } = req.body;
+
+  // Assuming Multer is set to handle 'profileImage' and 'entryImage' as file uploads
+  const profileImagePath = req.files.profileImage ? req.files.profileImage[0].path : null;
+  const entryImagePath = req.files.entryImage ? req.files.entryImage[0].path : null;
   
   try {
     const user = await Participant.findOne({ email });
 
-    // Check if the user was not found or their email has not been verified
     if (!user) {
       return res.status(404).send('User not found.');
     }
     if (!user.isEmailVerified) {
       return res.status(400).send('Email not verified.');
     }
-
-    // Check if the participant is already fully registered
     if (user.isFullyRegistered) {
       return res.status(400).send('Participant is already fully registered.');
     }
 
-    // Validate required fields are filled
-    if (!firstName || !lastName || !stageName || !socialMediaHandle || !comment || !termsAccepted || !socialMediaPlatform || !profileImage || !entryImage) {
+    if (!firstName || !lastName || !stageName || !socialMediaHandle || !comment || termsAccepted === undefined || !socialMediaPlatform || !profileImagePath || !entryImagePath) {
       return res.status(400).send('All fields must be filled to complete registration.');
     }
 
-    // Update the user with the new data and mark them as fully registered
     user.firstName = firstName;
     user.lastName = lastName;
     user.stageName = stageName;
@@ -72,8 +71,9 @@ exports.completeRegistration = async (req, res) => {
     user.comment = comment;
     user.termsAccepted = termsAccepted;
     user.socialMediaPlatform = socialMediaPlatform;
-    user.profileImage = profileImage;
-    user.entryImage = entryImage;
+    // Save the paths of uploaded files
+    user.profileImage = profileImagePath;
+    user.entryImage = entryImagePath;
     user.isFullyRegistered = true;
 
     await user.save();
@@ -84,6 +84,7 @@ exports.completeRegistration = async (req, res) => {
     res.status(500).send('Error completing registration.');
   }
 };
+
 
 
 

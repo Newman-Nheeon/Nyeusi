@@ -2,9 +2,12 @@ const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/participant');
 const { submitVote, showParticipant } = require('../controllers/voting');
+const upload = require('../utils/file');
 
 // Registration endpoint
-router.post('/complete-registration', userController.completeRegistration);
+router.post('/complete-registration', 
+  upload.fields([{ name: 'profileImage', maxCount: 1 }, { name: 'entryImage', maxCount: 1 }]), 
+  userController.completeRegistration);
 
 // Email verification endpoint
 router.get('/verify-email', userController.verifyEmail);
