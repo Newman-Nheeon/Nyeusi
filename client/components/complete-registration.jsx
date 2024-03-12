@@ -82,29 +82,56 @@ const completeRegistration = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
+    // Check if the form is valid before proceeding
     const isValid = validateForm(formValues);
-    setRequestLog(`Submitting data: ${JSON.stringify(formValues)}`);
-    setFormValidation(isValid);
-
+    if (!isValid) {
+      console.error("Form validation failed");
+      return; // Stop the form submission if validation fails
+    }
+  
     const apiBaseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
     const apiURL = `${apiBaseURL}/complete-registration`;
-
-    if (isValid) {
-      try {
-        const response = await axios.post(apiURL, formValues);
-        setResponseLog(`Response received: ${JSON.stringify(response.data)}`);
-        setSubmitted(true);
-        setShowConfirmation(true);
-      } catch (error) {
-        const errorMessage = error.response
-          ? JSON.stringify(error.response.data)
-          : error.message;
-        setErrorLog(errorMessage);
-        console.error("Error submitting form:", error);
-      }
+  
+    // Create an instance of FormData
+    const formData = new FormData();
+    
+    // Append all text fields to formData
+    formData.append('email', formValues.email);
+    formData.append('firstName', formValues.firstName);
+    formData.append('lastName', formValues.lastName);
+    formData.append('stageName', formValues.stageName);
+    formData.append('socialMediaHandle', formValues.socialMediaHandle);
+    formData.append('socialMediaPlatform', formValues.socialMediaPlatform);
+    formData.append('comment', formValues.comment);
+    formData.append('termsAccepted', formValues.termsAccepted);
+  
+    // Append file inputs if they exist
+    if (formValues.profileImage) {
+      formData.append('profileImage', formValues.profileImage);
+    }
+    if (formValues.entryImage) {
+      formData.append('entryImage', formValues.entryImage);
+    }
+  
+    try {
+      // Send the request with axios
+      const response = await axios.post(apiURL, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
+  
+      // Handle success
+      console.log(`Registration successful: ${JSON.stringify(response.data)}`);
+      setShowConfirmation(true);
+    } catch (error) {
+      // Handle errors
+      const errorMessage = error.response ? JSON.stringify(error.response.data) : error.message;
+      console.error(`Error submitting registration: ${errorMessage}`);
     }
   };
+  
 
   const validateForm = (values) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
