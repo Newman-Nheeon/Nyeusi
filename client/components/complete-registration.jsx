@@ -82,56 +82,57 @@ const completeRegistration = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     // Check if the form is valid before proceeding
     const isValid = validateForm(formValues);
     if (!isValid) {
       console.error("Form validation failed");
       return; // Stop the form submission if validation fails
     }
-  
+
     const apiBaseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
     const apiURL = `${apiBaseURL}/complete-registration`;
-  
+
     // Create an instance of FormData
     const formData = new FormData();
-    
+
     // Append all text fields to formData
-    formData.append('email', formValues.email);
-    formData.append('firstName', formValues.firstName);
-    formData.append('lastName', formValues.lastName);
-    formData.append('stageName', formValues.stageName);
-    formData.append('socialMediaHandle', formValues.socialMediaHandle);
-    formData.append('socialMediaPlatform', formValues.socialMediaPlatform);
-    formData.append('comment', formValues.comment);
-    formData.append('termsAccepted', formValues.termsAccepted);
-  
+    formData.append("email", formValues.email);
+    formData.append("firstName", formValues.firstName);
+    formData.append("lastName", formValues.lastName);
+    formData.append("stageName", formValues.stageName);
+    formData.append("socialMediaHandle", formValues.socialMediaHandle);
+    formData.append("socialMediaPlatform", formValues.socialMediaPlatform);
+    formData.append("comment", formValues.comment);
+    formData.append("termsAccepted", formValues.termsAccepted);
+
     // Append file inputs if they exist
     if (formValues.profileImage) {
-      formData.append('profileImage', formValues.profileImage);
+      formData.append("profileImage", formValues.profileImage);
     }
     if (formValues.entryImage) {
-      formData.append('entryImage', formValues.entryImage);
+      formData.append("entryImage", formValues.entryImage);
     }
-  
+
     try {
       // Send the request with axios
       const response = await axios.post(apiURL, formData, {
         headers: {
-          'Content-Type': 'multipart/form-data'
-        }
+          "Content-Type": "multipart/form-data",
+        },
       });
-  
+
       // Handle success
       console.log(`Registration successful: ${JSON.stringify(response.data)}`);
       setShowConfirmation(true);
     } catch (error) {
       // Handle errors
-      const errorMessage = error.response ? JSON.stringify(error.response.data) : error.message;
+      const errorMessage = error.response
+        ? JSON.stringify(error.response.data)
+        : error.message;
       console.error(`Error submitting registration: ${errorMessage}`);
     }
   };
-  
 
   const validateForm = (values) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -257,7 +258,7 @@ const completeRegistration = () => {
                     onValueChange={(event) => handleSocialMediaSelect(event)}
                   >
                     <SelectTrigger className=" input">
-                      <SelectValue placeholder="Select a fruit" />
+                      <SelectValue placeholder="Select platform" />
                     </SelectTrigger>
                     <SelectContent className="bg-white">
                       <SelectGroup>

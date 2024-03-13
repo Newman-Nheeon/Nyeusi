@@ -1,6 +1,7 @@
 "use client";
 
-import React from "react";
+import axios from "axios";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import {
@@ -11,12 +12,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-
-const socialHandles = [
-  { name: "facebook", svg: "facebook.svg" },
-  { name: "instagram", svg: "instagram.svg" },
-  { name: "tiktok", svg: "tiktok.svg" },
-];
+import { set } from "react-hook-form";
 
 const cards = [
   {
@@ -63,11 +59,34 @@ const cards = [
   },
 ];
 
-const VotersCard = () => {
-  React.useEffect(() => {
-    const timer = setTimeout(() => setProgress(66), 500);
-    return () => clearTimeout(timer);
+const VoteCard = () => {
+  const [data, setData] = useState(null);
+  const [isloading, isLoading] = useState(true);
+  const [requestLog, setRequestLog] = useState("");
+  const [responseLog, setResponseLog] = useState("");
+  const [errorLog, setErrorLog] = useState("");
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const apiBaseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
+      const apiURL = `${apiBaseURL}/participant`;
+
+      try {
+        const response = await axios.fetch(apiURL);
+        setResponseLog(`Participants data: ${JSON.stringify(response.data)}`);
+        setData(response.data);
+      } catch (error) {
+        const errorMessage = error.response
+          ? JSON.stringify(error.response.data)
+          : error.message;
+        setErrorLog(errorMessage);
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
   }, []);
+
   return (
     <div className="flex justify-center flex-wrap gap-6 w-full">
       {cards.map((card, i) => (
@@ -80,16 +99,16 @@ const VotersCard = () => {
               height={175}
               className="object-cover rounded-t-[12px] lg:w-[235px] w-full h-[175px]"
             />
-            <CardDescription className="sm:w-[235px] w-full text-base font-medium font-mont px-2 pt-2">
+            <CardDescription className="sm:w-[235px] w-full text-base font-semibold font-mont px-2 pt-2">
               {card.musicName}
             </CardDescription>
           </CardHeader>
 
-          <CardContent className="flex-col justify-between px-2 pt-2 pb-0">
-            <p>{card.votes} votes</p>
+          <CardContent className="flex-col justify-between px-2 pt-0 pb-0">
+            <p className="text-sm">{card.votes} votes</p>
           </CardContent>
 
-          <CardFooter className="px-2 pt-6 pb-2">
+          <CardFooter className="px-2 pt-4 pb-2">
             <Button className="yellow_btn w-full">Vote</Button>
           </CardFooter>
         </Card>
@@ -98,4 +117,4 @@ const VotersCard = () => {
   );
 };
 
-export default VotersCard;
+export default VoteCard;

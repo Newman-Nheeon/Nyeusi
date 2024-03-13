@@ -1,7 +1,6 @@
 "use client";
 
 import axios from "axios";
-
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -16,7 +15,7 @@ import { Label } from "@/components/ui/label";
 import { useState } from "react";
 import VerifyEmail from "./VerifyEmail";
 
-const submitEmail = ({ type, post, setPost, submitting }) => {
+const submitEmail = () => {
   const [emailValid, setEmailValid] = useState(false);
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [formValues, setFormValues] = useState({ email: "" });
