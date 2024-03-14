@@ -11,7 +11,7 @@ const Verification = () => {
         backdropFilter: "blur(14px)",
       }}
     >
-      <Card className="card flex-col items-center justify-center">
+      <Card className="card flex-col items-center justify-center p-12">
         <CardHeader className="flex-col items-center justify-center gap-3">
           <img
             src="/assets/images/checked.png"
@@ -19,7 +19,7 @@ const Verification = () => {
             width={120}
             height={120}
           />
-          <cardTitle className="text-lg font-mont text-center lg:w-[409px]">
+          <cardTitle className="text-lg font-mont pt-4 text-center lg:w-[409px]">
             Your account has been verified successfully.
           </cardTitle>
         </CardHeader>
