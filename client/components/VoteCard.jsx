@@ -85,7 +85,10 @@ const VoteCard = () => {
         const response = await axios.get(apiURL);
         setResponseLog(`Participants data: ${JSON.stringify(response.data)}`);
 
-        setData(response.data);
+        const fullyRegistered = response.data.filter(
+          (participant) => participant.isFullyRegistered
+        );
+        setData(fullyRegistered);
         setIsLoading(false);
       } catch (error) {
         const errorMessage = error.response
