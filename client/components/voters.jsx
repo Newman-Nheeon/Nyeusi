@@ -96,7 +96,7 @@ const VotersHandle = ({ handleClose }) => {
               Vote Participants
             </CardTitle>
             <img
-              src="/assets/icons/menu.svg"
+              src="/assets/icons/close.svg"
               alt="menu"
               width={32}
               height={32}
@@ -140,6 +140,7 @@ const VotersHandle = ({ handleClose }) => {
                   Social Media Handle
                 </Label>
                 <Input
+                  type="text"
                   id="socialMediaHandle"
                   name="socialMediaHandle"
                   placeholder="Enter your social media handle"
