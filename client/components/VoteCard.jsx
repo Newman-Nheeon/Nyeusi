@@ -131,7 +131,7 @@ const VoteCard = () => {
               </CardHeader>
 
               <CardContent className="flex-col justify-between px-2 pt-0 pb-0">
-                <p className="text-sm">{participant.votes} votes</p>
+                <p className="text-sm">{participant.__v} votes</p>
               </CardContent>
 
               <CardFooter className="px-2 pt-4 pb-2">
