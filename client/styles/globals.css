@@ -66,11 +66,15 @@
   opacity: 0.15;
 }
 
-
-.request-log { color: blue; }
-.response-log { color: green; }
-.error-log { color: red; }
-
+.request-log {
+  color: blue;
+}
+.response-log {
+  color: green;
+}
+.error-log {
+  color: red;
+}
 
 @media screen and (max-width: 640px) {
   .main {
@@ -92,6 +96,18 @@
 
 .font-mont {
   font-family: "Montserrat", sans-serif;
+}
+
+.popup-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Tailwind Styles */
