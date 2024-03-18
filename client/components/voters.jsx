@@ -36,6 +36,8 @@ const VotersHandle = ({ handleClose }) => {
     socialMediaPlatform: "",
   });
   const [selectedValue, setSelectedValue] = useState("");
+  const [voteCount, setVoteCount] = useState(3);
+  const [errorLog, setErrorLog] = useState("");
 
   const validateForm = (values) => {
     let isValid = true;
@@ -54,19 +56,18 @@ const VotersHandle = ({ handleClose }) => {
   const handleVote = () => {
     const isValid = validateForm(formValues);
     if (!isValid) {
+      console.log("Voted");
       console.error("Form validation failed");
       return; // Stop the form submission if validation fails
     }
   };
 
   const handleChange = (e) => {
-    const { name, value, type, checked, files } = e.target;
-    const val =
-      type === "checkbox" ? checked : type === "file" ? files[0] : value;
+    const { name, value } = e.target;
 
     setFormValues((prevState) => ({
       ...prevState,
-      [name]: val,
+      [name]: value,
     }));
   };
 
