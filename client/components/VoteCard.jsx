@@ -15,51 +15,6 @@ import {
 import { set } from "react-hook-form";
 import VotersHandle from "./voters";
 
-const cards = [
-  {
-    image: "image1.jpg",
-    musicName: "Melody Masters",
-    message:
-      "Lorem ipsum dolor sit amet id in ac in consectetur. Imperdiet facilisis id in ac enim pulvinar aenean.",
-    votes: "0",
-  },
-  {
-    image: "image2.jpg",
-    musicName: "Harmonic Showcase",
-    message:
-      "Lorem ipsum dolor sit amet id in ac in consectetur. Imperdiet facilisis id in ac enim pulvinar aenean.",
-    votes: "0",
-  },
-  {
-    image: "image3.jpg",
-    musicName: "Rhythm Rivalry",
-    message:
-      "Lorem ipsum dolor sit amet id in ac in consectetur. Imperdiet facilisis id in ac enim pulvinar aenean.",
-    votes: "0",
-  },
-  {
-    image: "image4.jpg",
-    musicName: "Songbird Showdown",
-    message:
-      "Lorem ipsum dolor sit amet id in ac in consectetur. Imperdiet facilisis id in ac enim pulvinar aenean.",
-    votes: "0",
-  },
-  {
-    image: "image5.jpg",
-    musicName: "Crescendo Challenge",
-    message:
-      "Lorem ipsum dolor sit amet id in ac in consectetur. Imperdiet facilisis id in ac enim pulvinar aenean.",
-    votes: "0",
-  },
-  {
-    image: "image6.jpg",
-    musicName: "Tune Triumph",
-    message:
-      "Lorem ipsum dolor sit amet id in ac in consectetur. Imperdiet facilisis id in ac enim pulvinar aenean.",
-    votes: "0",
-  },
-];
-
 const VoteCard = () => {
   const [showHandle, setShowHandle] = useState(false);
   const [data, setData] = useState(null);
@@ -134,9 +89,12 @@ const VoteCard = () => {
                 <p className="text-sm">{participant.totalVotes} votes</p>
               </CardContent>
 
-              <CardFooter className="px-2 pt-4 pb-2">
+              <CardFooter className="px-2 pt-4 pb-2 flex gap-2">
+                <Button className="outline_btn w-1/2">
+                  <a href="#"> View</a>
+                </Button>
                 <Button
-                  className="yellow_btn w-full"
+                  className="yellow_btn w-1/2"
                   onClick={() => handleVote()}
                 >
                   Vote

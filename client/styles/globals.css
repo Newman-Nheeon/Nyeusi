@@ -62,7 +62,7 @@
 }
 
 .outline_btn {
-  @apply rounded-[8px] border border-yellow-400 bg-transparent py-3 px-5  text-white transition-all hover:bg-yellow-400 hover:text-white text-center text-sm flex items-center justify-center;
+  @apply rounded-[8px] border border-yellow-400 bg-white py-3 px-5  text-black transition-all  text-center text-sm flex items-center justify-center;
 }
 
 .head_text {
