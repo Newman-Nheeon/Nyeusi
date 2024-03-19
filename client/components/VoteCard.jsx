@@ -90,15 +90,13 @@ const VoteCard = () => {
               </CardContent>
 
               <CardFooter className="px-2 pt-4 pb-2 flex gap-2">
-                <Button className="outline_btn w-1/2">
-                  <a href="#"> View</a>
-                </Button>
-                <Button
-                  className="yellow_btn w-1/2"
-                  onClick={() => handleVote()}
-                >
+                <a href="#" className="outline_btn w-1/2">
+                  View
+                </a>
+
+                <a className="yellow_btn w-1/2" onClick={() => handleVote()}>
                   Vote
-                </Button>
+                </a>
               </CardFooter>
             </Card>
           ))}
