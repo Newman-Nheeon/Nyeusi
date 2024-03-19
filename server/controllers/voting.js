@@ -35,7 +35,7 @@ exports.submitVote = async (req, res) => {
 
 exports.showParticipant = async (req, res) => {
     try {
-        const participants = await Participant.find({}).select('-totalVotes'); // Optionally hide totalVotes if not public
+        const participants = await Participant.find({}).select();
         res.json(participants);
       } catch (error) {
         res.status(500).send({ message: 'Failed to retrieve participants.' });
