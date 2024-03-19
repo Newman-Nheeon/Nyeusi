@@ -47,6 +47,11 @@ const fields = [
     id: "stageName",
   },
   {
+    label: "Entry Social Post",
+    placeholder: "Enter your social post",
+    id: "entrySocialPost",
+  },
+  {
     label: "Social Media Handle",
     placeholder: "Enter your social media handle",
     id: "socialMediaHandle",
@@ -67,6 +72,7 @@ const completeRegistration = () => {
     firstName: "",
     lastName: "",
     stageName: "",
+    entrySocialPost: "",
     socialMediaHandle: "",
     socialMediaPlatform: "",
     profileImage: "",
@@ -101,6 +107,7 @@ const completeRegistration = () => {
     formData.append("firstName", formValues.firstName);
     formData.append("lastName", formValues.lastName);
     formData.append("stageName", formValues.stageName);
+    formData.append("entrySocialPost", formValues.entrySocialPost);
     formData.append("socialMediaHandle", formValues.socialMediaHandle);
     formData.append("socialMediaPlatform", formValues.socialMediaPlatform);
     formData.append("comment", formValues.comment);
@@ -153,6 +160,10 @@ const completeRegistration = () => {
     if (values.stageName.trim() === "") {
       isValid = false;
       console.log("Stage name is empty");
+    }
+    if (values.entrySocialPost.trim() === "") {
+      isValid = false;
+      console.log("Social post is empty");
     }
     if (values.socialMediaHandle.trim() === "") {
       isValid = false;
@@ -326,9 +337,11 @@ const completeRegistration = () => {
                   />
                   <label
                     htmlFor="termsAccepted"
-                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                    className="text-sm font-regular cursor-pointer text-red-400"
                   >
-                    Accept terms and conditions
+                    <a href="https://nyeusi.org/terms-and-conditions/">
+                      Accept terms and conditions
+                    </a>
                   </label>
                 </div>
               </div>
