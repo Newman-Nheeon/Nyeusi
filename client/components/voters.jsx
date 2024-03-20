@@ -21,7 +21,7 @@ import {
 } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const socialMediaOptions = [
   { value: "facebook", label: "Facebook" },
@@ -30,19 +30,67 @@ const socialMediaOptions = [
 ];
 
 const VotersHandle = ({ handleClose }) => {
-  const [formValidation, setFormValidation] = useState(false);
   const [formValues, setFormValues] = useState({
-    socialMediaHandle: "",
-    socialMediaPlatform: "",
+    voterHandle: "",
+    voterPlatform: "",
+    participantId: "",
   });
   const [selectedValue, setSelectedValue] = useState("");
+  const [participantId, setParticipantId] = useState();
   const [voteCount, setVoteCount] = useState(3);
-  const [errorLog, setErrorLog] = useState("");
+
+  const handleVote = async () => {
+    const isValid = validateForm(formValues);
+    if (!isValid) {
+      console.error("Form validation failed");
+      return;
+    }
+
+    const apiBaseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
+    const apiURL = `${apiBaseURL}/vote`;
+
+    const formData = new FormData();
+    formData.append("voterHandle", formValues.voterHandle);
+    formData.append("voterPlatform", formValues.voterPlatform);
+    formData.append("participantId", participantId);
+
+    try {
+      const response = await axios.post(apiURL, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      console.log(`Voting successful`);
+      handleClose();
+    } catch (error) {
+      console.error(`Error submitting vote:`, error.response.data);
+    }
+  };
+
+  useEffect(() => {
+    const fetchParticipantId = async () => {
+      const apiBaseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
+      const apiURL = `${apiBaseURL}/participant`;
+      try {
+        const response = await axios.get(apiURL);
+        console.log("Participant data:", response.data);
+        if (response.data.length > 0) {
+          setParticipantId(response.data[0]._id);
+        } else {
+          console.error("No participants found.");
+        }
+      } catch (error) {
+        console.error("Error fetching participant ID:", error);
+      }
+    };
+
+    fetchParticipantId();
+  }, []);
 
   const validateForm = (values) => {
     let isValid = true;
 
-    if (values.socialMediaHandle.trim() === "") {
+    if (values.voterHandle.trim() === "") {
       isValid = false;
       console.log("Social handle is empty");
     }
@@ -51,15 +99,6 @@ const VotersHandle = ({ handleClose }) => {
       console.log("Social media is not picked");
     }
     return isValid;
-  };
-
-  const handleVote = () => {
-    const isValid = validateForm(formValues);
-    if (!isValid) {
-      console.log("Voted");
-      console.error("Form validation failed");
-      return; // Stop the form submission if validation fails
-    }
   };
 
   const handleChange = (e) => {
@@ -79,7 +118,7 @@ const VotersHandle = ({ handleClose }) => {
     setSelectedValue(event);
     setFormValues((prevState) => ({
       ...prevState,
-      socialMediaPlatform: event,
+      voterPlatform: event,
     }));
   };
   return (
@@ -113,7 +152,7 @@ const VotersHandle = ({ handleClose }) => {
           <form>
             <div className="grid w-full items-center gap-4">
               <div className="flex flex-col space-y-1.5">
-                <Label htmlFor="socialMediaPlatform" className="label">
+                <Label htmlFor="voterPlatform" className="label">
                   Social Media Platform
                 </Label>
                 <Select
@@ -142,11 +181,11 @@ const VotersHandle = ({ handleClose }) => {
                 </Label>
                 <Input
                   type="text"
-                  id="socialMediaHandle"
-                  name="socialMediaHandle"
+                  id="voterHandle"
+                  name="voterHandle"
                   placeholder="Enter your social media handle"
                   className="input "
-                  value={formValues.socialMediaHandle}
+                  value={formValues.voterHandle}
                   onChange={handleChange}
                 />
               </div>

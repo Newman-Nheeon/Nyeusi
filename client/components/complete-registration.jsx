@@ -81,9 +81,6 @@ const completeRegistration = () => {
     termsAccepted: false,
   });
   const [submitted, setSubmitted] = useState(false);
-  const [requestLog, setRequestLog] = useState("");
-  const [responseLog, setResponseLog] = useState("");
-  const [errorLog, setErrorLog] = useState("");
   const [selectedValue, setSelectedValue] = useState("");
 
   const handleSubmit = async (e) => {

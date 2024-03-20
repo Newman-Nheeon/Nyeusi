@@ -2,8 +2,6 @@
 
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -12,7 +10,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { set } from "react-hook-form";
 import VotersHandle from "./voters";
 
 const VoteCard = () => {
