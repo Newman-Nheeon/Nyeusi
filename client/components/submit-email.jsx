@@ -27,12 +27,14 @@ const submitEmail = () => {
   const [captchaValue, setCapchaValue] = useState(null);
   const recaptchaRef = useRef();
 
-
   const handleSubmit = async () => {
-
-
     if (!emailValid || !formValues.email || !captchaValue) {
-      console.error("Email not valid or captcha not verified");
+      let errorMessage = "";
+      if (!captchaValue) {
+        errorMessage = "Please verify that you are not a robot";
+      }
+      console.error(errorMessage);
+      setErrorLog(errorMessage);
       return;
     }
 
@@ -71,9 +73,13 @@ const submitEmail = () => {
     });
   };
 
-  const handleCaptchaChange =(value) => {
+  const handleCaptchaChange = (value) => {
     setCapchaValue(value);
-  }
+
+    if (value) {
+      setErrorLog("");
+    }
+  };
 
   return (
     <div
@@ -109,27 +115,26 @@ const submitEmail = () => {
                     onChange={handleEmailChange}
                   />
                   {!emailValid && formValues.email !== "" && (
-                    <span className="text-xs text-red-500">
+                    <span className="error_log">
                       Please provide a valid email
                     </span>
                   )}
                 </div>
+                <div className="w-auto" style={{ width: "100%" }}>
+                  <ReCAPTCHA
+                    className="w-full"
+                    ref={recaptchaRef}
+                    sitekey={process.env.NEXT_PUBLIC_RECAPCHA_SITE_KEY}
+                    onChange={handleCaptchaChange}
+                    size="normal"
+                    inline={true}
+                  />
+                  {errorLog && <div className="log error_log">{errorLog}</div>}
+                </div>
               </div>
             </form>
-
-            <br></br>
-            <div style={{ maxWidth: "320px", margin: "auto" }}>
-            <ReCAPTCHA 
-              ref={recaptchaRef}
-              sitekey={process.env.NEXT_PUBLIC_RECAPCHA_SITE_KEY}
-              onChange={handleCaptchaChange}
-            />
-          </div>
-
           </CardContent>
-          <CardFooter className="flex justify-between">
-            {errorLog && <div className="log error-log">{errorLog}</div>}
-
+          <CardFooter className="flex-col justify-between">
             <Button
               className="yellow_btn w-full"
               onClick={handleSubmit}
