@@ -2,14 +2,29 @@ const emailService = require('../utils/sendEmail');
 const crypto = require('crypto');
 const Participant = require('../models/participant');
 const checkSocialMediaHandle = require('../utils/checkSocialMedia');
+const axios = require('axios');
 
 exports.submitEmail = async (req, res) => {
-  const { email } = req.body;
+  const { email, captcha } = req.body;
   if (!email) {
     return res.status(400).send({ message: 'Email address is required' });
   }
+  if (!captcha) {
+    return res.status(400).send({ message: 'Captcha is required.' });
+  }
+  
+  // Google reCAPTCHA verification
+  const secretKey = process.env.RECAPTCHA_SECRET_KEY;
+  const verifyUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${captcha}`;
 
   try {
+    const captchaVerifyResponse = await axios.post(verifyUrl);
+    const data = captchaVerifyResponse.data;
+
+    if (!data.success) {
+      return res.status(400).json({ message: "Invalid Captcha. Try again.", errors: data['error-codes'] });
+    }
+
     let participant = await Participant.findOne({ email });
 
     // Check if the participant has already registered and verified their email
