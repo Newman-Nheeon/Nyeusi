@@ -65,7 +65,7 @@ const VoteCard = () => {
         <div className="flex justify-center flex-wrap gap-6 w-full">
           {data.map((participant, i) => (
             <Card
-              className="bg-white sm:w-auto w-3/4 rounded-xl flex-col gap-4"
+              className="bg-white lg:w-[320px] w-auto rounded-xl flex-col gap-4"
               key={i}
             >
               {/* Your card content */}
@@ -73,7 +73,7 @@ const VoteCard = () => {
                 <img
                   src={`http://localhost:8080/uploads/${participant.entryImage}`}
                   alt={participant.firstName}
-                  width={235}
+                  width={335}
                   height={175}
                   className="object-cover rounded-t-[12px] lg:w-[235px] w-full h-[175px]"
                 />
