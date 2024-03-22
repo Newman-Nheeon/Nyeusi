@@ -59,9 +59,9 @@ const fields = [
 ];
 
 const socialMediaOptions = [
-  { value: "facebook", label: "Facebook" },
-  { value: "instagram", label: "Instagram" },
-  { value: "tiktok", label: "TikTok" },
+  { value: "facebook", label: "facebook" },
+  { value: "instagram", label: "instagram" },
+  { value: "tiktok", label: "tikTok" },
 ];
 
 const completeRegistration = () => {

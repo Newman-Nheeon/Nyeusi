@@ -24,9 +24,9 @@ import { Label } from "@/components/ui/label";
 import { useState, useEffect } from "react";
 
 const socialMediaOptions = [
-  { value: "facebook", label: "Facebook" },
-  { value: "instagram", label: "Instagram" },
-  { value: "tiktok", label: "TikTok" },
+  { value: "facebook", label: "facebook" },
+  { value: "instagram", label: "instagram" },
+  { value: "tiktok", label: "tikTok" },
 ];
 
 const VotersHandle = ({ handleClose }) => {
