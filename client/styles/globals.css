@@ -25,9 +25,6 @@
 .response-log {
   color: green;
 }
-.error-log {
-  color: red;
-}
 
 @media screen and (max-width: 640px) {
   .main {
@@ -80,6 +77,10 @@
 
 .input {
   @apply text-sm text-slate-600 rounded-[6px] border-slate-300 font-sans;
+}
+
+.error_log {
+  @apply text-red-600 text-sm font-mont;
 }
 
 .card {
