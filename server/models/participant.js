@@ -7,6 +7,7 @@ const participantSchema = new mongoose.Schema({
   isFullyRegistered: { type: Boolean, default: false },
   socialMediaHandle: String,
   socialMediaPlatform: String,
+  entrySocialPost: String,
   stageName: String,
   firstName: String,
   lastName: String,

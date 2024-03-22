@@ -1,6 +1,7 @@
 const emailService = require('../utils/sendEmail');
 const crypto = require('crypto');
 const Participant = require('../models/participant');
+const checkSocialMediaHandle = require('../utils/checkSocialMedia');
 
 exports.submitEmail = async (req, res) => {
   const { email } = req.body;
@@ -39,14 +40,11 @@ exports.submitEmail = async (req, res) => {
   }
 };
 
-
 exports.completeRegistration = async (req, res) => {
-  const { email, firstName, lastName, stageName, socialMediaHandle, comment, termsAccepted, socialMediaPlatform } = req.body;
-
-  // Assuming Multer is set to handle 'profileImage' and 'entryImage' as file uploads
+  const { email, firstName, lastName, stageName, socialMediaHandle, comment, termsAccepted, socialMediaPlatform, entrySocialPost } = req.body;
   const profileImagePath = req.files.profileImage ? req.files.profileImage[0].path : null;
   const entryImagePath = req.files.entryImage ? req.files.entryImage[0].path : null;
-  
+
   try {
     const user = await Participant.findOne({ email });
 
@@ -60,24 +58,30 @@ exports.completeRegistration = async (req, res) => {
       return res.status(400).send('Participant is already fully registered.');
     }
 
-    if (!firstName || !lastName || !stageName || !socialMediaHandle || !comment || termsAccepted === undefined || !socialMediaPlatform || !profileImagePath || !entryImagePath) {
+    if (!firstName || !lastName || !stageName || !socialMediaHandle || !entrySocialPost || !comment || termsAccepted === undefined || !socialMediaPlatform || !profileImagePath || !entryImagePath) {
       return res.status(400).send('All fields must be filled to complete registration.');
     }
 
+    // Check if the social media handle exists for the given platform
+    const handleExists = await checkSocialMediaHandle(socialMediaHandle, socialMediaPlatform);
+    if (!handleExists) {
+      return res.status(400).send('Social media handle does not exist on the specified platform.');
+    }
+
+    // Proceed with updating the user's registration details
     user.firstName = firstName;
     user.lastName = lastName;
     user.stageName = stageName;
     user.socialMediaHandle = socialMediaHandle;
+    user.entrySocialPost = entrySocialPost;
     user.comment = comment;
     user.termsAccepted = termsAccepted;
     user.socialMediaPlatform = socialMediaPlatform;
-    // Save the paths of uploaded files
     user.profileImage = profileImagePath;
     user.entryImage = entryImagePath;
     user.isFullyRegistered = true;
 
     await user.save();
-    
     res.send('Registration complete. Thank you for completing your registration.');
   } catch (error) {
     console.error('Error completing registration:', error);
@@ -89,7 +93,9 @@ exports.completeRegistration = async (req, res) => {
 
 
 
+
 exports.verifyEmail = async (req, res) => {
+  const URL = process.env.FRONTEND_URL
   const { token } = req.query;
 
   try {
@@ -103,9 +109,13 @@ exports.verifyEmail = async (req, res) => {
     user.verificationToken = ''; // Clear the verification token
     await user.save();
 
-    res.send('Email verified successfully');
+    res.json({
+      message: 'Email verified successfully',
+      redirectTo: `${URL}/verification`
+    });
   } catch (error) {
     console.error('Error verifying email:', error); // Added console.error for debugging
     res.status(500).send({ message: 'Failed to verify email.' });
   }
 };
+
