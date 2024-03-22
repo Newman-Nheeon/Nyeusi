@@ -1,6 +1,8 @@
 "use client";
 
 import axios from "axios";
+import ReCAPTCHA from "react-google-recaptcha";
+import Head from "next/head";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -12,7 +14,7 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import VerifyEmail from "./VerifyEmail";
 
 const submitEmail = () => {
@@ -22,14 +24,22 @@ const submitEmail = () => {
   const [requestLog, setRequestLog] = useState("");
   const [responseLog, setResponseLog] = useState("");
   const [errorLog, setErrorLog] = useState("");
+  const [captchaValue, setCapchaValue] = useState(null);
+  const recaptchaRef = useRef();
+
 
   const handleSubmit = async () => {
-    if (!emailValid || !formValues.email) return;
+
+
+    if (!emailValid || !formValues.email || !captchaValue) {
+      console.error("Email not valid or captcha not verified");
+      return;
+    }
 
     const apiBaseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
     const apiURL = `${apiBaseURL}/submit-email`;
 
-    const emailData = { email: formValues.email };
+    const emailData = { email: formValues.email, captcha: captchaValue };
     setRequestLog(`Submitting email: ${JSON.stringify(emailData)}`);
 
     try {
@@ -60,6 +70,10 @@ const submitEmail = () => {
       email: emailValue,
     });
   };
+
+  const handleCaptchaChange =(value) => {
+    setCapchaValue(value);
+  }
 
   return (
     <div
@@ -102,6 +116,16 @@ const submitEmail = () => {
                 </div>
               </div>
             </form>
+
+            <br></br>
+            <div style={{ maxWidth: "320px", margin: "auto" }}>
+            <ReCAPTCHA 
+              ref={recaptchaRef}
+              sitekey={process.env.NEXT_PUBLIC_RECAPCHA_SITE_KEY}
+              onChange={handleCaptchaChange}
+            />
+          </div>
+
           </CardContent>
           <CardFooter className="flex justify-between">
             {errorLog && <div className="log error-log">{errorLog}</div>}
