@@ -35,11 +35,16 @@ const VotersHandle = ({ handleClose }) => {
     voterPlatform: "",
     participantId: "",
   });
+  const [submitted, setSubmitted] = useState(false);
   const [selectedValue, setSelectedValue] = useState("");
   const [participantId, setParticipantId] = useState();
   const [voteCount, setVoteCount] = useState(3);
+  const [error, setError] = useState(null);
 
-  const handleVote = async () => {
+  const handleVote = async (e) => {
+    e.preventDefault();
+
+    setSubmitted(true);
     const isValid = validateForm(formValues);
     if (!isValid) {
       console.error("Form validation failed");
@@ -63,6 +68,7 @@ const VotersHandle = ({ handleClose }) => {
       console.log(`Voting successful`);
       handleClose();
     } catch (error) {
+      setError(error);
       console.error(`Error submitting vote:`, error.response.data);
     }
   };
@@ -94,9 +100,9 @@ const VotersHandle = ({ handleClose }) => {
       isValid = false;
       console.log("Social handle is empty");
     }
-    if (!selectedValue) {
+    if (!values.voterPlatform) {
       isValid = false;
-      console.log("Social media is not picked");
+      console.log("Social media is not selected");
     }
     return isValid;
   };
@@ -173,6 +179,11 @@ const VotersHandle = ({ handleClose }) => {
                     </SelectGroup>
                   </SelectContent>
                 </Select>
+                {submitted && !formValues.voterPlatform && (
+                  <span className="error_log">
+                    Please select a social media platform
+                  </span>
+                )}
               </div>
 
               <div className="flex flex-col space-y-1.5">
@@ -185,9 +196,24 @@ const VotersHandle = ({ handleClose }) => {
                   name="voterHandle"
                   placeholder="Enter your social media handle"
                   className="input "
-                  value={formValues.voterHandle}
+                  value={formValues.voterHandle.toLocaleLowerCase()}
                   onChange={handleChange}
                 />
+                {submitted && !formValues.voterHandle && (
+                  <span className="error_log">
+                    Please select a social media platform
+                  </span>
+                )}
+
+                {error && (
+                  <span className="error_log">
+                    {error.response &&
+                    error.response.data &&
+                    error.response.data.message
+                      ? error.response.data.message
+                      : "Error submitting vote"}
+                  </span>
+                )}
               </div>
             </div>
           </form>

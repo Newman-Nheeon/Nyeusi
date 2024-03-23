@@ -82,24 +82,25 @@ const completeRegistration = () => {
   });
   const [submitted, setSubmitted] = useState(false);
   const [selectedValue, setSelectedValue] = useState("");
+  const [errorLog, setErrorLog] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Check if the form is valid before proceeding
+    setSubmitted(true);
+
     const isValid = validateForm(formValues);
     if (!isValid) {
       console.error("Form validation failed");
-      return; // Stop the form submission if validation fails
+
+      return;
     }
 
     const apiBaseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
     const apiURL = `${apiBaseURL}/complete-registration`;
 
-    // Create an instance of FormData
     const formData = new FormData();
 
-    // Append all text fields to formData
     formData.append("email", formValues.email);
     formData.append("firstName", formValues.firstName);
     formData.append("lastName", formValues.lastName);
@@ -110,7 +111,6 @@ const completeRegistration = () => {
     formData.append("comment", formValues.comment);
     formData.append("termsAccepted", formValues.termsAccepted);
 
-    // Append file inputs if they exist
     if (formValues.profileImage) {
       formData.append("profileImage", formValues.profileImage);
     }
@@ -119,18 +119,15 @@ const completeRegistration = () => {
     }
 
     try {
-      // Send the request with axios
       const response = await axios.post(apiURL, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       });
 
-      // Handle success
       console.log(`Registration successful: ${JSON.stringify(response.data)}`);
       setShowConfirmation(true);
     } catch (error) {
-      // Handle errors
       const errorMessage = error.response
         ? JSON.stringify(error.response.data)
         : error.message;
@@ -248,13 +245,11 @@ const completeRegistration = () => {
                       }
                       onChange={handleChange}
                     />
-                    {submitted &&
-                      !formValidation[field.id] &&
-                      formValues[field.id] === "" && (
-                        <span className="text-xs text-red-500">
-                          Please provide a valid {field.label.toLowerCase()}
-                        </span>
-                      )}
+                    {submitted && !formValues[field.id] && (
+                      <span className="error_log">
+                        Please provide a valid {field.label.toLowerCase()}
+                      </span>
+                    )}
                   </div>
                 ))}
 
@@ -280,6 +275,12 @@ const completeRegistration = () => {
                       </SelectGroup>
                     </SelectContent>
                   </Select>
+
+                  {submitted && !formValues.socialMediaPlatform && (
+                    <span className="error_log">
+                      Please select a social media platform
+                    </span>
+                  )}
                 </div>
 
                 <div className="flex flex-col space-y-1.5">
@@ -294,6 +295,11 @@ const completeRegistration = () => {
                     className="input"
                     onChange={handleChange}
                   />
+                  {submitted && !formValues.profileImage && (
+                    <span className="error_log">
+                      Please upload a profile Image
+                    </span>
+                  )}
                 </div>
 
                 <div className="flex flex-col space-y-1.5">
@@ -308,6 +314,11 @@ const completeRegistration = () => {
                     className="input"
                     onChange={handleChange}
                   />
+                  {submitted && !formValues.entryImage && (
+                    <span className="error_log">
+                      Please upload an entry Image
+                    </span>
+                  )}
                 </div>
 
                 <div className="grid w-full gap-1.5">
@@ -322,6 +333,9 @@ const completeRegistration = () => {
                     value={formValues.comment}
                     onChange={handleChange}
                   />
+                  {submitted && !formValues.comment && (
+                    <span className="error_log">Please leave a comment</span>
+                  )}
                 </div>
 
                 <div className="flex items-center space-x-2">
