@@ -119,7 +119,7 @@ const submitEmail = () => {
                     value={formValues.email}
                     onChange={handleEmailChange}
                   />
-                  {submitted && !emailValid && formValues.email === "" && (
+                  {submitted && (!emailValid || !formValues.email) && (
                     <span className="error_log">
                       Please provide a valid email
                     </span>
