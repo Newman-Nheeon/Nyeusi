@@ -21,13 +21,18 @@ const submitEmail = () => {
   const [emailValid, setEmailValid] = useState(false);
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [formValues, setFormValues] = useState({ email: "" });
+  const [submitted, setSubmitted] = useState(false);
   const [requestLog, setRequestLog] = useState("");
   const [responseLog, setResponseLog] = useState("");
   const [errorLog, setErrorLog] = useState("");
   const [captchaValue, setCapchaValue] = useState(null);
   const recaptchaRef = useRef();
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    setSubmitted(true);
+
     if (!emailValid || !formValues.email || !captchaValue) {
       let errorMessage = "";
       if (!captchaValue) {
@@ -114,7 +119,7 @@ const submitEmail = () => {
                     value={formValues.email}
                     onChange={handleEmailChange}
                   />
-                  {!emailValid && formValues.email !== "" && (
+                  {submitted && !emailValid && formValues.email === "" && (
                     <span className="error_log">
                       Please provide a valid email
                     </span>
@@ -135,11 +140,7 @@ const submitEmail = () => {
             </form>
           </CardContent>
           <CardFooter className="flex-col justify-between">
-            <Button
-              className="yellow_btn w-full"
-              onClick={handleSubmit}
-              disabled={!emailValid || !formValues.email}
-            >
+            <Button className="yellow_btn w-full" onClick={handleSubmit}>
               Continue
             </Button>
           </CardFooter>
