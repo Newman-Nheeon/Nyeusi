@@ -27,11 +27,6 @@ import Successful from "./Successful";
 
 const fields = [
   {
-    label: "Email",
-    placeholder: "Enter your email address",
-    id: "email",
-  },
-  {
     label: "First Name",
     placeholder: "Enter your full name",
     id: "firstName",
@@ -42,19 +37,14 @@ const fields = [
     id: "lastName",
   },
   {
+    label: "Email",
+    placeholder: "Enter your email address",
+    id: "email",
+  },
+  {
     label: "Stage Name",
     placeholder: "Enter your stage name",
     id: "stageName",
-  },
-  {
-    label: "Entry Social Post",
-    placeholder: "Enter your social post",
-    id: "entrySocialPost",
-  },
-  {
-    label: "Social Media Handle",
-    placeholder: "Enter your social media handle",
-    id: "socialMediaHandle",
   },
 ];
 
@@ -230,98 +220,147 @@ const completeRegistration = () => {
           <CardContent>
             <form onSubmit={handleSubmit}>
               <div className="grid w-full items-center gap-4">
-                {fields.map((field, index) => (
-                  <div key={index} className="flex flex-col space-y-1.5">
-                    <Label htmlFor={field.id} className="label">
-                      {field.label}
+                <div className="grid grid-cols-1 lg:grid-cols-2 justify-center place-content-start gap-4 text-white">
+                  {fields.map((field, index) => (
+                    <div key={index} className="flex flex-col space-y-1.5">
+                      <Label htmlFor={field.id} className="label">
+                        {field.label}
+                      </Label>
+                      <Input
+                        id={field.id}
+                        name={field.id}
+                        placeholder={field.placeholder}
+                        className="input"
+                        value={formValues[field.label]}
+                        helperText={
+                          formValidation[field.id]
+                            ? ""
+                            : `Please provide a valid ${field.label.toLowerCase()}`
+                        }
+                        onChange={handleChange}
+                      />
+                      {submitted && !formValues[field.id] && (
+                        <span className="error_log">
+                          Please provide a valid {field.label.toLowerCase()}
+                        </span>
+                      )}
+                    </div>
+                  ))}
+                </div>
+
+                <div className="flex flex-col space-y-1.5">
+                  <Label htmlFor="entrySocialPost" className="label">
+                    Entry Social Post
+                  </Label>
+                  <Input
+                    id="entrySocialPost"
+                    name="entrySocialPost"
+                    placeholder="Enter your social post"
+                    className="input "
+                    value={formValues.entrySocialPost}
+                    onChange={handleChange}
+                  />
+                  {submitted && !formValues.entrySocialPost && (
+                    <span className="error_log">
+                      Please provide a social post link
+                    </span>
+                  )}
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-2 justify-center place-content-start gap-4 text-white">
+                  <div className="flex flex-col space-y-1.5">
+                    <Label htmlFor="socialMediaHandle" className="label">
+                      Social Media Handle
                     </Label>
                     <Input
-                      id={field.id}
-                      name={field.id}
-                      placeholder={field.placeholder}
-                      className="input "
-                      value={formValues[field.label]}
-                      helperText={
-                        formValidation[field.id]
-                          ? ""
-                          : `Please provide a valid ${field.label.toLowerCase()}`
-                      }
+                      id="socialMediaHandle"
+                      name="socialMediaHandle"
+                      placeholder="Enter your social media handle"
+                      className="input"
+                      value={formValues.socialMediaHandle}
                       onChange={handleChange}
                     />
-                    {submitted && !formValues[field.id] && (
+                    {submitted && !formValues.socialMediaHandle && (
                       <span className="error_log">
-                        Please provide a valid {field.label.toLowerCase()}
+                        Please provide a valide social media handle
                       </span>
                     )}
                   </div>
-                ))}
 
-                <div className="flex flex-col space-y-1.5">
-                  <Label htmlFor="socialMediaPlatform" className="label">
-                    Social Media Platform
-                  </Label>
-                  <Select
-                    onValueChange={(event) => handleSocialMediaSelect(event)}
-                  >
-                    <SelectTrigger className=" input">
-                      <SelectValue placeholder="Select platform" />
-                    </SelectTrigger>
-                    <SelectContent className="bg-white">
-                      <SelectGroup>
-                        <SelectLabel>Social Handle</SelectLabel>
+                  <div className="flex flex-col space-y-1.5">
+                    <Label htmlFor="socialMediaPlatform" className="label ">
+                      Social Media Platform
+                    </Label>
+                    <Select
+                      onValueChange={(event) => handleSocialMediaSelect(event)}
+                    >
+                      <SelectTrigger className=" input">
+                        <SelectValue
+                          placeholder="Select platform"
+                          className="text-slate-300"
+                        />
+                      </SelectTrigger>
+                      <SelectContent className="bg-white">
+                        <SelectGroup>
+                          <SelectLabel className="text-slate-300">
+                            Social Handle
+                          </SelectLabel>
 
-                        {socialMediaOptions.map((social, i) => (
-                          <SelectItem key={i} value={social.label}>
-                            {social.label}
-                          </SelectItem>
-                        ))}
-                      </SelectGroup>
-                    </SelectContent>
-                  </Select>
+                          {socialMediaOptions.map((social, i) => (
+                            <SelectItem key={i} value={social.label}>
+                              {social.label}
+                            </SelectItem>
+                          ))}
+                        </SelectGroup>
+                      </SelectContent>
+                    </Select>
 
-                  {submitted && !formValues.socialMediaPlatform && (
-                    <span className="error_log">
-                      Please select a social media platform
-                    </span>
-                  )}
+                    {submitted && !formValues.socialMediaPlatform && (
+                      <span className="error_log">
+                        Please select a social media platform
+                      </span>
+                    )}
+                  </div>
                 </div>
 
-                <div className="flex flex-col space-y-1.5">
-                  <Label htmlFor="picture" className="label">
-                    Upload Picture
-                  </Label>
-                  <Input
-                    id="profileImage"
-                    name="profileImage"
-                    type="file"
-                    accept="image/*"
-                    className="input"
-                    onChange={handleChange}
-                  />
-                  {submitted && !formValues.profileImage && (
-                    <span className="error_log">
-                      Please upload a profile Image
-                    </span>
-                  )}
-                </div>
+                <div className="grid grid-cols-1 lg:grid-cols-2 justify-center place-content-start gap-4 text-white">
+                  <div className="flex flex-col space-y-1.5">
+                    <Label htmlFor="picture" className="label">
+                      Upload Picture
+                    </Label>
+                    <Input
+                      id="profileImage"
+                      name="profileImage"
+                      type="file"
+                      accept="image/*"
+                      className="input"
+                      onChange={handleChange}
+                    />
+                    {submitted && !formValues.profileImage && (
+                      <span className="error_log">
+                        Please upload a profile Image
+                      </span>
+                    )}
+                  </div>
 
-                <div className="flex flex-col space-y-1.5">
-                  <Label htmlFor="picture" className="label">
-                    Entry Image
-                  </Label>
-                  <Input
-                    id="entryImage"
-                    name="entryImage"
-                    type="file"
-                    accept="image/*"
-                    className="input"
-                    onChange={handleChange}
-                  />
-                  {submitted && !formValues.entryImage && (
-                    <span className="error_log">
-                      Please upload an entry Image
-                    </span>
-                  )}
+                  <div className="flex flex-col space-y-1.5">
+                    <Label htmlFor="picture" className="label">
+                      Entry Image
+                    </Label>
+                    <Input
+                      id="entryImage"
+                      name="entryImage"
+                      type="file"
+                      accept="image/*"
+                      className="input"
+                      onChange={handleChange}
+                    />
+                    {submitted && !formValues.entryImage && (
+                      <span className="error_log">
+                        Please upload an entry Image
+                      </span>
+                    )}
+                  </div>
                 </div>
 
                 <div className="grid w-full gap-1.5">
@@ -351,7 +390,7 @@ const completeRegistration = () => {
                   />
                   <label
                     htmlFor="termsAccepted"
-                    className="text-sm font-regular cursor-pointer text-red-400"
+                    className="text-sm font-regular cursor-pointer text-red-400 font-mont"
                   >
                     <a href="https://nyeusi.org/terms-and-conditions/">
                       Accept terms and conditions
