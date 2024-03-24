@@ -19,10 +19,15 @@ const VoteCard = () => {
   const [requestLog, setRequestLog] = useState("");
   const [responseLog, setResponseLog] = useState("");
   const [errorLog, setErrorLog] = useState("");
+  const [selectedParticipantId, setSelectedParticipantId] = useState(null);
 
-  const handleVote = () => {
+
+  const handleVote = (participantId) => {
+    console.log("Voting for Participant ID:", participantId); // Log the Participant ID
+    setSelectedParticipantId(participantId);
     setShowHandle(true);
   };
+  
 
   const handleClose = () => {
     setShowHandle(false);
@@ -91,7 +96,7 @@ const VoteCard = () => {
                   View
                 </a>
 
-                <a className="yellow_btn w-1/2" onClick={() => handleVote()}>
+                <a className="yellow_btn w-1/2" onClick={() => handleVote(participant._id)}>
                   Vote
                 </a>
               </CardFooter>
@@ -100,11 +105,13 @@ const VoteCard = () => {
         </div>
       )}
 
-      {showHandle && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 z-50">
-          <VotersHandle handleClose={handleClose} />
-        </div>
-      )}
+        {showHandle && (
+          <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 z-50">
+            <VotersHandle handleClose={handleClose} participantId={selectedParticipantId} />
+          </div>
+        )}
+
+
     </div>
   );
 };

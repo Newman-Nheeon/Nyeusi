@@ -29,22 +29,22 @@ const socialMediaOptions = [
   { value: "tiktok", label: "tikTok" },
 ];
 
-const VotersHandle = ({ handleClose }) => {
+const VotersHandle = ({ handleClose, participantId }) => {
   const [formValues, setFormValues] = useState({
     voterHandle: "",
     voterPlatform: "",
-    participantId: "",
+    participantId:"",
   });
+
   const [submitted, setSubmitted] = useState(false);
-  const [selectedValue, setSelectedValue] = useState("");
-  const [participantId, setParticipantId] = useState();
-  const [voteCount, setVoteCount] = useState(3);
   const [error, setError] = useState(null);
+  const [selectedValue, setSelectedValue] = useState("");
+
 
   const handleVote = async (e) => {
     e.preventDefault();
-
     setSubmitted(true);
+
     const isValid = validateForm(formValues);
     if (!isValid) {
       console.error("Form validation failed");
@@ -54,44 +54,46 @@ const VotersHandle = ({ handleClose }) => {
     const apiBaseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
     const apiURL = `${apiBaseURL}/vote`;
 
-    const formData = new FormData();
-    formData.append("voterHandle", formValues.voterHandle);
-    formData.append("voterPlatform", formValues.voterPlatform);
-    formData.append("participantId", participantId);
-
-    try {
-      const response = await axios.post(apiURL, formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
-      console.log(`Voting successful`);
-      handleClose();
-    } catch (error) {
-      setError(error);
-      console.error(`Error submitting vote:`, error.response.data);
-    }
-  };
-
-  useEffect(() => {
-    const fetchParticipantId = async () => {
-      const apiBaseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
-      const apiURL = `${apiBaseURL}/participant`;
-      try {
-        const response = await axios.get(apiURL);
-        console.log("Participant data:", response.data);
-        if (response.data.length > 0) {
-          setParticipantId(response.data[0]._id);
-        } else {
-          console.error("No participants found.");
-        }
-      } catch (error) {
-        console.error("Error fetching participant ID:", error);
-      }
+    const voteData = {
+      voterHandle: formValues.voterHandle,
+      voterPlatform: formValues.voterPlatform,
+      participantId: participantId,
     };
 
-    fetchParticipantId();
-  }, []);
+    try {
+      const response = await axios.post(apiURL, voteData );
+      
+      // Log the entire response object to see its structure
+      console.log("API Response:", response);
+
+
+      if (response.data && response.data.message) {
+        console.log("Voting successful:", response.data.message);
+      } else {
+        // Handle unexpected response structure
+        console.error("Unexpected API response structure:", response);
+      }
+
+      handleClose(); // close the modal
+
+    } catch (error) {
+    // Distinguish between an error response from the server and a network error
+    if (error.response) {
+      // The request was made and the server responded with a status code
+      // that falls out of the range of 2xx
+      console.error("Error submitting vote:", error.response.data);
+      setError(error.response.data.message || "Error submitting vote");
+    } else if (error.request) {
+      // The request was made but no response was received
+      console.error("Network error", error.request);
+      setError("Network error. Please try again.");
+    } else {
+      // Something happened in setting up the request that triggered an Error
+      console.error('Error', error.message);
+      setError("An error occurred. Please try again.");
+    }
+  }
+};
 
   const validateForm = (values) => {
     let isValid = true;
@@ -108,12 +110,7 @@ const VotersHandle = ({ handleClose }) => {
   };
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-
-    setFormValues((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
+    setFormValues({ ...formValues, [e.target.name]: e.target.value });
   };
 
   const closeHandle = () => {
