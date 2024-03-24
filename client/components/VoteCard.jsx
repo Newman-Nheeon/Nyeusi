@@ -92,9 +92,7 @@ const VoteCard = () => {
               </CardContent>
 
               <CardFooter className="px-2 pt-4 pb-2 flex gap-2">
-                <a href="#" className="outline_btn w-1/2">
-                  View
-                </a>
+              <a href={participant.entrySocialPost} className="outline_btn w-1/2" target="_blank" rel="noopener noreferrer">View</a>
 
                 <a className="yellow_btn w-1/2" onClick={() => handleVote(participant._id)}>
                   Vote
