@@ -87,6 +87,8 @@ const completeRegistration = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    console.log("Form Values:", formValues);
+
     setSubmitted(true);
 
     const isValid = validateForm(formValues);
@@ -132,6 +134,7 @@ const completeRegistration = () => {
         ? JSON.stringify(error.response.data)
         : error.message;
       console.error(`Error submitting registration: ${errorMessage}`);
+      setErrorLog(errorMessage);
     }
   };
 
@@ -361,11 +364,12 @@ const completeRegistration = () => {
           <CardFooter className="flex-col justify-between">
             <Button
               type="submit"
-              className="yellow_btn w-full"
+              className="yellow_btn w-full mb-2"
               onClick={handleSubmit}
             >
               Continue
             </Button>
+            {errorLog && <div className="log error_log">{errorLog}</div>}
           </CardFooter>
         </Card>
       ) : (

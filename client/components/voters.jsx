@@ -44,6 +44,8 @@ const VotersHandle = ({ handleClose }) => {
   const handleVote = async (e) => {
     e.preventDefault();
 
+    console.log("Form Values:", formValues);
+
     setSubmitted(true);
     const isValid = validateForm(formValues);
     if (!isValid) {
@@ -69,7 +71,7 @@ const VotersHandle = ({ handleClose }) => {
       handleClose();
     } catch (error) {
       setError(error);
-      console.error(`Error submitting vote:`, error.response.data);
+      console.error(`Error submitting vote:`, error.response);
     }
   };
 
