@@ -29,17 +29,16 @@ const socialMediaOptions = [
   { value: "tiktok", label: "tikTok" },
 ];
 
-const VotersHandle = ({ handleClose }) => {
+const VotersHandle = ({ handleClose, participantId }) => {
   const [formValues, setFormValues] = useState({
     voterHandle: "",
     voterPlatform: "",
     participantId: "",
   });
+
   const [submitted, setSubmitted] = useState(false);
-  const [selectedValue, setSelectedValue] = useState("");
-  const [participantId, setParticipantId] = useState();
-  const [voteCount, setVoteCount] = useState(3);
   const [error, setError] = useState(null);
+  const [selectedValue, setSelectedValue] = useState("");
 
   const handleVote = async (e) => {
     e.preventDefault();
@@ -47,6 +46,7 @@ const VotersHandle = ({ handleClose }) => {
     console.log("Form Values:", formValues);
 
     setSubmitted(true);
+
     const isValid = validateForm(formValues);
     if (!isValid) {
       console.error("Form validation failed");
@@ -56,22 +56,29 @@ const VotersHandle = ({ handleClose }) => {
     const apiBaseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
     const apiURL = `${apiBaseURL}/vote`;
 
-    const formData = new FormData();
-    formData.append("voterHandle", formValues.voterHandle);
-    formData.append("voterPlatform", formValues.voterPlatform);
-    formData.append("participantId", participantId);
+    const voteData = {
+      voterHandle: formValues.voterHandle,
+      voterPlatform: formValues.voterPlatform,
+      participantId: participantId,
+    };
 
     try {
-      const response = await axios.post(apiURL, formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
-      console.log(`Voting successful`);
-      handleClose();
+      const response = await axios.post(apiURL, voteData);
+
+      // Log the entire response object to see its structure
+      console.log("API Response:", response);
+
+      if (response.data && response.data.message) {
+        console.log("Voting successful:", response.data.message);
+      } else {
+        // Handle unexpected response structure
+        console.error("Unexpected API response structure:", response);
+      }
+
+      handleClose(); // close the modal
     } catch (error) {
       setError(error);
-      console.error(`Error submitting vote:`, error.response);
+      console.error(`Error submitting vote:`, error.response.data);
     }
   };
 
@@ -110,12 +117,7 @@ const VotersHandle = ({ handleClose }) => {
   };
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-
-    setFormValues((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
+    setFormValues({ ...formValues, [e.target.name]: e.target.value });
   };
 
   const closeHandle = () => {
