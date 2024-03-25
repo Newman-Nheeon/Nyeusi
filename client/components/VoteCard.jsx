@@ -70,7 +70,7 @@ const VoteCard = () => {
         <div className="flex justify-center flex-wrap gap-6 w-full">
           {data.map((participant, i) => (
             <Card
-              className="bg-white lg:w-[320px] w-auto rounded-xl flex-col gap-4"
+              className="bg-white lg:w-[200px] w-auto rounded-xl flex-col gap-4"
               key={i}
             >
               {/* Your card content */}
