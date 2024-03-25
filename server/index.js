@@ -4,6 +4,7 @@ const express = require('express');
 const mongoose = require("mongoose");
 const cors = require('cors');
 const bodyParser = require('body-parser')
+const path = require('path');
 
 // configs
 const PORT = process.env.PORT || 8080;
@@ -21,6 +22,8 @@ const corsOptions = require('./config/corsConfig');
 app.use(express.json());
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
 
 // Routes
 app.use('/api', userRoutes);
