@@ -76,7 +76,7 @@ const VoteCard = () => {
               {/* Your card content */}
               <CardHeader className="px-0 pt-0 pb-0" key={i}>
                 <img
-                  src={`http://localhost:8080/uploads/${participant.entryImage}`}
+                  src={`http://localhost:8080/${participant.profileImage}`}
                   alt={participant.firstName}
                   width={335}
                   height={175}

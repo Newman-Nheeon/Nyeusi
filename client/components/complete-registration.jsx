@@ -326,7 +326,7 @@ const completeRegistration = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 justify-center place-content-start gap-4 text-white">
                   <div className="flex flex-col space-y-1.5">
                     <Label htmlFor="picture" className="label">
-                      Upload Picture
+                      Upload Profile Picture
                     </Label>
                     <Input
                       id="profileImage"
