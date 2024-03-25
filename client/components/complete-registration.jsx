@@ -182,14 +182,39 @@ const completeRegistration = () => {
 
   const handleChange = (e) => {
     const { name, value, type, checked, files } = e.target;
-    const val =
-      type === "checkbox" ? checked : type === "file" ? files[0] : value;
 
-    setFormValues((prevState) => ({
-      ...prevState,
-      [name]: val,
-    }));
-  };
+    if (type === "checkbox") {
+        setFormValues((prevState) => ({
+            ...prevState,
+            [name]: checked,
+        }));
+    } else if (type === "file" && files.length > 0) {
+        const file = files[0];
+        const allowedTypes = ['image/png', 'image/jpg', 'image/jpeg'];
+
+        if (!allowedTypes.includes(file.type)) {
+            alert("Only PNG, JPG, and JPEG files are allowed.");
+            return; // Exit and do not update state
+        }
+
+        if (file.size > 1024 * 1024) { // File size greater than 1MB
+            alert("File size must not exceed 1MB.");
+            return; // Exit and do not update state
+        }
+
+        setFormValues((prevState) => ({
+            ...prevState,
+            [name]: file,
+        }));
+    } else {
+        setFormValues((prevState) => ({
+            ...prevState,
+            [name]: value,
+        }));
+    }
+};
+
+
 
   const handleSocialMediaSelect = (event) => {
     setSelectedValue(event);
