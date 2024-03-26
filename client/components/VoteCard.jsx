@@ -21,13 +21,11 @@ const VoteCard = () => {
   const [errorLog, setErrorLog] = useState("");
   const [selectedParticipantId, setSelectedParticipantId] = useState(null);
 
-
   const handleVote = (participantId) => {
     console.log("Voting for Participant ID:", participantId); // Log the Participant ID
     setSelectedParticipantId(participantId);
     setShowHandle(true);
   };
-  
 
   const handleClose = () => {
     setShowHandle(false);
@@ -61,16 +59,16 @@ const VoteCard = () => {
   }, []);
 
   return (
-    <div className="relative">
+    <div className="relative w-full flex justify-center">
       {isloading ? (
         <p className="text-white">Loading.....</p>
       ) : errorLog ? (
         <p className="text-red-600">Error: {errorLog}.....</p>
       ) : (
-        <div className="flex justify-center flex-wrap gap-6 w-full">
+        <div className="flex justify-center flex-wrap gap-12">
           {data.map((participant, i) => (
             <Card
-              className="bg-white lg:w-[200px] w-auto rounded-xl flex-col gap-4"
+              className="bg-white lg:w-[235px] w-auto rounded-xl flex-col justify-between"
               key={i}
             >
               {/* Your card content */}
@@ -78,9 +76,7 @@ const VoteCard = () => {
                 <img
                   src={`http://localhost:8080/${participant.profileImage}`}
                   alt={participant.firstName}
-                  width={335}
-                  height={175}
-                  className="object-cover rounded-t-[12px] lg:w-[235px] w-full h-[175px]"
+                  className="object-cover rounded-t-xl w-[300px] h-[175px]"
                 />
                 <CardDescription className="sm:w-[235px] w-full text-base font-semibold font-mont px-2 pt-2">
                   {participant.stageName}
@@ -92,9 +88,19 @@ const VoteCard = () => {
               </CardContent>
 
               <CardFooter className="px-2 pt-4 pb-2 flex gap-2">
-              <a href={participant.entrySocialPost} className="outline_btn w-1/2" target="_blank" rel="noopener noreferrer">View</a>
+                <a
+                  href={participant.entrySocialPost}
+                  className="outline_btn w-1/2"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View
+                </a>
 
-                <a className="yellow_btn w-1/2" onClick={() => handleVote(participant._id)}>
+                <a
+                  className="yellow_btn w-1/2"
+                  onClick={() => handleVote(participant._id)}
+                >
                   Vote
                 </a>
               </CardFooter>
@@ -103,13 +109,14 @@ const VoteCard = () => {
         </div>
       )}
 
-        {showHandle && (
-          <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 z-50">
-            <VotersHandle handleClose={handleClose} participantId={selectedParticipantId} />
-          </div>
-        )}
-
-
+      {showHandle && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 z-50">
+          <VotersHandle
+            handleClose={handleClose}
+            participantId={selectedParticipantId}
+          />
+        </div>
+      )}
     </div>
   );
 };
