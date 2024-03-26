@@ -110,27 +110,26 @@ exports.completeRegistration = async (req, res) => {
 
 
 exports.verifyEmail = async (req, res) => {
-  const URL = process.env.FRONTEND_URL
+  const FRONTEND_URL = process.env.FRONTEND_URL;
   const { token } = req.query;
 
   try {
     const user = await Participant.findOne({ verificationToken: token });
 
     if (!user) {
-      return res.status(400).send({ message: 'Invalid or expired verification token.' });
+      // Optional: Redirect to an error page if the token is invalid or expired
+      return res.redirect(`${FRONTEND_URL}/verification-failed`);
     }
 
     user.isEmailVerified = true; // Corrected field name
     user.verificationToken = ''; // Clear the verification token
     await user.save();
 
-    res.json({
-      message: 'Email verified successfully',
-      redirectTo: `${URL}/verification`
-    });
+    // Redirect to a success page instead of sending JSON
+    res.redirect(`${FRONTEND_URL}/verification?verified=true`);
   } catch (error) {
     console.error('Error verifying email:', error); // Added console.error for debugging
-    res.status(500).send({ message: 'Failed to verify email.' });
+    // Optional: Redirect to an error page in case of exception
+    res.redirect(`${FRONTEND_URL}/verification-failed`);
   }
 };
-
