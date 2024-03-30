@@ -25,7 +25,7 @@ const cards = [
 
 const StatsCard = () => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 justify-center place-content-start gap-4 text-white ">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 justify-center place-content-start gap-4 text-white mb-10">
       {cards.map((card, i) => (
         <div
           className="flex items-start justify-between border-solid border-2 border-slate-600 rounded-xl py-6 px-4"
