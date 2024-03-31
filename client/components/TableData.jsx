@@ -48,7 +48,7 @@ const infos = [
     socialHandle: "@janesmith",
     icon: "danger.svg ",
     status: "pending",
-    voteCount: 50,
+    voteCount: "0",
     action: "Action 2",
   },
   {
@@ -57,9 +57,8 @@ const infos = [
     stageName: "Johnny",
     socialHandle: "johnnythebadguy",
     icon: "close-circle.svg",
-
     status: "decline",
-    voteCount: "390",
+    voteCount: "0",
     action: "Action",
   },
   {
@@ -79,7 +78,7 @@ const infos = [
     socialHandle: "@janesmith",
     icon: "danger.svg ",
     status: "pending",
-    voteCount: 50,
+    voteCount: "0",
     action: "Action 2",
   },
   {
@@ -90,7 +89,7 @@ const infos = [
     icon: "close-circle.svg",
 
     status: "decline",
-    voteCount: "390",
+    voteCount: "0",
     action: "Action",
   },
   {
@@ -100,7 +99,7 @@ const infos = [
     socialHandle: "@johndoe",
     icon: "tick-circle.svg",
     status: " successful",
-    voteCount: 100,
+    voteCount: "100",
     action: "Action 1",
   },
   {
@@ -110,7 +109,7 @@ const infos = [
     socialHandle: "@janesmith",
     icon: "danger.svg ",
     status: "pending",
-    voteCount: 50,
+    voteCount: "0",
     action: "Action 2",
   },
   {
@@ -121,7 +120,7 @@ const infos = [
     icon: "close-circle.svg",
 
     status: "decline",
-    voteCount: "390",
+    voteCount: "0",
     action: "Action",
   },
   {
@@ -131,7 +130,7 @@ const infos = [
     socialHandle: "@johndoe",
     icon: "tick-circle.svg",
     status: " successful",
-    voteCount: 100,
+    voteCount: "100",
     action: "Action 1",
   },
   {
@@ -141,7 +140,7 @@ const infos = [
     socialHandle: "@janesmith",
     icon: "danger.svg ",
     status: "pending",
-    voteCount: 50,
+    voteCount: "0",
     action: "Action 2",
   },
   {
@@ -152,7 +151,7 @@ const infos = [
     icon: "close-circle.svg",
 
     status: "decline",
-    voteCount: "390",
+    voteCount: "0",
     action: "Action",
   },
   {
@@ -162,7 +161,7 @@ const infos = [
     socialHandle: "@johndoe",
     icon: "tick-circle.svg",
     status: " successful",
-    voteCount: 100,
+    voteCount: "30",
     action: "Action 1",
   },
   {
@@ -172,7 +171,7 @@ const infos = [
     socialHandle: "@janesmith",
     icon: "danger.svg ",
     status: "pending",
-    voteCount: 50,
+    voteCount: "0",
     action: "Action 2",
   },
   {
@@ -183,7 +182,7 @@ const infos = [
     icon: "close-circle.svg",
 
     status: "decline",
-    voteCount: "390",
+    voteCount: "0",
     action: "Action",
   },
   {
@@ -193,7 +192,7 @@ const infos = [
     socialHandle: "@johndoe",
     icon: "tick-circle.svg",
     status: " successful",
-    voteCount: 100,
+    voteCount: "100",
     action: "Action 1",
   },
   {
@@ -203,7 +202,7 @@ const infos = [
     socialHandle: "@janesmith",
     icon: "danger.svg ",
     status: "pending",
-    voteCount: 50,
+    voteCount: "0",
     action: "Action 2",
   },
   {
@@ -214,14 +213,13 @@ const infos = [
     icon: "close-circle.svg",
 
     status: "decline",
-    voteCount: "390",
+    voteCount: "0",
     action: "Action",
   },
 ];
 
-const itemsPerPage = 10;
-
 const TableData = () => {
+  const itemsPerPage = 10;
   const [currentPage, setCurrentPage] = useState(1);
 
   const indexOfLastItem = currentPage * itemsPerPage;
@@ -231,7 +229,7 @@ const TableData = () => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <div style={{}}>
+    <div>
       <Table style={{ marginBottom: "20px" }}>
         <TableHeader>
           <TableRow style={{ border: "solid 1px #475569" }}>
