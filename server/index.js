@@ -14,8 +14,10 @@ dotenv.config();
 
 // Imports
 const userRoutes = require('./routes/users');
+const adminRoutes = require('./routes/admin');
 const connectDB = require('./config/db_connect');
 const corsOptions = require('./config/corsConfig');
+
 
 
 // Middlewares
@@ -27,12 +29,10 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Routes
 app.use('/api', userRoutes);
-app.get('/verification-successful', (req, res)=>{
-    res.send("verification successful");
-});
-app.get('/verified', (req, res)=>{
-    res.send("Already Verified");
-});
+app.use('/api/admin', adminRoutes);
+app.get('/verification-successful', (req, res)=>{res.send("verification successful");});
+app.get('/verified', (req, res)=>{res.send("Already Verified");});
+
 
 
 // Database Connection

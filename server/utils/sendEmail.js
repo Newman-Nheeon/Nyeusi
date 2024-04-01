@@ -1,10 +1,9 @@
 const nodemailer = require('nodemailer');
 const dotenv = require('dotenv');
-const user = require('../models/participant');
 dotenv.config();
 
 
-// Configure Nodemailer with your SMTP settings
+
 const transporter = nodemailer.createTransport({
   host: process.env.HOST,
     port: process.env.EMAIL_PORT,
@@ -29,4 +28,3 @@ exports.sendVerificationEmail = async (email, token) => {
 
   await transporter.sendMail(mailOptions);
 };
-
