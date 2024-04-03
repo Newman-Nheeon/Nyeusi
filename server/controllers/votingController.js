@@ -29,7 +29,6 @@ exports.submitVote = async (req, res) => {
     const vote = new Vote({ voterHandle, voterPlatform, participant: participantId });
     await vote.save();
 
-    // Optionally increment the participant's total votes (if you're tracking this separately)
     await Participant.findByIdAndUpdate(participantId, { $inc: { totalVotes: 1 } });
 
     res.send({ message: 'Your vote has been cast successfully.' });
@@ -39,14 +38,15 @@ exports.submitVote = async (req, res) => {
   }
 };
 
-  
 
-exports.showParticipant = async (req, res) => {
-    try {
-        const participants = await Participant.find({}).select();
-        res.json(participants);
-      } catch (error) {
-        res.status(500).send({ message: 'Failed to retrieve participants.' });
-      }
-
+// Show only Approved Participant
+exports.showApprovedParticipants = async (req, res) => {
+  try {
+    // Find only participants whose status is 'approved'
+    const approvedParticipants = await Participant.find({ status: 'approved' });
+    res.json(approvedParticipants);
+  } catch (error) {
+    console.error('Error retrieving approved participants:', error);
+    res.status(500).send({ message: 'Failed to retrieve approved participants.' });
+  }
 };

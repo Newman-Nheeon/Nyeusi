@@ -14,8 +14,13 @@ const participantSchema = new mongoose.Schema({
   profileImage: String, // Store the path or URL to the image
   entryImage: String, // Store the path or URL to the image
   comment: String,
-  termsAccepted: { type: Boolean, default: false }, // Ensure this matches your form/req.body
-  totalVotes: { type: Number, default: 0 }
+  termsAccepted: { type: Boolean, default: false },
+  totalVotes: { type: Number, default: 0 },
+  status: { 
+    type: String, 
+    enum: ['pending', 'approved', 'declined'], 
+    default: 'pending' // By default, all new entries are pending approval
+  }
 });
 
 const Participant = mongoose.model('Participant', participantSchema);

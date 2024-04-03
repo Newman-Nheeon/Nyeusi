@@ -95,6 +95,7 @@ exports.completeRegistration = async (req, res) => {
     user.profileImage = profileImagePath;
     user.entryImage = entryImagePath;
     user.isFullyRegistered = true;
+    user.status = 'pending';
 
     await user.save();
     res.send('Registration complete. Thank you for completing your registration.');

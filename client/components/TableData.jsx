@@ -19,6 +19,7 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination";
 import { Pointer } from "lucide-react";
+import ParticipantInfo from "./ParticipantInfo";
 
 const Headers = [
   "First Name",
@@ -220,6 +221,7 @@ const infos = [
 
 const TableData = () => {
   const itemsPerPage = 10;
+  const [showParticipant, setParticipants] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
 
   const indexOfLastItem = currentPage * itemsPerPage;
@@ -227,6 +229,14 @@ const TableData = () => {
   const currentItems = infos.slice(indexofFirstItem, indexOfLastItem);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  const handleClose = () => {
+    setParticipants(false);
+  };
+
+  const handleParticipant = () => {
+    setParticipants(true);
+  };
 
   return (
     <div>
@@ -274,9 +284,12 @@ const TableData = () => {
                 <p className="truncate w-[120px]">{info.voteCount}</p>
               </TableCell>
               <TableCell>
-                <a href="">
-                  <img src={`/assets/icons/export.svg`} alt={"export"} />
-                </a>
+                <img
+                  src={`/assets/icons/export.svg`}
+                  alt={"export"}
+                  className="input"
+                  onClick={() => handleParticipant()}
+                />
               </TableCell>
             </TableRow>
           ))}
@@ -325,6 +338,12 @@ const TableData = () => {
           </PaginationItem>
         </PaginationContent>
       </Pagination>
+
+      {showParticipant && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 z-50">
+          <ParticipantInfo handleClose={handleClose} />
+        </div>
+      )}
     </div>
   );
 };
