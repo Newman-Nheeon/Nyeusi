@@ -1,11 +1,14 @@
 const express = require('express');
 const router = express.Router();
-const userController = require('../controllers/participant');
-const { submitVote, showParticipant } = require('../controllers/voting');
+const userController = require('../controllers/participantController');
+const { submitVote, showApprovedParticipants } = require('../controllers/votingController');
 const upload = require('../utils/file');
+const verifyJWT = require('../config/verifyJWT');
+const { totalParticipant } = require('../controllers/adminController');
+
 
 // Registration endpoint
-router.post('/complete-registration', 
+router.post('/complete-registration', verifyJWT,
   upload.fields([{ name: 'profileImage', maxCount: 1 }, { name: 'entryImage', maxCount: 1 }]), 
   userController.completeRegistration);
 
@@ -19,6 +22,6 @@ router.post('/submit-email', userController.submitEmail );
 router.post('/vote', submitVote);
 
 // Show participant endpoint
-router.get('/participant', showParticipant);
+router.get('/participant', totalParticipant);
 
 module.exports = router;
