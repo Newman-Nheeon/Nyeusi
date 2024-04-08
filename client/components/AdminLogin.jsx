@@ -15,6 +15,24 @@ import { Label } from "@/components/ui/label";
 import { useState } from "react";
 
 const Login = () => {
+  const [password, setPassword] = useState("");
+  const [login, setLogin] = useState("");
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    const apiBaseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
+    const apiURL = `${apiBaseURL}/admin/login`;
+
+    try {
+      const response = await axios.post(apiURL, { login, password });
+      setResponseLog(`Response received: ${JSON.stringify(response.data)}`);
+      console.log("Login Successful");
+    } catch (error) {
+      console.log("Login Failed");
+    }
+  };
+
   return (
     <div
       className="p-[12px] rounded-xl shadow-2xl"
@@ -31,16 +49,17 @@ const Login = () => {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <form>
+          <form onSubmit={handleLogin}>
             <div className="grid w-full items-center gap-4">
               <div className="flex flex-col space-y-1.5">
                 <Label htmlFor="name" className="label">
-                  Email
+                  Email/Username
                 </Label>
                 <Input
-                  type="email"
+                  name="email"
                   placeholder="Enter email"
                   className="input "
+                  onChange={(e) => setLogin(e.target.value)}
                 />
               </div>
               <div className="flex flex-col space-y-1.5">
@@ -51,16 +70,16 @@ const Login = () => {
                   type="password"
                   placeholder="Enter password"
                   className="input "
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
             </div>
+
+            <Button type="submit" className="yellow_btn w-full mt-4">
+              Login
+            </Button>
           </form>
         </CardContent>
-        <CardFooter className="flex justify-between">
-          <Button type="submit" className="yellow_btn w-full">
-            Login
-          </Button>
-        </CardFooter>
       </Card>
     </div>
   );

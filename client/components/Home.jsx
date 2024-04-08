@@ -19,7 +19,7 @@ import { info } from "autoprefixer";
 
 const status = ["All", "pending", "successful", "decline"];
 
-const Dashboard = ({ datas = [] }) => {
+const Dashboard = () => {
   const [selectedValue, setSelectedValue] = useState("");
   const [search, setSearch] = useState("");
   const [searchResult, setSearchResult] = useState([]);
