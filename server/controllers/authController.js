@@ -5,7 +5,6 @@ require('dotenv').config();
 
 
 // Admin registration
-
 exports.registerAdmin = async (req, res) => {
     const { username, password, email } = req.body;
 

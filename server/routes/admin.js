@@ -3,7 +3,7 @@ const router = express.Router();
 const { registerAdmin, loginAdmin, setNewPassword } = require('../controllers/authController');
 const { forgotPassword } = require('../controllers/forgetPasswordController');
 const verifyJWT = require('../config/verifyJWT');
-const { approveParticipant, declineParticipant, showParticipant, totalParticipant } = require('../controllers/adminController');
+const { approveParticipant, declineParticipant, totalParticipant } = require('../controllers/adminController');
 
 router.post('/register', registerAdmin);
 router.post('/login', loginAdmin);

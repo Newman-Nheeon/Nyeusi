@@ -19,7 +19,6 @@ const connectDB = require('./config/db_connect');
 const corsOptions = require('./config/corsConfig');
 
 
-
 // Middlewares
 app.use(express.json());
 app.use(cors(corsOptions));
