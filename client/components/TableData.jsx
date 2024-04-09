@@ -20,15 +20,18 @@ import {
 } from "@/components/ui/pagination";
 import { Pointer } from "lucide-react";
 import ParticipantInfo from "./ParticipantInfo";
+import { Checkbox } from "./ui/checkbox";
 
 const Headers = [
-  "First Name",
-  "Last Name",
-  "Stage Name",
-  "Social Handle",
-  "Status",
-  "Vote",
-  "Action",
+  {
+    firstName: "First Name",
+    lastName: "Last Name",
+    stageName: "Stage Name",
+    socialHandle: "Social Handle",
+    status: "Status",
+    voteCount: "Vote",
+    action: "Action",
+  },
 ];
 
 const infos = [
@@ -223,6 +226,8 @@ const TableData = () => {
   const itemsPerPage = 10;
   const [showParticipant, setParticipants] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+  const [selectAll, setSelectAll] = useState(false);
+  const [selectedItems, setSelectedItems] = useState([]);
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexofFirstItem = indexOfLastItem - itemsPerPage;
@@ -238,17 +243,71 @@ const TableData = () => {
     setParticipants(true);
   };
 
+  const handleCheckbox = (index) => {
+    const selectedData = selectedItems.indexOf(index);
+    let newSelectedData = [];
+
+    if (selectedData === -1) {
+      newSelectedData = [...selectedItems, index];
+    } else {
+      newSelectedData = selectedItems.filter((item) => item !== index);
+    }
+
+    setSelectedItems(newSelectedData);
+  };
+
+  const handleSelectAllCheckboxChange = () => {
+    if (selectAll) {
+      setSelectedItems([]);
+    } else {
+      setSelectedItems(currentItems.map((_, index) => index));
+    }
+    setSelectAll(!selectAll);
+  };
+
   return (
     <div>
       <Table style={{ marginBottom: "20px" }}>
         <TableHeader>
-          <TableRow style={{ border: "solid 1px #475569" }}>
-            {Headers.map((header, i) => (
-              <TableHead key={i} style={{ color: "#64748A", fontSize: "16px" }}>
-                {header}
+          {Headers.map((header, i) => (
+            <TableRow
+              key={i}
+              style={{
+                color: "white",
+                fontSize: "16px",
+                fontWeight: "400",
+                border: "solid 1px #475569",
+              }}
+            >
+              <TableHead>
+                <Checkbox
+                  checked={selectAll}
+                  onChange={handleSelectAllCheckboxChange}
+                />
               </TableHead>
-            ))}
-          </TableRow>
+              <TableHead key={i} style={{ color: "#64748A", fontSize: "16px" }}>
+                {header.firstName}
+              </TableHead>
+              <TableHead key={i} style={{ color: "#64748A", fontSize: "16px" }}>
+                {header.lastName}
+              </TableHead>
+              <TableHead key={i} style={{ color: "#64748A", fontSize: "16px" }}>
+                {header.stageName}
+              </TableHead>
+              <TableHead key={i} style={{ color: "#64748A", fontSize: "16px" }}>
+                {header.socialHandle}
+              </TableHead>
+              <TableHead key={i} style={{ color: "#64748A", fontSize: "16px" }}>
+                {header.status}
+              </TableHead>
+              <TableHead key={i} style={{ color: "#64748A", fontSize: "16px" }}>
+                {header.voteCount}
+              </TableHead>
+              <TableHead key={i} style={{ color: "#64748A", fontSize: "16px" }}>
+                {header.action}
+              </TableHead>
+            </TableRow>
+          ))}
         </TableHeader>
         <TableBody>
           {currentItems.map((info, i) => (
@@ -261,6 +320,12 @@ const TableData = () => {
                 border: "solid 1px #475569",
               }}
             >
+              <TableCell>
+                <Checkbox
+                  checked={selectedItems.includes(i)}
+                  onChange={() => handleCheckbox(i)}
+                />
+              </TableCell>
               <TableCell>
                 <p className="truncate w-[120px]">{info.firstName}</p>
               </TableCell>
