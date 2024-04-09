@@ -13,10 +13,13 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useState } from "react";
+import Dashboard from "./Home";
+import { Redirect } from "react-router-dom"; // Import Redirect from React Router
 
 const Login = () => {
   const [password, setPassword] = useState("");
   const [login, setLogin] = useState("");
+  const [loggedIn, setLoggedIn] = useState(true);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -28,12 +31,32 @@ const Login = () => {
       const response = await axios.post(apiURL, { login, password });
       setResponseLog(`Response received: ${JSON.stringify(response.data)}`);
       console.log("Login Successful");
+
+      setLoggedIn(true);
+      window.location.href = "/dashboard";
     } catch (error) {
       console.log("Login Failed");
     }
   };
 
-  return (
+  const handleForgetPassword = async (e) => {
+    e.preventDefault();
+
+    const apiBaseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
+    const apiURL = `${apiBaseURL}/admin/forget-password`;
+
+    try {
+      const response = await axios.post(apiURL, { login });
+      setResponseLog(`Response received: ${JSON.stringify(response.data)}`);
+      console.log("Forget Password Request Sent");
+    } catch (error) {
+      console.log("Forget Password Request Failed");
+    }
+  };
+
+  return loggedIn ? (
+    <Dashboard />
+  ) : (
     <div
       className="p-[12px] rounded-xl shadow-2xl"
       style={{
@@ -73,6 +96,13 @@ const Login = () => {
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
+
+              <p
+                className="text-sm text-slate-500"
+                onClick={handleForgetPassword}
+              >
+                Forget password?
+              </p>
             </div>
 
             <Button type="submit" className="yellow_btn w-full mt-4">
