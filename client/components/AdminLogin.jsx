@@ -19,7 +19,7 @@ import { Redirect } from "react-router-dom"; // Import Redirect from React Route
 const Login = () => {
   const [password, setPassword] = useState("");
   const [login, setLogin] = useState("");
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
 
   const handleLogin = async (e) => {
     e.preventDefault();
