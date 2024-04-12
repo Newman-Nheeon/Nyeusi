@@ -1,7 +1,7 @@
 const Participant = require('../models/participant');
 
 
-// Show all Participant || total Participant
+// Show totalParticipant && count totalParticant
 exports.totalParticipant = async (req, res) => {
   try {
       const participants = await Participant.find({}).select();
@@ -13,7 +13,7 @@ exports.totalParticipant = async (req, res) => {
 
 };
 
-
+// Approve Participant
 exports.approveParticipant = async (req, res) => {
   try {
     const { participantId } = req.params;
@@ -37,7 +37,7 @@ exports.approveParticipant = async (req, res) => {
     console.error('Failed to approve participant:', error);
     res.status(500).json({ 
       message: 'Server error', 
-      error: error.message  // Including the error message can help with debugging
+      error: error.message
     });
   }
 };
@@ -66,7 +66,7 @@ exports.declineParticipant = async (req, res) => {
     console.error('Failed to decline participant:', error);
     res.status(500).json({ 
       message: 'Server error', 
-      error: error.message  // Including the error message can help with debugging
+      error: error.message
     });
   }
 };
@@ -90,4 +90,17 @@ exports.countDeclinedParticipants = async (req, res) => {
     res.status(500).send({ message: 'Failed to count declined participants.', error: error.message });
   }
 };
+
+// Count pending participants
+
+exports.countPendingParticipants = async (req, res) => {
+  try {
+    const countPending = await Participant.countDocuments({ status: 'pending' });
+    res.json({ pendingParticipants: countPending });
+  } catch (error) {
+    console.error('Failed to count pending participants:', error);
+    res.status(500).json({ message: 'Failed to count pending participants', error: error.message });
+  }
+};
+
 
