@@ -15,12 +15,13 @@ const StatsCard = () => {
       const apiURLTotal = `${apiBaseURL}/admin/total-participant`;
       const apiURLApproved = `${apiBaseURL}/admin/count-approve`;
       const apiURLDecline = `${apiBaseURL}/admin/count-decline`;
+      const apiURLPending = `${apiBaseURL}/admin/count-pending`;
 
 // How to use the API for handling approve and decline, not for counting ooo, you can remove the code, 
 // just showing you how to correctly use a dynamic API like this /approve/:participantId
 
       const apiApprove =`${apiBaseURL}/admin/approve/${participantID}`
-      const apiDecline =`${apiBaseURL}/admin/approve/${participantID}`
+      const apiDecline =`${apiBaseURL}/admin/decline/${participantID}`
 
       try {
         const [
