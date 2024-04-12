@@ -13,8 +13,14 @@ const StatsCard = () => {
     const fetchData = async () => {
       const apiBaseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
       const apiURLTotal = `${apiBaseURL}/admin/total-participant`;
-      const apiURLApproved = `${apiBaseURL}/admin/approve-entries`;
-      const apiURLDecline = `${apiBaseURL}/admin/decline/:participantId`;
+      const apiURLApproved = `${apiBaseURL}/admin/count-approve`;
+      const apiURLDecline = `${apiBaseURL}/admin/count-decline`;
+
+// How to use the API for handling approve and decline, not for counting ooo, you can remove the code, 
+// just showing you how to correctly use a dynamic API like this /approve/:participantId
+
+      const apiApprove =`${apiBaseURL}/admin/approve/${participantID}`
+      const apiDecline =`${apiBaseURL}/admin/approve/${participantID}`
 
       try {
         const [

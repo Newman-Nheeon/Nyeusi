@@ -1,6 +1,7 @@
 "use client";
 
 import axios from "axios";
+import Cookies from 'js-cookie';
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -13,13 +14,13 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useState } from "react";
-import Dashboard from "./Home";
-import { Redirect } from "react-router-dom"; // Import Redirect from React Router
+import Dashboard from "./Home"; 
 
 const Login = () => {
   const [password, setPassword] = useState("");
   const [login, setLogin] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
+  const [responseLog, setResponseLog] = useState('');
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -29,15 +30,19 @@ const Login = () => {
 
     try {
       const response = await axios.post(apiURL, { login, password });
-      setResponseLog(`Response received: ${JSON.stringify(response.data)}`);
+      setResponseLog(`Response received: ${JSON.stringify(response.data)}`); // Now setResponseLog is defined
       console.log("Login Successful");
-
-      setLoggedIn(true);
+    
       window.location.href = "/dashboard";
-    } catch (error) {
-      console.log("Login Failed");
-    }
-  };
+
+  } catch (error) {
+      console.error("Login request failed with error:", error);
+      const errorMessage = error.response && error.response.data && error.response.data.message
+          ? error.response.data.message
+          : "Login failed due to an unknown error.";
+      console.error("Login Failed:", errorMessage);
+  }
+};
 
   const handleForgetPassword = async (e) => {
     e.preventDefault();
