@@ -8,7 +8,7 @@ const { totalParticipant } = require('../controllers/adminController');
 
 
 // Registration endpoint
-router.post('/complete-registration', verifyJWT,
+router.post('/complete-registration',
   upload.fields([{ name: 'profileImage', maxCount: 1 }, { name: 'entryImage', maxCount: 1 }]), 
   userController.completeRegistration);
 
@@ -22,6 +22,6 @@ router.post('/submit-email', userController.submitEmail );
 router.post('/vote', submitVote);
 
 // Show participant endpoint
-router.get('/participant', totalParticipant);
+router.get('/participant', showApprovedParticipants );
 
 module.exports = router;

@@ -51,7 +51,22 @@ exports.loginAdmin = async (req, res) => {
 
         // Generate token
         const token = jwt.sign({ id: admin._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-        res.status(200).json({ token });
+
+        res.cookie('token', token, {
+            httpOnly: true, // The cookie is not accessible via JavaScript
+            secure: process.env.NODE_ENV !== 'development', // Only transfer cookies over HTTPS
+            maxAge: 3600000, // Cookie expiration set to match token expiration (1 hour)
+        });
+
+        res.status(200).json({
+            message: 'Login successful',
+            token,
+            admin: {
+                id: admin._id,
+                username: admin.username,
+                email: admin.email
+            }
+        });
     } catch (error) {
         res.status(500).json({ message: 'Server error' });
     }
