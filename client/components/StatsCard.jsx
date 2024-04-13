@@ -13,34 +13,38 @@ const StatsCard = () => {
     const fetchData = async () => {
       const apiBaseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
       const apiURLTotal = `${apiBaseURL}/admin/total-participant`;
-      const apiURLApproved = `${apiBaseURL}/admin/count-approve`;
-      const apiURLDecline = `${apiBaseURL}/admin/count-decline`;
+      const apiURLApproved = `${apiBaseURL}/admin/count-approved`;
       const apiURLPending = `${apiBaseURL}/admin/count-pending`;
-
-// How to use the API for handling approve and decline, not for counting ooo, you can remove the code, 
-// just showing you how to correctly use a dynamic API like this /approve/:participantId
-
-      const apiApprove =`${apiBaseURL}/admin/approve/${participantID}`
-      const apiDecline =`${apiBaseURL}/admin/decline/${participantID}`
+      const apiURLDeclined = `${apiBaseURL}/admin/count-declined`;
 
       try {
         const [
           totalParticipantsResponse,
-          totalApprovedEntriesResponse,
-          totalPendingEntriesResponse,
-          totalDeclinedEntriesResponse,
+          approvedEntriesResponse,
+          pendingEntriesResponse,
+          declinedEntriesResponse,
         ] = await Promise.all([
           axios.get(apiURLTotal),
           axios.get(apiURLApproved),
-          axios.get(apiURLDecline),
+          axios.get(apiURLPending),
+          axios.get(apiURLDeclined),
         ]);
-        setTotalParticipants(totalParticipantsResponse.data.totalParticipants);
-        console.log(setTotalParticipants);
-        setTotalApprovedEntries(
-          totalApprovedEntriesResponse.data.totalApprovedEntries
+
+        console.log(
+          "Total Participants Response:",
+          totalParticipantsResponse.data
         );
+        console.log("Approved Entries Response:", approvedEntriesResponse.data);
+        console.log("Pending Entries Response:", pendingEntriesResponse.data);
+        console.log("Declined Entries Response:", declinedEntriesResponse.data);
+
+        setTotalParticipants(totalParticipantsResponse.data.totalParticipants);
+        setTotalApprovedEntries(
+          approvedEntriesResponse.data.approvedParticipants
+        );
+        setTotalPendingEntries(pendingEntriesResponse.data.pendingParticipants);
         setTotalDeclineEntries(
-          totalDeclinedEntriesResponse.data.totalDeclineEntries
+          declinedEntriesResponse.data.declinedParticipants
         );
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -53,22 +57,22 @@ const StatsCard = () => {
   const cards = [
     {
       title: "Total Participants",
-      numbers: totalParticipants ? "Loading..." : totalParticipants,
+      total: totalParticipants,
       icon: "people.svg",
     },
     {
       title: "Total approved entries",
-      numbers: totalApprovedEntries,
+      total: totalApprovedEntries,
       icon: "tick-circle.svg",
     },
     {
       title: "Total pending entries",
-      numbers: totalPendingEntries,
+      total: totalPendingEntries,
       icon: "danger.svg",
     },
     {
       title: "Total declined entries",
-      numbers: totalDeclineEntries,
+      total: totalDeclineEntries,
       icon: "close-circle.svg",
     },
   ];
@@ -82,7 +86,7 @@ const StatsCard = () => {
         >
           <div className="flex-col lg:w-[200px] w-[300px]">
             <h5 className="text-sm font-medium pb-2 font-mont">{card.title}</h5>
-            <h1 className="text-3xl font-semibold font-mont">{card.numbers}</h1>
+            <h1 className="text-3xl font-semibold font-mont">{card.total}</h1>
           </div>
           <img
             src={`/assets/icons/${card.icon}`}
