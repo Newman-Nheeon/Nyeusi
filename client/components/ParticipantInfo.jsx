@@ -102,7 +102,7 @@ const ParticipantInfo = ({ handleClose, onClose }) => {
               </div>
             ))}
             <div className="flex gap-4">
-              <button className="rounded-[8px] border border-red-600 bg-red-600 py-2 px-5 text-black transition-all hover:bg-white text-center text-sm flex items-center justify-center font-mont cursor-pointer font-mont">
+              <button className="rounded-[8px] border border-red-700 bg-red-700 py-2 px-5 text-black transition-all hover:bg-white text-center text-sm flex items-center justify-center font-mont cursor-pointer font-mont">
                 Decline
               </button>
               <button className="rounded-[8px] border border-green-600 bg-green-600 py-2 px-5 text-black transition-all hover:bg-white text-center text-sm flex items-center justify-center font-mont cursor-pointer font-mont">
