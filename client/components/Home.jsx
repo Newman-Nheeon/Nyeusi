@@ -1,8 +1,8 @@
 "use client";
-import cookie from 'cookie';
+import cookie from "cookie";
 import React from "react";
 import { useState } from "react";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 import StatsCard from "./StatsCard";
 import TableData from "./TableData";
 import { Input } from "@/components/ui/input";
@@ -21,8 +21,7 @@ import { info } from "autoprefixer";
 
 const status = ["All", "pending", "successful", "decline"];
 
-export default function Dashboard(){
-  
+export default function Dashboard() {
   const router = useRouter();
   const [selectedStatus, setSelectedStatus] = useState("");
   const [search, setSearch] = useState("");
@@ -45,9 +44,12 @@ export default function Dashboard(){
         <h1 className="text-3xl font-semibold font-mont text-white">Entries</h1>
 
         <form action="" className="flex gap-3">
-          <Input placeholder="Search" className="search" />
+          <Input
+            placeholder="Search"
+            className="border border-gray-200 rounded-[4px] text-white"
+          />
           <Select onValueChange={(event) => handleStatusSelect(event)}>
-            <SelectTrigger className="search">
+            <SelectTrigger className="border border-gray-200 rounded-[4px] text-white">
               <SelectValue placeholder="Status" />
             </SelectTrigger>
             <SelectContent className="bg-slate-100">
@@ -66,39 +68,40 @@ export default function Dashboard(){
       <TableData />
     </div>
   );
-};
-
+}
 
 export async function getServerSideProps(context) {
   const token = context.req.cookies.token;
 
   if (!token) {
-      // If no token, redirect to login
-      return {
-          redirect: {
-              destination: '/login',
-              permanent: false,
-          },
-      };
+    // If no token, redirect to login
+    return {
+      redirect: {
+        destination: "/login",
+        permanent: false,
+      },
+    };
   }
 
-  const validationResponse = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/admin/validate-token`, {
+  const validationResponse = await fetch(
+    `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/admin/validate-token`,
+    {
       headers: {
-          'Authorization': `Bearer ${token}`
-      }
-  });
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
 
   if (!validationResponse.ok) {
-      // If token validation fails, redirect to login
-      return {
-          redirect: {
-              destination: '/login',
-              permanent: false,
-          },
-      };
+    // If token validation fails, redirect to login
+    return {
+      redirect: {
+        destination: "/login",
+        permanent: false,
+      },
+    };
   }
 
   // If token is valid, render the page
   return { props: {} }; // Pass props as needed
 }
-
