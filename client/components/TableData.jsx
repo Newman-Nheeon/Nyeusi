@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Table,
   TableBody,
@@ -18,9 +18,10 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
-import { Pointer } from "lucide-react";
+import { Pointer, icons } from "lucide-react";
 import ParticipantInfo from "./ParticipantInfo";
 import { Checkbox } from "./ui/checkbox";
+import axios from "axios";
 
 const Headers = [
   {
@@ -34,213 +35,34 @@ const Headers = [
   },
 ];
 
-const infos = [
+const statusIcons = [
   {
-    firstName: "OyindamolaOyindamolaOyindamolaOyindamola",
-    lastName: "Olanrewaju",
-    stageName: "oyindamolaaji",
-    socialHandle: "@johndoe",
-    icon: "tick-circle.svg",
-    status: " successful",
-    voteCount: 100,
-    action: "Action 1",
-  },
-  {
-    firstName: "Newman",
-    lastName: "Haruna",
-    stageName: "NwmanBad guy",
-    socialHandle: "@janesmith",
-    icon: "danger.svg ",
-    status: "pending",
-    voteCount: "0",
-    action: "Action 2",
-  },
-  {
-    firstName: "Mike",
-    lastName: "Johnson",
-    stageName: "Johnny",
-    socialHandle: "johnnythebadguy",
-    icon: "close-circle.svg",
-    status: "decline",
-    voteCount: "0",
-    action: "Action",
-  },
-  {
-    firstName: "John",
-    lastName: "Doe",
-    stageName: "JD",
-    socialHandle: "@johndoe",
-    icon: "tick-circle.svg",
-    status: " successful",
-    voteCount: 100,
-    action: "Action 1",
-  },
-  {
-    firstName: "Jane",
-    lastName: "Smith",
-    stageName: "JS",
-    socialHandle: "@janesmith",
-    icon: "danger.svg ",
-    status: "pending",
-    voteCount: "0",
-    action: "Action 2",
-  },
-  {
-    firstName: "Mike",
-    lastName: "Johnson",
-    stageName: "Johnny",
-    socialHandle: "johnnythebadguy",
-    icon: "close-circle.svg",
-
-    status: "decline",
-    voteCount: "0",
-    action: "Action",
-  },
-  {
-    firstName: "John",
-    lastName: "Doe",
-    stageName: "JD",
-    socialHandle: "@johndoe",
-    icon: "tick-circle.svg",
-    status: " successful",
-    voteCount: "100",
-    action: "Action 1",
-  },
-  {
-    firstName: "Jane",
-    lastName: "Smith",
-    stageName: "JS",
-    socialHandle: "@janesmith",
-    icon: "danger.svg ",
-    status: "pending",
-    voteCount: "0",
-    action: "Action 2",
-  },
-  {
-    firstName: "Mike",
-    lastName: "Johnson",
-    stageName: "Johnny",
-    socialHandle: "johnnythebadguy",
-    icon: "close-circle.svg",
-
-    status: "decline",
-    voteCount: "0",
-    action: "Action",
-  },
-  {
-    firstName: "John",
-    lastName: "Doe",
-    stageName: "JD",
-    socialHandle: "@johndoe",
-    icon: "tick-circle.svg",
-    status: " successful",
-    voteCount: "100",
-    action: "Action 1",
-  },
-  {
-    firstName: "Jane",
-    lastName: "Smith",
-    stageName: "JS",
-    socialHandle: "@janesmith",
-    icon: "danger.svg ",
-    status: "pending",
-    voteCount: "0",
-    action: "Action 2",
-  },
-  {
-    firstName: "Mike",
-    lastName: "Johnson",
-    stageName: "Johnny",
-    socialHandle: "johnnythebadguy",
-    icon: "close-circle.svg",
-
-    status: "decline",
-    voteCount: "0",
-    action: "Action",
-  },
-  {
-    firstName: "John",
-    lastName: "Doe",
-    stageName: "JD",
-    socialHandle: "@johndoe",
-    icon: "tick-circle.svg",
-    status: " successful",
-    voteCount: "30",
-    action: "Action 1",
-  },
-  {
-    firstName: "Jane",
-    lastName: "Smith",
-    stageName: "JS",
-    socialHandle: "@janesmith",
-    icon: "danger.svg ",
-    status: "pending",
-    voteCount: "0",
-    action: "Action 2",
-  },
-  {
-    firstName: "Mike",
-    lastName: "Johnson",
-    stageName: "Johnny",
-    socialHandle: "johnnythebadguy",
-    icon: "close-circle.svg",
-
-    status: "decline",
-    voteCount: "0",
-    action: "Action",
-  },
-  {
-    firstName: "John",
-    lastName: "Doe",
-    stageName: "JD",
-    socialHandle: "@johndoe",
-    icon: "tick-circle.svg",
-    status: " successful",
-    voteCount: "100",
-    action: "Action 1",
-  },
-  {
-    firstName: "Jane",
-    lastName: "Smith",
-    stageName: "JS",
-    socialHandle: "@janesmith",
-    icon: "danger.svg ",
-    status: "pending",
-    voteCount: "0",
-    action: "Action 2",
-  },
-  {
-    firstName: "Mike",
-    lastName: "Johnson",
-    stageName: "Johnny",
-    socialHandle: "johnnythebadguy",
-    icon: "close-circle.svg",
-
-    status: "decline",
-    voteCount: "0",
-    action: "Action",
+    approved: "tick-circle.svg",
+    declined: "close-circle.svg",
+    pending: "danger.svg ",
   },
 ];
 
 const TableData = () => {
   const itemsPerPage = 10;
-  const [showParticipant, setParticipants] = useState(false);
+  const [showParticipant, setShowParticipants] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [selectAll, setSelectAll] = useState(false);
   const [selectedItems, setSelectedItems] = useState([]);
+  const [participants, setParticipants] = useState([]);
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexofFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = infos.slice(indexofFirstItem, indexOfLastItem);
+  const currentItems = participants.slice(indexofFirstItem, indexOfLastItem);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   const handleClose = () => {
-    setParticipants(false);
+    setShowParticipants(false);
   };
 
   const handleParticipant = () => {
-    setParticipants(true);
+    setShowParticipants(true);
   };
 
   const handleCheckbox = (index) => {
@@ -264,6 +86,21 @@ const TableData = () => {
     }
     setSelectAll(!selectAll);
   };
+
+  useEffect(() => {
+    const fetchParticipants = async () => {
+      const apiBaseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
+      const apiURL = `${apiBaseURL}/admin/total-participant`;
+
+      try {
+        const response = await axios.get(apiURL);
+        setParticipants(response.data.participants);
+      } catch (error) {
+        console.error("Error fetching participants:", error);
+      }
+    };
+    fetchParticipants();
+  }, []);
 
   return (
     <div>
@@ -336,17 +173,22 @@ const TableData = () => {
                 <p className="truncate w-[120px]">{info.stageName}</p>
               </TableCell>
               <TableCell>
-                <p className="truncate w-[120px]">{info.socialHandle}</p>
+                <p className="truncate w-[120px]">{info.socialMediaHandle}</p>
               </TableCell>
 
               <TableCell>
                 <p className="truncate w-[120px] flex gap-2 items-center">
-                  <img src={`/assets/icons/${info.icon}`} alt={info.status} />
+                  {statusIcons.map((icon) => (
+                    <img
+                      src={`/assets/icons/${icon[info.status]}`}
+                      alt={icon[info.status]}
+                    />
+                  ))}
                   {info.status}
                 </p>
               </TableCell>
               <TableCell>
-                <p className="truncate w-[120px]">{info.voteCount}</p>
+                <p className="truncate w-[120px]">{info.totalVotes}</p>
               </TableCell>
               <TableCell>
                 <img
@@ -363,7 +205,7 @@ const TableData = () => {
       <Pagination
         style={{ color: "white" }}
         itemsPerPage={itemsPerPage}
-        totalItems={infos.length}
+        totalItems={participants.length}
         currentPage={currentPage}
         paginate={paginate}
       >
@@ -375,7 +217,7 @@ const TableData = () => {
             />
           </PaginationItem>
 
-          {[...Array(Math.ceil(infos.length / itemsPerPage)).keys()].map(
+          {[...Array(Math.ceil(participants.length / itemsPerPage)).keys()].map(
             (number, index) => (
               <PaginationItem key={index}>
                 <PaginationLink
@@ -394,8 +236,8 @@ const TableData = () => {
               style={{ cursor: "pointer" }}
               onClick={() =>
                 paginate(
-                  currentPage === Math.ceil(infos.length / itemsPerPage)
-                    ? Math.ceil(infos.length / itemsPerPage)
+                  currentPage === Math.ceil(participants.length / itemsPerPage)
+                    ? Math.ceil(participants.length / itemsPerPage)
                     : currentPage + 1
                 )
               }
