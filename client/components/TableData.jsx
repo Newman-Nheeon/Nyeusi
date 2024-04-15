@@ -50,10 +50,27 @@ const TableData = () => {
   const [selectAll, setSelectAll] = useState(false);
   const [selectedItems, setSelectedItems] = useState([]);
   const [participants, setParticipants] = useState([]);
+  const [selectedParticipants, setSelectedParticipants] = useState({});
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexofFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = participants.slice(indexofFirstItem, indexOfLastItem);
+
+  const fetchParticipants = async () => {
+    const apiBaseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
+    const apiURL = `${apiBaseURL}/admin/total-participant`;
+
+    try {
+      const response = await axios.get(apiURL);
+      setParticipants(response.data.participants);
+    } catch (error) {
+      console.error("Error fetching participants:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchParticipants();
+  }, []);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
@@ -61,7 +78,8 @@ const TableData = () => {
     setShowParticipants(false);
   };
 
-  const handleParticipant = () => {
+  const handleParticipant = (participantData) => {
+    setSelectedParticipants(participantData);
     setShowParticipants(true);
   };
 
@@ -87,20 +105,20 @@ const TableData = () => {
     setSelectAll(!selectAll);
   };
 
-  useEffect(() => {
-    const fetchParticipants = async () => {
-      const apiBaseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
-      const apiURL = `${apiBaseURL}/admin/total-participant`;
-
-      try {
-        const response = await axios.get(apiURL);
-        setParticipants(response.data.participants);
-      } catch (error) {
-        console.error("Error fetching participants:", error);
+  // Function to handle approve of participant
+  const handleApprove = async (participantID) => {
+    const apiBaseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
+    const apiURL = `${apiBaseURL}/admin/approve/${participantID}`;
+    try {
+      const response = await fetch(apiURL, { method: "PATCH" });
+      if (response.status == 200) {
+        fetchParticipants();
+        alert("Participant approved successfully");
       }
-    };
-    fetchParticipants();
-  }, []);
+    } catch (error) {
+      console.error("Error accepting participants:", error);
+    }
+  };
 
   return (
     <div>
@@ -195,7 +213,7 @@ const TableData = () => {
                   src={`/assets/icons/export.svg`}
                   alt={"export"}
                   className="input"
-                  onClick={() => handleParticipant()}
+                  onClick={() => handleParticipant(info)}
                 />
               </TableCell>
             </TableRow>
@@ -248,7 +266,11 @@ const TableData = () => {
 
       {showParticipant && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 z-50">
-          <ParticipantInfo handleClose={handleClose} />
+          <ParticipantInfo
+            handleClose={handleClose}
+            selectedParticipant={selectedParticipants}
+            handleApprove={handleApprove}
+          />
         </div>
       )}
     </div>
