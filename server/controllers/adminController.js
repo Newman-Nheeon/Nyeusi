@@ -1,17 +1,27 @@
 const Participant = require('../models/participant');
+const CompetitionState = require('../models/competitionState');
 
 
 // Show totalParticipant && count totalParticant
 exports.totalParticipant = async (req, res) => {
-  try {
-      const participants = await Participant.find({}).select();
-      const total = participants.length;
-      res.json({participants, totalParticipants: total});
-    } catch (error) {
-      res.status(500).send({ message: 'Failed to retrieve participants.' });
-    }
+  const status = req.query.status; // Retrieve the status from query parameters
 
+  try {
+      let queryOptions = {};
+      if (status && status !== 'All') {
+          queryOptions.status = status;  // Apply status filter if not 'All'
+      }
+
+      const participants = await Participant.find(queryOptions).select();
+      const total = participants.length;
+
+      res.json({participants, totalParticipants: total});
+  } catch (error) {
+      console.error('Error fetching participants:', error);
+      res.status(500).send({ message: 'Failed to retrieve participants.' });
+  }
 };
+
 
 // Approve Participant
 exports.approveParticipant = async (req, res) => {
@@ -42,7 +52,7 @@ exports.approveParticipant = async (req, res) => {
   }
 };
 
-
+// decline participant
 exports.declineParticipant = async (req, res) => {
   try {
     const { participantId } = req.params;
@@ -102,5 +112,97 @@ exports.countPendingParticipants = async (req, res) => {
     res.status(500).json({ message: 'Failed to count pending participants', error: error.message });
   }
 };
+
+// search participant
+exports.searchParticipants = async (req, res) => {
+    const searchTerm = req.query.term; //
+
+    if (!searchTerm) {
+        return res.status(400).json({ message: 'No search term provided' });
+    }
+
+    try {
+        const regex = new RegExp(searchTerm, 'i'); // 'i' makes it case insensitive
+
+        const results = await Participant.find({
+            $or: [
+                { firstName: { $regex: regex } },
+                { lastName: { $regex: regex } },
+                { stageName: { $regex: regex } },
+                { socialMediaHandle: { $regex: regex } }
+            ]
+        });
+
+        res.json(results);
+    } catch (error) {
+        console.error('Search error:', error);
+        res.status(500).json({ message: 'Error searching for participants' });
+    }
+};
+
+
+// End competition
+exports.endCompetition = async (req, res) => {
+    try {
+        const competitionState = await CompetitionState.findOne({});
+
+        if (!competitionState) {
+            return res.status(404).json({ message: 'No competition state found.' });
+        }
+
+        if (!competitionState.isActive) {
+            return res.status(400).json({ message: 'Competition is already ended.' });
+        }
+
+        // End the competition by setting isActive to false and logging the end date
+        competitionState.isActive = false;
+        competitionState.endedAt = new Date();
+        await competitionState.save();
+
+        res.status(200).json({ message: 'Competition has been ended successfully.' });
+    } catch (error) {
+        console.error('Failed to end competition:', error);
+        res.status(500).json({ message: 'Server error' });
+    }
+};
+
+
+// start competition
+exports.startCompetition = async (req, res) => {
+    try {
+        let competitionState = await CompetitionState.findOne({});
+
+        if (!competitionState) {
+            // If no competition state exists, create one
+            competitionState = new CompetitionState({ isActive: true });
+        } else {
+            // If it exists but is inactive, activate it
+            competitionState.isActive = true;
+            competitionState.endedAt = undefined; // Clear the end date
+        }
+
+        await competitionState.save();
+        res.status(200).json({ message: 'Competition has been started successfully.' });
+    } catch (error) {
+        console.error('Failed to start competition:', error);
+        res.status(500).json({ message: 'Server error' });
+    }
+};
+
+// GET Competition state
+exports.getCompetitionState = async (req, res) => {
+  try {
+      const competitionState = await CompetitionState.findOne({});
+      if (!competitionState) {
+          return res.status(404).json({ isActive: false });
+      }
+      res.json({ isActive: competitionState.isActive });
+  } catch (error) {
+      console.error('Error fetching competition state:', error);
+      res.status(500).json({ message: 'Server error' });
+  }
+};
+
+
 
 

@@ -9,7 +9,11 @@ const {
     totalParticipant, 
     countApprovedParticipants, 
     countDeclinedParticipants, 
-    countPendingParticipants 
+    countPendingParticipants, 
+    searchParticipants,
+    endCompetition,
+    startCompetition,
+    getCompetitionState
 } = require('../controllers/adminController');
 
 router.post('/register', registerAdmin);
@@ -24,6 +28,9 @@ router.get('/count-declined', countDeclinedParticipants);
 router.get('/count-pending', countPendingParticipants)
 router.get('/total-participant', totalParticipant);
 router.get('/validate-token', verifyJWT, (req, res) => {res.status(200).json({ message: 'Token is valid', user: req.user });});
-
+router.get('/search', searchParticipants);
+router.patch('/end', endCompetition);
+router.post('/start', startCompetition);
+router.get('/competition-state', getCompetitionState)
 
 module.exports = router;
