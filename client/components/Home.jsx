@@ -19,7 +19,12 @@ import {
 } from "@/components/ui/select";
 import { info } from "autoprefixer";
 
-const status = ["All", "pending", "successful", "decline"];
+const status = ["All", "pending", "approved", "declined"];
+const baseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
+
+// How to use the Search & Filter API
+// const searchAPI =  `${baseURL}/admin/search?term=${searchTerm}`;
+// const filter =  `${baseURL}/admin/total-participant?status=${status}`;
 
 export default function Dashboard() {
   const router = useRouter();
