@@ -19,13 +19,10 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { info } from "autoprefixer";
+import { Result } from "postcss";
+import useCompetitionState from "./useCompetitionState";
 
 const statusOptions = ["All", "pending", "approved", "declined"];
-const baseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
-
-// How to use the Search & Filter API
-// const searchAPI =  `${baseURL}/admin/search?term=${searchTerm}`;
-// const filter =  `${baseURL}/admin/total-participant?status=${status}`;
 
 export default function Dashboard() {
   const router = useRouter();
@@ -33,13 +30,40 @@ export default function Dashboard() {
   const [search, setSearch] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [filterResults, setFilterResults] = useState([]);
+  const [isStart, setStart] = useState();
+  const [isEnd, setEnd] = useState();
+  const competitionState = useCompetitionState();
+
+  const apiBaseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
   const handleStatusSelect = (event) => {
     setSelectedStatus(event);
   };
 
+  const handleStart = async () => {
+    const startAPI = `${apiBaseURL}/admin/start`;
+
+    try {
+      const response = await axios.post(startAPI);
+      setStart(response);
+    } catch (error) {
+      console.error("Error starting competition");
+    }
+  };
+  const handleEnd = async () => {
+    const startAPI = `${apiBaseURL}/admin/end`;
+
+    try {
+      const endResponse = await fetch(startAPI, { method: "PATCH" });
+      if (endResponse.status == 200) {
+        alert("Competition ended");
+      }
+    } catch (error) {
+      console.error("Error ending competition");
+    }
+  };
+
   const handleSearchFilter = async () => {
-    const apiBaseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
     const searchAPI = `${apiBaseURL}/admin/search?term=${search}`;
     const filterAPI = `${apiBaseURL}/admin/total-participant?status=${selectedStatus}`;
 
@@ -66,7 +90,14 @@ export default function Dashboard() {
     <div className="w-full">
       <div className="flex justify-between mb-4 ">
         <h1 className="text-3xl font-semibold font-mont text-white">Testing</h1>
-        <button className="yellow_btn">End Competition</button>
+        <div className="flex gap-6">
+          <button className="yellow_btn" onClick={handleStart}>
+            Start Competition
+          </button>
+          <button className="outline_btn" onClick={handleEnd}>
+            End Competition
+          </button>
+        </div>
       </div>
 
       <StatsCard />
