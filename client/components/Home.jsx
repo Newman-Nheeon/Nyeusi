@@ -1,12 +1,13 @@
 "use client";
 import cookie from "cookie";
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import StatsCard from "./StatsCard";
 import TableData from "./TableData";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import axios from "axios";
 
 import {
   Select,
@@ -19,7 +20,7 @@ import {
 } from "@/components/ui/select";
 import { info } from "autoprefixer";
 
-const status = ["All", "pending", "approved", "declined"];
+const statusOptions = ["All", "pending", "approved", "declined"];
 const baseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 // How to use the Search & Filter API
@@ -30,11 +31,36 @@ export default function Dashboard() {
   const router = useRouter();
   const [selectedStatus, setSelectedStatus] = useState("");
   const [search, setSearch] = useState("");
-  const [searchResult, setSearchResult] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
+  const [filterResults, setFilterResults] = useState([]);
 
   const handleStatusSelect = (event) => {
     setSelectedStatus(event);
   };
+
+  const handleSearchFilter = async () => {
+    const apiBaseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
+    const searchAPI = `${apiBaseURL}/admin/search?term=${search}`;
+    const filterAPI = `${apiBaseURL}/admin/total-participant?status=${selectedStatus}`;
+
+    try {
+      const [searchResponse, filterResponse] = await Promise.all([
+        axios.get(searchAPI),
+        axios.get(filterAPI),
+      ]);
+
+      setSearchResults(searchResponse.data.search);
+      setFilterResults(filterResponse.data.participants);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  useEffect(() => {
+    handleSearchFilter();
+  }, [search, selectedStatus]);
+
+  const handleSearch = () => {};
 
   return (
     <div className="w-full">
@@ -51,17 +77,25 @@ export default function Dashboard() {
         <form action="" className="flex gap-3">
           <Input
             placeholder="Search"
+            value={search}
             className="border border-gray-200 rounded-[4px] text-white"
+            onChange={(e) => setSearch(e.target.value)}
+            onKeyPress={(e) => {
+              if (e.key === "Enter") {
+                e.preventDefault();
+                handleSearch();
+              }
+            }}
           />
           <Select onValueChange={(event) => handleStatusSelect(event)}>
             <SelectTrigger className="border border-gray-200 rounded-[4px] text-white">
-              <SelectValue placeholder="Status" />
+              <SelectValue placeholder={selectedStatus || "All"} />
             </SelectTrigger>
             <SelectContent className="bg-slate-100">
               <SelectGroup>
-                {status.map((index, i) => (
-                  <SelectItem key={i} value={index}>
-                    {index}
+                {statusOptions.map((status, i) => (
+                  <SelectItem key={i} value={status}>
+                    {status}
                   </SelectItem>
                 ))}
               </SelectGroup>
@@ -70,7 +104,7 @@ export default function Dashboard() {
         </form>
       </div>
 
-      <TableData />
+      <TableData searchResults={searchResults} filterResults={filterResults} />
     </div>
   );
 }

@@ -43,7 +43,7 @@ const statusIcons = [
   },
 ];
 
-const TableData = () => {
+const TableData = ({ searchResults, filterResults }) => {
   const itemsPerPage = 10;
   const [showParticipant, setShowParticipants] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
@@ -71,6 +71,8 @@ const TableData = () => {
   useEffect(() => {
     fetchParticipants();
   }, []);
+
+  const filteredParticipants = participants || searchResults || filterResults;
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
@@ -119,6 +121,20 @@ const TableData = () => {
       console.error("Error accepting participants:", error);
     }
   };
+  // Function to handle approve of participant
+  const handleDecline = async (participantID) => {
+    const apiBaseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
+    const apiURL = `${apiBaseURL}/admin/decline/${participantID}`;
+    try {
+      const response = await fetch(apiURL, { method: "PATCH" });
+      if (response.status == 200) {
+        fetchParticipants();
+        alert("Participant declined successfully");
+      }
+    } catch (error) {
+      console.error("Error declining participants:", error);
+    }
+  };
 
   return (
     <div>
@@ -165,7 +181,7 @@ const TableData = () => {
           ))}
         </TableHeader>
         <TableBody>
-          {currentItems.map((info, i) => (
+          {filteredParticipants.map((info, i) => (
             <TableRow
               key={i}
               style={{
@@ -270,6 +286,7 @@ const TableData = () => {
             handleClose={handleClose}
             selectedParticipant={selectedParticipants}
             handleApprove={handleApprove}
+            handleDecline={handleDecline}
           />
         </div>
       )}

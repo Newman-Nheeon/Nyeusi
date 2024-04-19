@@ -22,6 +22,7 @@ const ParticipantInfo = ({
   handleClose,
   selectedParticipant,
   handleApprove,
+  handleDecline,
 }) => {
   // const handleApprove = async (participantID) => {
   //   const apiBaseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
@@ -140,7 +141,13 @@ const ParticipantInfo = ({
             >
               Approve
             </button>
-            <button className="rounded-[8px] bg-red-700 py-3 px-8 text-white transition-all hover:bg-white hover:text-black text-base cursor-pointer font-mont">
+            <button
+              className="rounded-[8px] bg-red-700 py-3 px-8 text-white transition-all hover:bg-white hover:text-black text-base cursor-pointer font-mont"
+              onClick={() => {
+                handleDecline(selectedParticipant?._id);
+                handleClose();
+              }}
+            >
               Decline
             </button>
           </div>
