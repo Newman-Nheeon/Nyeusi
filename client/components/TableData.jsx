@@ -43,36 +43,17 @@ const statusIcons = [
   },
 ];
 
-const TableData = ({ searchResults, filterResults }) => {
+const TableData = ({ participants, handleApprove, handleDecline }) => {
   const itemsPerPage = 10;
   const [showParticipant, setShowParticipants] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [selectAll, setSelectAll] = useState(false);
   const [selectedItems, setSelectedItems] = useState([]);
-  const [participants, setParticipants] = useState([]);
   const [selectedParticipants, setSelectedParticipants] = useState({});
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexofFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = participants.slice(indexofFirstItem, indexOfLastItem);
-
-  const fetchParticipants = async () => {
-    const apiBaseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
-    const apiURL = `${apiBaseURL}/admin/total-participant`;
-
-    try {
-      const response = await axios.get(apiURL);
-      setParticipants(response.data.participants);
-    } catch (error) {
-      console.error("Error fetching participants:", error);
-    }
-  };
-
-  useEffect(() => {
-    fetchParticipants();
-  }, []);
-
-  const filteredParticipants = participants || searchResults || filterResults;
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
@@ -105,35 +86,6 @@ const TableData = ({ searchResults, filterResults }) => {
       setSelectedItems(currentItems.map((_, index) => index));
     }
     setSelectAll(!selectAll);
-  };
-
-  // Function to handle approve of participant
-  const handleApprove = async (participantID) => {
-    const apiBaseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
-    const apiURL = `${apiBaseURL}/admin/approve/${participantID}`;
-    try {
-      const response = await fetch(apiURL, { method: "PATCH" });
-      if (response.status == 200) {
-        fetchParticipants();
-        alert("Participant approved successfully");
-      }
-    } catch (error) {
-      console.error("Error accepting participants:", error);
-    }
-  };
-  // Function to handle approve of participant
-  const handleDecline = async (participantID) => {
-    const apiBaseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
-    const apiURL = `${apiBaseURL}/admin/decline/${participantID}`;
-    try {
-      const response = await fetch(apiURL, { method: "PATCH" });
-      if (response.status == 200) {
-        fetchParticipants();
-        alert("Participant declined successfully");
-      }
-    } catch (error) {
-      console.error("Error declining participants:", error);
-    }
   };
 
   return (
@@ -181,7 +133,7 @@ const TableData = ({ searchResults, filterResults }) => {
           ))}
         </TableHeader>
         <TableBody>
-          {filteredParticipants.map((info, i) => (
+          {participants?.map((info, i) => (
             <TableRow
               key={i}
               style={{

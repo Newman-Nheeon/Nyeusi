@@ -1,8 +1,4 @@
 "use client";
-import Register from "@/app/complete-registration/page";
-import Home from "@/app/page";
-import Vote from "@/app/vote/page";
-import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -16,6 +12,7 @@ const useCompetitionState = () => {
       try {
         const response = await axios.get(stateAPI);
         setCompetitionState(response.data.state);
+        console.log("Competition State:", competitionState);
       } catch (error) {
         console.error("Error fetching competition state:", error);
       }

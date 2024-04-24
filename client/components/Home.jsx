@@ -26,18 +26,60 @@ const statusOptions = ["All", "pending", "approved", "declined"];
 
 export default function Dashboard() {
   const router = useRouter();
-  const [selectedStatus, setSelectedStatus] = useState("");
+  const [selectedStatus, setSelectedStatus] = useState("all");
   const [search, setSearch] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
-  const [filterResults, setFilterResults] = useState([]);
-  const [isStart, setStart] = useState();
-  const [isEnd, setEnd] = useState();
+  const [participants, setParticipants] = useState([]);
+  const [filterParticipants, setFilterParticipants] = useState([]);
+
+  const [isStart, setStart] = useState(true);
+  const [isEnd, setEnd] = useState(false);
   const competitionState = useCompetitionState();
+
+  const fetchParticipants = async () => {
+    const apiBaseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
+    const apiURL = `${apiBaseURL}/admin/total-participant`;
+    setSelectedStatus("all");
+    try {
+      const response = await axios.get(apiURL);
+      setParticipants(response.data.participants);
+      setFilterParticipants(response.data.participants);
+    } catch (error) {
+      console.error("Error fetching participants:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchParticipants();
+  }, []);
 
   const apiBaseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
-  const handleStatusSelect = (event) => {
-    setSelectedStatus(event);
+  useEffect(() => {
+    const competitionState = async () => {
+      try {
+        const response = await fetch(`${apiBaseURL}/admin/competition-state`);
+        if (!response.ok) {
+          throw new Error("Failed to fetch competition state");
+        }
+        const data = await response.json();
+        if (data.isActive === false) {
+          setStart(true);
+          setEnd(false);
+        } else {
+          setStart(false);
+          setEnd(true);
+        }
+      } catch (error) {
+        console.error("Error fetching competition state:", error);
+        // Handle error state if needed
+      }
+    };
+
+    competitionState();
+  }, []);
+
+  const handleStatusSelect = (value) => {
+    setSelectedStatus(value);
   };
 
   const handleStart = async () => {
@@ -51,10 +93,10 @@ export default function Dashboard() {
     }
   };
   const handleEnd = async () => {
-    const startAPI = `${apiBaseURL}/admin/end`;
+    const endAPI = `${apiBaseURL}/admin/end`;
 
     try {
-      const endResponse = await fetch(startAPI, { method: "PATCH" });
+      const endResponse = await fetch(endAPI, { method: "PATCH" });
       if (endResponse.status == 200) {
         alert("Competition ended");
       }
@@ -64,39 +106,93 @@ export default function Dashboard() {
   };
 
   const handleSearchFilter = async () => {
-    const searchAPI = `${apiBaseURL}/admin/search?term=${search}`;
     const filterAPI = `${apiBaseURL}/admin/total-participant?status=${selectedStatus}`;
-
     try {
-      const [searchResponse, filterResponse] = await Promise.all([
-        axios.get(searchAPI),
-        axios.get(filterAPI),
-      ]);
-
-      setSearchResults(searchResponse.data.search);
-      setFilterResults(filterResponse.data.participants);
+      const filterResponse = await axios.get(filterAPI);
+      if (filterResponse.status == 200) {
+        if (search != "" || search != null) {
+          setFilterParticipants(
+            filterResponse.data.participants.filter(
+              (participant) =>
+                participant.firstName
+                  .toLowerCase()
+                  .includes(search.toLowerCase()) ||
+                participant.lastName
+                  .toLowerCase()
+                  .includes(search.toLowerCase())
+            )
+          );
+        } else {
+          setFilterParticipants(filterResponse.data.participants);
+        }
+      }
     } catch (error) {
       console.error("Error fetching data:", error);
     }
   };
 
+  // Function to handle approve of participant
+  const handleApprove = async (participantID) => {
+    const apiBaseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
+    const apiURL = `${apiBaseURL}/admin/approve/${participantID}`;
+    try {
+      const response = await fetch(apiURL, { method: "PATCH" });
+      if (response.status == 200) {
+        fetchParticipants();
+        alert("Participant approved successfully");
+      }
+    } catch (error) {
+      console.error("Error accepting participants:", error);
+    }
+  };
+  // Function to handle approve of participant
+  const handleDecline = async (participantID) => {
+    const apiBaseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
+    const apiURL = `${apiBaseURL}/admin/decline/${participantID}`;
+    try {
+      const response = await fetch(apiURL, { method: "PATCH" });
+      if (response.status == 200) {
+        fetchParticipants();
+        alert("Participant declined successfully");
+      }
+    } catch (error) {
+      console.error("Error declining participants:", error);
+    }
+  };
+
   useEffect(() => {
     handleSearchFilter();
-  }, [search, selectedStatus]);
+  }, [selectedStatus]);
 
-  const handleSearch = () => {};
+  const handleSearch = (val) => {
+    setFilterParticipants(
+      participants.filter(
+        (participant) =>
+          participant.firstName.toLowerCase().includes(val.toLowerCase()) ||
+          participant.lastName.toLowerCase().includes(val.toLowerCase())
+      )
+    );
+  };
+
+  useEffect(() => {
+    handleSearch(search);
+  }, [search]);
 
   return (
     <div className="w-full">
       <div className="flex justify-between mb-4 ">
         <h1 className="text-3xl font-semibold font-mont text-white">Testing</h1>
         <div className="flex gap-6">
-          <button className="yellow_btn" onClick={handleStart}>
-            Start Competition
-          </button>
-          <button className="outline_btn" onClick={handleEnd}>
-            End Competition
-          </button>
+          {isStart && (
+            <button className="yellow_btn" onClick={handleStart}>
+              Start Competition
+            </button>
+          )}
+          {isEnd && (
+            <button className="outline_btn" onClick={handleEnd}>
+              End Competition
+            </button>
+          )}
         </div>
       </div>
 
@@ -114,11 +210,11 @@ export default function Dashboard() {
             onKeyPress={(e) => {
               if (e.key === "Enter") {
                 e.preventDefault();
-                handleSearch();
+                handleSearch(e.target.value);
               }
             }}
           />
-          <Select onValueChange={(event) => handleStatusSelect(event)}>
+          <Select onValueChange={(value) => handleStatusSelect(value)}>
             <SelectTrigger className="border border-gray-200 rounded-[4px] text-white">
               <SelectValue placeholder={selectedStatus || "All"} />
             </SelectTrigger>
@@ -135,7 +231,11 @@ export default function Dashboard() {
         </form>
       </div>
 
-      <TableData searchResults={searchResults} filterResults={filterResults} />
+      <TableData
+        participants={filterParticipants}
+        handleApprove={handleApprove}
+        handleDecline={handleDecline}
+      />
     </div>
   );
 }
