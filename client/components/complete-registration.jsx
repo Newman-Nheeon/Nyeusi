@@ -168,10 +168,10 @@ const completeRegistration = () => {
       isValid = false;
       console.log("upload entry image");
     }
-    if (values.comment.trim() === "") {
-      isValid = false;
-      console.log("Comment is empty");
-    }
+    // if (values.comment.trim() === "") {
+    //   isValid = false;
+    //   console.log("Comment is empty");
+    // }
     if (!values.termsAccepted) {
       isValid = false;
       console.log("Terms Not accepted");
@@ -184,37 +184,36 @@ const completeRegistration = () => {
     const { name, value, type, checked, files } = e.target;
 
     if (type === "checkbox") {
-        setFormValues((prevState) => ({
-            ...prevState,
-            [name]: checked,
-        }));
+      setFormValues((prevState) => ({
+        ...prevState,
+        [name]: checked,
+      }));
     } else if (type === "file" && files.length > 0) {
-        const file = files[0];
-        const allowedTypes = ['image/png', 'image/jpg', 'image/jpeg'];
+      const file = files[0];
+      const allowedTypes = ["image/png", "image/jpg", "image/jpeg"];
 
-        if (!allowedTypes.includes(file.type)) {
-            alert("Only PNG, JPG, and JPEG files are allowed.");
-            return; // Exit and do not update state
-        }
+      if (!allowedTypes.includes(file.type)) {
+        alert("Only PNG, JPG, and JPEG files are allowed.");
+        return; // Exit and do not update state
+      }
 
-        if (file.size > 1024 * 1024) { // File size greater than 1MB
-            alert("File size must not exceed 1MB.");
-            return; // Exit and do not update state
-        }
+      if (file.size > 1024 * 1024) {
+        // File size greater than 1MB
+        alert("File size must not exceed 1MB.");
+        return; // Exit and do not update state
+      }
 
-        setFormValues((prevState) => ({
-            ...prevState,
-            [name]: file,
-        }));
+      setFormValues((prevState) => ({
+        ...prevState,
+        [name]: file,
+      }));
     } else {
-        setFormValues((prevState) => ({
-            ...prevState,
-            [name]: value,
-        }));
+      setFormValues((prevState) => ({
+        ...prevState,
+        [name]: value,
+      }));
     }
-};
-
-
+  };
 
   const handleSocialMediaSelect = (event) => {
     setSelectedValue(event);
@@ -275,7 +274,7 @@ const completeRegistration = () => {
 
                 <div className="flex flex-col space-y-1.5">
                   <Label htmlFor="entrySocialPost" className="label">
-                    Entry Social Post
+                    Enter link to social media post
                   </Label>
                   <Input
                     id="entrySocialPost"
@@ -400,9 +399,6 @@ const completeRegistration = () => {
                     value={formValues.comment}
                     onChange={handleChange}
                   />
-                  {submitted && !formValues.comment && (
-                    <span className="error_log">Please leave a comment</span>
-                  )}
                 </div>
 
                 <div className="flex items-center space-x-2">

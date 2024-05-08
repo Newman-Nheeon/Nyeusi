@@ -169,7 +169,11 @@ export default function Dashboard() {
       participants.filter(
         (participant) =>
           participant.firstName.toLowerCase().includes(val.toLowerCase()) ||
-          participant.lastName.toLowerCase().includes(val.toLowerCase())
+          participant.lastName.toLowerCase().includes(val.toLowerCase()) ||
+          participant.stageName.toLowerCase().includes(val.toLowerCase()) ||
+          participant.socialMediaHandle
+            .toLowerCase()
+            .includes(val.toLowerCase())
       )
     );
   };
