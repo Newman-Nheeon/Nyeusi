@@ -5,7 +5,7 @@ dotenv.config();
 const connectDB = async () => {
     try {
         mongoose.set('strictQuery', true); // Addressing the deprecation warning
-        await mongoose.connect(process.env.DB, {
+        await mongoose.connect(process.env.DB_URI, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         });

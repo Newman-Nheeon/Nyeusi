@@ -5,11 +5,11 @@ dotenv.config();
 
 
 const transporter = nodemailer.createTransport({
-  host: process.env.HOST,
+  host: process.env.EMAIL_HOST,
     port: process.env.EMAIL_PORT,
     secure: true, // true for 465, false for other ports
     auth: {
-      user: process.env.EMAIL_ACCOUNT, // Your email
+      user: process.env.EMAIL_USER, // Your email
       pass: process.env.EMAIL_PASSWORD, // Your email account password or app password
   },
 });
@@ -19,7 +19,7 @@ exports.sendVerificationEmail = async (email, token) => {
   const mailOptions = {
     from: {
       name: "Nyeusi Music",
-      address: process.env.EMAIL_ACCOUNT // Sender address
+      address: process.env.EMAIL_USER // Sender address
     }, 
       to: email, // List of receivers
       subject: 'Verify Your Email Address', // Subject line
