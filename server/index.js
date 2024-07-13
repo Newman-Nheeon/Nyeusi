@@ -10,6 +10,11 @@ const path = require('path');
 const PORT = process.env.PORT || 8080;
 const app = express();
 dotenv.config();
+app.use((req, res, next) => {
+    console.log(`[Request] ${req.method} ${req.url} - Origin: ${req.headers.origin}`);
+    next();
+  });
+
 
 
 // Imports
