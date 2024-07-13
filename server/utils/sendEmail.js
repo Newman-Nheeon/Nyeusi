@@ -18,8 +18,8 @@ exports.sendVerificationEmail = async (email, token) => {
   const verificationLink = `${process.env.BASE_URL}/api/verify-email?token=${token}`;
   const mailOptions = {
     from: {
-      name: "Nyeusi Music",
-      address: process.env.EMAIL_USER // Sender address
+      name: "Nyeusi Music Competition",
+      address: process.env.EMAIL_FROM // Sender address
     }, 
       to: email, // List of receivers
       subject: 'Verify Your Email Address', // Subject line
