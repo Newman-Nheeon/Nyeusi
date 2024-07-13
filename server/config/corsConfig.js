@@ -9,14 +9,6 @@ const currentEnv = process.env.NODE_ENV || 'development';
 // CORS options
 const corsOptions = {
   origin: function (origin, callback) {
-    console.log(`Current environment is: ${currentEnv}`);
-    console.log(`Whitelist for ${currentEnv}: -${whitelist[currentEnv]}-`);
-    console.log(`Whitelist type: ${whitelist[currentEnv].constructor.name}`);
-    console.log(`[CORS] Received request from origin: -${origin}-`);
-    console.log(`Origin type: ${origin ? origin.constructor.name : 'undefined'}`);
-    console.log(`Check origin in whitelist: ${whitelist[currentEnv].indexOf(origin)}`);
-    console.log(`Test specific string: "https://gbd.nyeusi.org".indexOf("https://gbd.nyeusi.org") = ${"https://gbd.nyeusi.org".indexOf("https://gbd.nyeusi.org")}`);
-    
     if (whitelist[currentEnv].indexOf(origin) !== -1 || !origin) {
       console.log(`[CORS] Origin allowed: ${origin}`);
       callback(null, true); // Allow if the origin is in the whitelist or server-to-server requests (no origin)
