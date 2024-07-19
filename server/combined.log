@@ -1,0 +1,104 @@
+{"level":"info","message":"Connected to MongoDB","service":"user-service","timestamp":"2024-07-19 20:48:18"}
+{"level":"info","message":"Server running on port 8080","service":"user-service","timestamp":"2024-07-19 20:48:18"}
+{"level":"info","message":"Connected to MongoDB","service":"user-service","timestamp":"2024-07-19 20:49:14"}
+{"level":"info","message":"Server running on port 8080","service":"user-service","timestamp":"2024-07-19 20:49:14"}
+{"level":"info","message":"Connected to MongoDB","service":"user-service","timestamp":"2024-07-19 20:52:26"}
+{"level":"info","message":"Server running on port 8080","service":"user-service","timestamp":"2024-07-19 20:52:26"}
+{"level":"info","message":"Connected to MongoDB","service":"user-service","timestamp":"2024-07-19 20:54:56"}
+{"level":"info","message":"Server running on port 8080","service":"user-service","timestamp":"2024-07-19 20:54:56"}
+{"level":"info","message":"Connected to MongoDB","service":"user-service","timestamp":"2024-07-19 20:55:42"}
+{"level":"info","message":"Server running on port 8080","service":"user-service","timestamp":"2024-07-19 20:55:42"}
+{"level":"info","message":"Connected to MongoDB","service":"user-service","timestamp":"2024-07-19 20:55:54"}
+{"level":"info","message":"Server running on port 8080","service":"user-service","timestamp":"2024-07-19 20:55:54"}
+{"level":"info","message":"Connected to MongoDB","service":"user-service","timestamp":"2024-07-19 20:57:07"}
+{"level":"info","message":"Connected to MongoDB","service":"user-service","timestamp":"2024-07-19 20:58:00"}
+{"level":"info","message":"Connected to MongoDB","service":"user-service","timestamp":"2024-07-19 20:58:57"}
+{"level":"info","message":"Connected to database successfully","service":"user-service","timestamp":"2024-07-19 20:58:57"}
+{"level":"info","message":"Server running on port 8080","service":"user-service","timestamp":"2024-07-19 20:58:57"}
+{"level":"info","message":"Connected to MongoDB","service":"user-service","timestamp":"2024-07-19 20:59:22"}
+{"level":"info","message":"Connected to database successfully","service":"user-service","timestamp":"2024-07-19 20:59:22"}
+{"level":"info","message":"Server running on port 8080","service":"user-service","timestamp":"2024-07-19 20:59:22"}
+{"level":"info","message":"Connected to MongoDB","service":"user-service","timestamp":"2024-07-19 20:59:27"}
+{"level":"info","message":"Connected to database successfully","service":"user-service","timestamp":"2024-07-19 20:59:27"}
+{"level":"info","message":"Server running on port 8080","service":"user-service","timestamp":"2024-07-19 20:59:27"}
+{"level":"info","message":"Connected to MongoDB","service":"user-service","timestamp":"2024-07-19 20:59:38"}
+{"level":"info","message":"Connected to database successfully","service":"user-service","timestamp":"2024-07-19 20:59:38"}
+{"level":"info","message":"Server running on port 8080","service":"user-service","timestamp":"2024-07-19 20:59:38"}
+{"level":"info","message":"Connected to MongoDB","service":"user-service","timestamp":"2024-07-19 20:59:46"}
+{"level":"info","message":"Connected to database successfully","service":"user-service","timestamp":"2024-07-19 20:59:46"}
+{"level":"info","message":"Server running on port 8080","service":"user-service","timestamp":"2024-07-19 20:59:46"}
+{"level":"info","message":"Connected to MongoDB","service":"user-service","timestamp":"2024-07-19 21:00:01"}
+{"level":"info","message":"Connected to database successfully","service":"user-service","timestamp":"2024-07-19 21:00:01"}
+{"level":"info","message":"Server running on port 8080","service":"user-service","timestamp":"2024-07-19 21:00:01"}
+{"level":"info","message":"Connected to MongoDB","service":"user-service","timestamp":"2024-07-19 21:00:07"}
+{"level":"info","message":"Connected to database successfully","service":"user-service","timestamp":"2024-07-19 21:00:07"}
+{"level":"info","message":"Server running on port 8080","service":"user-service","timestamp":"2024-07-19 21:00:07"}
+{"level":"info","message":"Connected to MongoDB","service":"user-service","timestamp":"2024-07-19 21:00:11"}
+{"level":"info","message":"Connected to database successfully","service":"user-service","timestamp":"2024-07-19 21:00:11"}
+{"level":"info","message":"Server running on port 8080","service":"user-service","timestamp":"2024-07-19 21:00:11"}
+{"level":"info","message":"Connected to MongoDB","service":"user-service","timestamp":"2024-07-19 21:00:33"}
+{"level":"info","message":"Connected to database successfully","service":"user-service","timestamp":"2024-07-19 21:00:33"}
+{"level":"info","message":"Server running on port 8080","service":"user-service","timestamp":"2024-07-19 21:00:33"}
+{"level":"info","message":"Connected to MongoDB","service":"user-service","timestamp":"2024-07-19 21:00:43"}
+{"level":"info","message":"Connected to database successfully","service":"user-service","timestamp":"2024-07-19 21:00:43"}
+{"level":"info","message":"Server running on port 8080","service":"user-service","timestamp":"2024-07-19 21:00:43"}
+{"level":"info","message":"[Request] OPTIONS /api/submit-email - Origin: http://localhost:3000","service":"user-service","timestamp":"2024-07-19 21:03:27"}
+{"level":"info","message":"Current environment is: development","service":"user-service","timestamp":"2024-07-19 21:03:27"}
+{"level":"info","message":"Whitelist for development: http://localhost:3000","service":"user-service","timestamp":"2024-07-19 21:03:27"}
+{"level":"info","message":"Whitelist type: String","service":"user-service","timestamp":"2024-07-19 21:03:27"}
+{"level":"info","message":"[CORS] Received request from origin: http://localhost:3000","service":"user-service","timestamp":"2024-07-19 21:03:27"}
+{"level":"info","message":"Origin type: String","service":"user-service","timestamp":"2024-07-19 21:03:27"}
+{"level":"info","message":"Check origin in whitelist: 0","service":"user-service","timestamp":"2024-07-19 21:03:27"}
+{"level":"info","message":"Test specific string: \"https://gbd.nyeusi.org\".indexOf(\"https://gbd.nyeusi.org\") = 0","service":"user-service","timestamp":"2024-07-19 21:03:27"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-07-19 21:03:27"}
+{"level":"info","message":"::1 - - [19/Jul/2024:20:03:27 +0000] \"OPTIONS /api/submit-email HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 OPR/111.0.0.0\"","service":"user-service","timestamp":"2024-07-19 21:03:27"}
+{"level":"info","message":"[Request] POST /api/submit-email - Origin: http://localhost:3000","service":"user-service","timestamp":"2024-07-19 21:03:27"}
+{"level":"info","message":"Current environment is: development","service":"user-service","timestamp":"2024-07-19 21:03:27"}
+{"level":"info","message":"Whitelist for development: http://localhost:3000","service":"user-service","timestamp":"2024-07-19 21:03:27"}
+{"level":"info","message":"Whitelist type: String","service":"user-service","timestamp":"2024-07-19 21:03:27"}
+{"level":"info","message":"[CORS] Received request from origin: http://localhost:3000","service":"user-service","timestamp":"2024-07-19 21:03:27"}
+{"level":"info","message":"Origin type: String","service":"user-service","timestamp":"2024-07-19 21:03:27"}
+{"level":"info","message":"Check origin in whitelist: 0","service":"user-service","timestamp":"2024-07-19 21:03:27"}
+{"level":"info","message":"Test specific string: \"https://gbd.nyeusi.org\".indexOf(\"https://gbd.nyeusi.org\") = 0","service":"user-service","timestamp":"2024-07-19 21:03:27"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-07-19 21:03:27"}
+{"level":"info","message":"::1 - - [19/Jul/2024:20:03:31 +0000] \"POST /api/submit-email HTTP/1.1\" 200 38 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 OPR/111.0.0.0\"","service":"user-service","timestamp":"2024-07-19 21:03:31"}
+{"level":"info","message":"[Request] OPTIONS /api/submit-email - Origin: http://localhost:3000","service":"user-service","timestamp":"2024-07-19 21:11:50"}
+{"level":"info","message":"Current environment is: development","service":"user-service","timestamp":"2024-07-19 21:11:50"}
+{"level":"info","message":"Whitelist for development: http://localhost:3000","service":"user-service","timestamp":"2024-07-19 21:11:50"}
+{"level":"info","message":"Whitelist type: String","service":"user-service","timestamp":"2024-07-19 21:11:50"}
+{"level":"info","message":"[CORS] Received request from origin: http://localhost:3000","service":"user-service","timestamp":"2024-07-19 21:11:50"}
+{"level":"info","message":"Origin type: String","service":"user-service","timestamp":"2024-07-19 21:11:50"}
+{"level":"info","message":"Check origin in whitelist: 0","service":"user-service","timestamp":"2024-07-19 21:11:50"}
+{"level":"info","message":"Test specific string: \"https://gbd.nyeusi.org\".indexOf(\"https://gbd.nyeusi.org\") = 0","service":"user-service","timestamp":"2024-07-19 21:11:50"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-07-19 21:11:50"}
+{"level":"info","message":"::1 - - [19/Jul/2024:20:11:50 +0000] \"OPTIONS /api/submit-email HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 OPR/111.0.0.0\"","service":"user-service","timestamp":"2024-07-19 21:11:50"}
+{"level":"info","message":"[Request] POST /api/submit-email - Origin: http://localhost:3000","service":"user-service","timestamp":"2024-07-19 21:11:50"}
+{"level":"info","message":"Current environment is: development","service":"user-service","timestamp":"2024-07-19 21:11:50"}
+{"level":"info","message":"Whitelist for development: http://localhost:3000","service":"user-service","timestamp":"2024-07-19 21:11:50"}
+{"level":"info","message":"Whitelist type: String","service":"user-service","timestamp":"2024-07-19 21:11:50"}
+{"level":"info","message":"[CORS] Received request from origin: http://localhost:3000","service":"user-service","timestamp":"2024-07-19 21:11:50"}
+{"level":"info","message":"Origin type: String","service":"user-service","timestamp":"2024-07-19 21:11:50"}
+{"level":"info","message":"Check origin in whitelist: 0","service":"user-service","timestamp":"2024-07-19 21:11:50"}
+{"level":"info","message":"Test specific string: \"https://gbd.nyeusi.org\".indexOf(\"https://gbd.nyeusi.org\") = 0","service":"user-service","timestamp":"2024-07-19 21:11:50"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-07-19 21:11:50"}
+{"level":"info","message":"::1 - - [19/Jul/2024:20:11:51 +0000] \"POST /api/submit-email HTTP/1.1\" 400 40 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 OPR/111.0.0.0\"","service":"user-service","timestamp":"2024-07-19 21:11:51"}
+{"level":"info","message":"[Request] OPTIONS /api/submit-email - Origin: http://localhost:3000","service":"user-service","timestamp":"2024-07-19 21:19:23"}
+{"level":"info","message":"Current environment is: development","service":"user-service","timestamp":"2024-07-19 21:19:23"}
+{"level":"info","message":"Whitelist for development: http://localhost:3000","service":"user-service","timestamp":"2024-07-19 21:19:23"}
+{"level":"info","message":"Whitelist type: String","service":"user-service","timestamp":"2024-07-19 21:19:23"}
+{"level":"info","message":"[CORS] Received request from origin: http://localhost:3000","service":"user-service","timestamp":"2024-07-19 21:19:23"}
+{"level":"info","message":"Origin type: String","service":"user-service","timestamp":"2024-07-19 21:19:23"}
+{"level":"info","message":"Check origin in whitelist: 0","service":"user-service","timestamp":"2024-07-19 21:19:23"}
+{"level":"info","message":"Test specific string: \"https://gbd.nyeusi.org\".indexOf(\"https://gbd.nyeusi.org\") = 0","service":"user-service","timestamp":"2024-07-19 21:19:23"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-07-19 21:19:23"}
+{"level":"info","message":"::1 - - [19/Jul/2024:20:19:23 +0000] \"OPTIONS /api/submit-email HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 OPR/111.0.0.0\"","service":"user-service","timestamp":"2024-07-19 21:19:23"}
+{"level":"info","message":"[Request] POST /api/submit-email - Origin: http://localhost:3000","service":"user-service","timestamp":"2024-07-19 21:19:23"}
+{"level":"info","message":"Current environment is: development","service":"user-service","timestamp":"2024-07-19 21:19:23"}
+{"level":"info","message":"Whitelist for development: http://localhost:3000","service":"user-service","timestamp":"2024-07-19 21:19:23"}
+{"level":"info","message":"Whitelist type: String","service":"user-service","timestamp":"2024-07-19 21:19:23"}
+{"level":"info","message":"[CORS] Received request from origin: http://localhost:3000","service":"user-service","timestamp":"2024-07-19 21:19:23"}
+{"level":"info","message":"Origin type: String","service":"user-service","timestamp":"2024-07-19 21:19:23"}
+{"level":"info","message":"Check origin in whitelist: 0","service":"user-service","timestamp":"2024-07-19 21:19:23"}
+{"level":"info","message":"Test specific string: \"https://gbd.nyeusi.org\".indexOf(\"https://gbd.nyeusi.org\") = 0","service":"user-service","timestamp":"2024-07-19 21:19:23"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-07-19 21:19:23"}
+{"level":"info","message":"::1 - - [19/Jul/2024:20:19:24 +0000] \"POST /api/submit-email HTTP/1.1\" 400 40 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 OPR/111.0.0.0\"","service":"user-service","timestamp":"2024-07-19 21:19:24"}

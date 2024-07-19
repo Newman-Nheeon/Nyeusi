@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Participant = require('../models/participant');
 const Vote = require('../models/votes');
 const checkSocialMediaHandle = require('../utils/checkSocialMedia');
+const logger = require('../logger');
 
 exports.submitVote = async (req, res) => {
   const { voterHandle, voterPlatform, participantId } = req.body;
@@ -33,7 +34,7 @@ exports.submitVote = async (req, res) => {
 
     res.send({ message: 'Your vote has been cast successfully.' });
   } catch (error) {
-    console.error('Error submitting vote:', error);
+    logger.error('Error submitting vote:', error);
     res.status(500).send({ message: 'Failed to submit vote.' });
   }
 };
@@ -46,7 +47,7 @@ exports.showApprovedParticipants = async (req, res) => {
     const approvedParticipants = await Participant.find({ status: 'approved' });
     res.json(approvedParticipants);
   } catch (error) {
-    console.error('Error retrieving approved participants:', error);
+    logger.error('Error retrieving approved participants:', error);
     res.status(500).send({ message: 'Failed to retrieve approved participants.' });
   }
 };

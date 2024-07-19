@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 const Admin = require('../models/admin');
+const logger = require('../logger');
 
 const verifyJWT = async (req, res, next) => {
   try {

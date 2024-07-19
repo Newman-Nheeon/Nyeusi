@@ -2,7 +2,8 @@ const crypto = require('crypto');
 const bcrypt = require('bcryptjs');
 const nodemailer = require('nodemailer');
 const dotenv = require('dotenv');
-const Admin = require('../models/admin')
+const Admin = require('../models/admin');
+const logger = require('../logger');
 dotenv.config();
 
 const transporter = nodemailer.createTransport({
@@ -25,9 +26,9 @@ const sendMail = async (to, subject, text) => {
 
     try {
         await transporter.sendMail(mailOptions);
-        console.log('Email sent successfully');
+        logger.info('Email sent successfully');
     } catch (error) {
-        console.error('Error sending email:', error);
+        logger.error('Error sending email:', error);
     }
 };
 

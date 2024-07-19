@@ -7,11 +7,12 @@ const Follower = require('../models/followers'); // Update this path as necessar
 
 // Suppress the deprecation warning
 mongoose.set('strictQuery', true);
+const logger = require('../logger');
 
 // Ensure your DB connection string is correctly defined in your .env file
 mongoose.connect(process.env.DB, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('MongoDB connected'))
-  .catch(err => console.error('MongoDB connection error:', err));
+  .then(() => logger.info('MongoDB connected'))
+  .catch(err => logger.error('MongoDB connection error:', err));
 
 const importFollowersFromCSV = (filePath, platform) => {
   const followers = [];
@@ -21,9 +22,9 @@ const importFollowersFromCSV = (filePath, platform) => {
     .on('end', async () => {
       try {
         await Follower.insertMany(followers);
-        console.log(`${followers.length} followers imported successfully for ${platform}`);
+        logger.info(`${followers.length} followers imported successfully for ${platform}`);
       } catch (err) {
-        console.error('Failed to import followers:', err);
+        logger.error('Failed to import followers:', err);
       }
       mongoose.disconnect();
     });

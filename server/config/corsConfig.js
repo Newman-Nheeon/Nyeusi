@@ -1,3 +1,4 @@
+const logger = require('../logger');
 const whitelist = {
   development: 'http://localhost:3000', // URL of your frontend in development
   production: process.env.FRONTEND_PROD_URL // URL of your frontend in production
@@ -9,19 +10,19 @@ const currentEnv = process.env.NODE_ENV || 'development';
 // CORS options
 const corsOptions = {
   origin: function (origin, callback) {
-    console.log(`Current environment is: ${currentEnv}`);
-    console.log(`Whitelist for ${currentEnv}: ${whitelist[currentEnv]}`);
-    console.log(`Whitelist type: ${whitelist[currentEnv].constructor.name}`);
-    console.log(`[CORS] Received request from origin: ${origin}`);
-    console.log(`Origin type: ${origin ? origin.constructor.name : 'undefined'}`);
-    console.log(`Check origin in whitelist: ${whitelist[currentEnv].indexOf(origin)}`);
-    console.log(`Test specific string: "https://gbd.nyeusi.org".indexOf("https://gbd.nyeusi.org") = ${"https://gbd.nyeusi.org".indexOf("https://gbd.nyeusi.org")}`);
+    logger.info(`Current environment is: ${currentEnv}`);
+    logger.info(`Whitelist for ${currentEnv}: ${whitelist[currentEnv]}`);
+    logger.info(`Whitelist type: ${whitelist[currentEnv].constructor.name}`);
+    logger.info(`[CORS] Received request from origin: ${origin}`);
+    logger.info(`Origin type: ${origin ? origin.constructor.name : 'undefined'}`);
+    logger.info(`Check origin in whitelist: ${whitelist[currentEnv].indexOf(origin)}`);
+    logger.info(`Test specific string: "https://gbd.nyeusi.org".indexOf("https://gbd.nyeusi.org") = ${"https://gbd.nyeusi.org".indexOf("https://gbd.nyeusi.org")}`);
     
     if (whitelist[currentEnv].indexOf(origin) !== -1 || !origin) {
-      console.log(`[CORS] Origin allowed: ${origin}`);
+      logger.info(`[CORS] Origin allowed: ${origin}`);
       callback(null, true); // Allow if the origin is in the whitelist or server-to-server requests (no origin)
     } else {
-      console.log(`[CORS] Origin not allowed: ${origin}`);
+      logger.info(`[CORS] Origin not allowed: ${origin}`);
       callback(new Error('Not allowed by CORS'));
     }
   },

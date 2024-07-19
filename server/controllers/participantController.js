@@ -3,6 +3,7 @@ const crypto = require('crypto');
 const Participant = require('../models/participant');
 const checkSocialMediaHandle = require('../utils/checkSocialMedia');
 const axios = require('axios');
+const logger = require('../logger');
 
 exports.submitEmail = async (req, res) => {
   const { email, captcha } = req.body;
@@ -50,7 +51,7 @@ exports.submitEmail = async (req, res) => {
     await emailService.sendVerificationEmail(email, verificationToken);
     res.send({ message: 'Verification email sent.' });
   } catch (error) {
-    console.error('Error in registering Participant:', error);
+    logger.error('Error in registering Participant:', error);
     res.status(500).send({ message: 'Failed to register user.' });
   }
 };
@@ -100,7 +101,7 @@ exports.completeRegistration = async (req, res) => {
     await user.save();
     res.send('Registration complete. Thank you for completing your registration.');
   } catch (error) {
-    console.error('Error completing registration:', error);
+    logger.error('Error completing registration:', error);
     res.status(500).send('Error completing registration.');
   }
 };
@@ -129,7 +130,7 @@ exports.verifyEmail = async (req, res) => {
     // Redirect to a success page instead of sending JSON
     res.redirect(`${FRONTEND_URL}/verification?verified=true`);
   } catch (error) {
-    console.error('Error verifying email:', error); // Added console.error for debugging
+    logger.error('Error verifying email:', error); // Added logger.error for debugging
     // Optional: Redirect to an error page in case of exception
     res.redirect(`${FRONTEND_URL}/verification-failed`);
   }

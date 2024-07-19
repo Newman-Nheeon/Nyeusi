@@ -1,5 +1,6 @@
 const Participant = require('../models/participant');
 const CompetitionState = require('../models/competitionState');
+const logger = require('../logger');
 
 
 // Show totalParticipant && count totalParticant
@@ -17,7 +18,7 @@ exports.totalParticipant = async (req, res) => {
 
       res.json({participants, totalParticipants: total});
   } catch (error) {
-      console.error('Error fetching participants:', error);
+      logger.error('Error fetching participants:', error);
       res.status(500).send({ message: 'Failed to retrieve participants.' });
   }
 };
@@ -44,7 +45,7 @@ exports.approveParticipant = async (req, res) => {
       participant 
     });
   } catch (error) {
-    console.error('Failed to approve participant:', error);
+    logger.error('Failed to approve participant:', error);
     res.status(500).json({ 
       message: 'Server error', 
       error: error.message
@@ -73,7 +74,7 @@ exports.declineParticipant = async (req, res) => {
       participant 
     });
   } catch (error) {
-    console.error('Failed to decline participant:', error);
+    logger.error('Failed to decline participant:', error);
     res.status(500).json({ 
       message: 'Server error', 
       error: error.message
@@ -108,7 +109,7 @@ exports.countPendingParticipants = async (req, res) => {
     const countPending = await Participant.countDocuments({ status: 'pending' });
     res.json({ pendingParticipants: countPending });
   } catch (error) {
-    console.error('Failed to count pending participants:', error);
+    logger.error('Failed to count pending participants:', error);
     res.status(500).json({ message: 'Failed to count pending participants', error: error.message });
   }
 };
@@ -135,7 +136,7 @@ exports.searchParticipants = async (req, res) => {
 
         res.json(results);
     } catch (error) {
-        console.error('Search error:', error);
+        logger.error('Search error:', error);
         res.status(500).json({ message: 'Error searching for participants' });
     }
 };
@@ -161,7 +162,7 @@ exports.endCompetition = async (req, res) => {
 
         res.status(200).json({ message: 'Competition has been ended successfully.' });
     } catch (error) {
-        console.error('Failed to end competition:', error);
+        logger.error('Failed to end competition:', error);
         res.status(500).json({ message: 'Server error' });
     }
 };
@@ -184,7 +185,7 @@ exports.startCompetition = async (req, res) => {
         await competitionState.save();
         res.status(200).json({ message: 'Competition has been started successfully.' });
     } catch (error) {
-        console.error('Failed to start competition:', error);
+        logger.error('Failed to start competition:', error);
         res.status(500).json({ message: 'Server error' });
     }
 };
@@ -198,7 +199,7 @@ exports.getCompetitionState = async (req, res) => {
       }
       res.json({ isActive: competitionState.isActive });
   } catch (error) {
-      console.error('Error fetching competition state:', error);
+      logger.error('Error fetching competition state:', error);
       res.status(500).json({ message: 'Server error' });
   }
 };

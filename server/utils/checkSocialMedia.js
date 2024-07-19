@@ -1,4 +1,5 @@
 const Follower = require('../models/followers'); // Adjust the path as necessary
+const logger = require('../logger');
 
 /**
  * Checks if a social media handle exists for a given platform in the database.
@@ -12,7 +13,7 @@ const checkSocialMediaHandle = async (handle, platform) => {
     const follower = await Follower.findOne({ username: handle, platform: platform });
     return !!follower; // Returns true if a follower is found, false otherwise
   } catch (error) {
-    console.error('Error checking social media handle:', error);
+    logger.error('Error checking social media handle:', error);
     throw error; // Rethrow the error for handling upstream if necessary
   }
 };

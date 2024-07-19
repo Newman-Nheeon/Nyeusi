@@ -5,16 +5,25 @@ const mongoose = require("mongoose");
 const cors = require('cors');
 const bodyParser = require('body-parser')
 const path = require('path');
+const morgan = require('morgan');
+const logger = require('./logger');
 
 // configs
 const PORT = process.env.PORT || 8080;
 const app = express();
 dotenv.config();
 app.use((req, res, next) => {
-    console.log(`[Request] ${req.method} ${req.url} - Origin: ${req.headers.origin}`);
+    logger.info(`[Request] ${req.method} ${req.url} - Origin: ${req.headers.origin}`);
     next();
   });
 
+
+// Setup Morgan to use Winston for logging
+app.use(morgan('combined', {
+    stream: {
+      write: (message) => logger.info(message.trim())
+    }
+  }));
 
 
 // Imports
@@ -43,10 +52,10 @@ app.get('/verified', (req, res)=>{res.send("Already Verified");});
 connectDB();
 
 mongoose.connection.on('open', () => {
-    console.log('Connected to MongoDB');
-    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+    logger.info('Connected to MongoDB');
+    app.listen(PORT, () => logger.info(`Server running on port ${PORT}`));
 });
 
 mongoose.connection.on('error', err => {
-    console.error('Database connection error:', err);
+    logger.error('Database connection error:', err);
 });
