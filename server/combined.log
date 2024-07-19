@@ -102,3 +102,12 @@
 {"level":"info","message":"Test specific string: \"https://gbd.nyeusi.org\".indexOf(\"https://gbd.nyeusi.org\") = 0","service":"user-service","timestamp":"2024-07-19 21:19:23"}
 {"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-07-19 21:19:23"}
 {"level":"info","message":"::1 - - [19/Jul/2024:20:19:24 +0000] \"POST /api/submit-email HTTP/1.1\" 400 40 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 OPR/111.0.0.0\"","service":"user-service","timestamp":"2024-07-19 21:19:24"}
+{"level":"info","message":"Connected to MongoDB","service":"user-service","timestamp":"2024-07-19 22:18:44"}
+{"level":"info","message":"Connected to database successfully","service":"user-service","timestamp":"2024-07-19 22:18:44"}
+{"level":"info","message":"Server running on port 8080","service":"user-service","timestamp":"2024-07-19 22:18:44"}
+{"level":"info","message":"[Request] OPTIONS /api/submit-email - Origin: http://localhost:3000","service":"user-service","timestamp":"2024-07-19 22:19:01"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-07-19 22:19:01"}
+{"level":"info","message":"::1 - - [19/Jul/2024:21:19:01 +0000] \"OPTIONS /api/submit-email HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 OPR/111.0.0.0\"","service":"user-service","timestamp":"2024-07-19 22:19:01"}
+{"level":"info","message":"[Request] POST /api/submit-email - Origin: http://localhost:3000","service":"user-service","timestamp":"2024-07-19 22:19:01"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-07-19 22:19:01"}
+{"level":"info","message":"::1 - - [19/Jul/2024:21:19:02 +0000] \"POST /api/submit-email HTTP/1.1\" 400 40 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 OPR/111.0.0.0\"","service":"user-service","timestamp":"2024-07-19 22:19:02"}

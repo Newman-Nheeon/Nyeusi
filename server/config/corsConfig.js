@@ -10,13 +10,13 @@ const currentEnv = process.env.NODE_ENV || 'development';
 // CORS options
 const corsOptions = {
   origin: function (origin, callback) {
-    logger.info(`Current environment is: ${currentEnv}`);
-    logger.info(`Whitelist for ${currentEnv}: ${whitelist[currentEnv]}`);
-    logger.info(`Whitelist type: ${whitelist[currentEnv].constructor.name}`);
-    logger.info(`[CORS] Received request from origin: ${origin}`);
-    logger.info(`Origin type: ${origin ? origin.constructor.name : 'undefined'}`);
-    logger.info(`Check origin in whitelist: ${whitelist[currentEnv].indexOf(origin)}`);
-    logger.info(`Test specific string: "https://gbd.nyeusi.org".indexOf("https://gbd.nyeusi.org") = ${"https://gbd.nyeusi.org".indexOf("https://gbd.nyeusi.org")}`);
+    // logger.info(`Current environment is: ${currentEnv}`);
+    // logger.info(`Whitelist for ${currentEnv}: ${whitelist[currentEnv]}`);
+    // logger.info(`Whitelist type: ${whitelist[currentEnv].constructor.name}`);
+    // logger.info(`[CORS] Received request from origin: ${origin}`);
+    // logger.info(`Origin type: ${origin ? origin.constructor.name : 'undefined'}`);
+    // logger.info(`Check origin in whitelist: ${whitelist[currentEnv].indexOf(origin)}`);
+    // logger.info(`Test specific string: "https://gbd.nyeusi.org".indexOf("https://gbd.nyeusi.org") = ${"https://gbd.nyeusi.org".indexOf("https://gbd.nyeusi.org")}`);
     
     if (whitelist[currentEnv].indexOf(origin) !== -1 || !origin) {
       logger.info(`[CORS] Origin allowed: ${origin}`);
