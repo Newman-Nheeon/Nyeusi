@@ -10,7 +10,7 @@ mongoose.set('strictQuery', true);
 const logger = require('../logger');
 
 // Ensure your DB connection string is correctly defined in your .env file
-mongoose.connect(process.env.DB, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.DB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => logger.info('MongoDB connected'))
   .catch(err => logger.error('MongoDB connection error:', err));
 
