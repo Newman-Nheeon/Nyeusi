@@ -20,7 +20,7 @@ exports.submitEmail = async (req, res) => {
   const verifyUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${captcha}`;
 
   try {
-    logger.info('Recaptcha checks);
+    logger.info('Recaptcha checks');
     const captchaVerifyResponse = await axios.post(verifyUrl);
     const data = captchaVerifyResponse.data;
     logger.info('is recaptchs sucessful');
