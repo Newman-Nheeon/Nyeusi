@@ -56,7 +56,7 @@ logger.info('test 4');
   } catch (error) {
     logger.info('--Error in registering Participant:', error);
     logger.error('Error in registering Participant:', error);
-    res.status(500).send({ message: 'Failed to register user.' });
+    res.status(500).send({ message: 'Failed to register user. ' + error });
   }
 };
 
