@@ -6,6 +6,7 @@ const axios = require('axios');
 const logger = require('../logger');
 
 exports.submitEmail = async (req, res) => {
+  logger.info('Checks started');
   const { email, captcha } = req.body;
   if (!email) {
     return res.status(400).send({ message: 'Email address is required' });
@@ -13,32 +14,33 @@ exports.submitEmail = async (req, res) => {
   if (!captcha) {
     return res.status(400).send({ message: 'Captcha is required.' });
   }
-  
+  logger.info('Checks done');
   // Google reCAPTCHA verification
   const secretKey = process.env.RECAPTCHA_SECRET_KEY;
   const verifyUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${captcha}`;
 
   try {
+    logger.info('Recaptcha checks);
     const captchaVerifyResponse = await axios.post(verifyUrl);
     const data = captchaVerifyResponse.data;
-
+    logger.info('is recaptchs sucessful');
     if (!data.success) {
       return res.status(400).json({ message: "Invalid Captcha. Try again.", errors: data['error-codes'] });
     }
-
+    logger.info('test 1');
     let participant = await Participant.findOne({ email });
 
     // Check if the participant has already registered and verified their email
     if (participant && participant.isEmailVerified) {
       return res.status(400).send({ message: 'Email is already verified.' });
     }
-
+logger.info('test 2');
     // If already registered but not verified, resend the verification email
     if (participant && !participant.isEmailVerified) {
       await emailService.sendVerificationEmail(email, participant.verificationToken);
       return res.send({ message: 'Verification email resent.' });
     }
-
+logger.info('test 3');
     // New registration
     const verificationToken = crypto.randomBytes(32).toString('hex');
     participant = new Participant({
@@ -46,11 +48,13 @@ exports.submitEmail = async (req, res) => {
       verificationToken,
       isEmailVerified: false,
     });
-
+logger.info('test 4');
     await participant.save();
     await emailService.sendVerificationEmail(email, verificationToken);
     res.send({ message: 'Verification email sent.' });
+    logger.info('test 5');
   } catch (error) {
+    logger.info('--Error in registering Participant:', error);
     logger.error('Error in registering Participant:', error);
     res.status(500).send({ message: 'Failed to register user.' });
   }
