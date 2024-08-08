@@ -31,7 +31,7 @@ const importFollowersFromCSV = (filePath, platform) => {
 };
 
 // Correctly specify the path to your CSV file
-const filePath = path.join(__dirname, '../followers/newman_nheeon-followers.csv');
+const filePath = path.join(__dirname, '../followers/followers.csv');
 const platform = 'instagram';
 
 importFollowersFromCSV(filePath, platform);

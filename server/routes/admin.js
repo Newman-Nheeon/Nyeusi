@@ -16,21 +16,33 @@ const {
     getCompetitionState
 } = require('../controllers/adminController');
 
-router.post('/register', registerAdmin);
+// Admin registration - Only accessible by super admins
+router.post('/register', verifyJWT, registerAdmin);
+
+// Admin login
 router.post('/login', loginAdmin);
 router.post('/new-password', setNewPassword);
 router.post('/forget-password', forgotPassword);
-router.get('/dashboard', verifyJWT, (req, res) => {res.status(200).send('Access to the admin dashboard.');});
+
+// Protect all admin routes
+router.use(verifyJWT);
+
+router.get('/dashboard', (req, res) => {
+    // Replace with actual dashboard logic
+    res.status(200).json({ message: 'Access to the admin dashboard', user: req.admin });
+});
 router.patch('/approve/:participantId', approveParticipant);
 router.patch('/decline/:participantId', declineParticipant);
 router.get('/count-approved', countApprovedParticipants);
 router.get('/count-declined', countDeclinedParticipants);
-router.get('/count-pending', countPendingParticipants)
+router.get('/count-pending', countPendingParticipants);
 router.get('/total-participant', totalParticipant);
-router.get('/validate-token', verifyJWT, (req, res) => {res.status(200).json({ message: 'Token is valid', user: req.user });});
+router.get('/validate-token', (req, res) => {
+    res.status(200).json({ message: 'Token is valid', user: req.admin });
+});
 router.get('/search', searchParticipants);
 router.patch('/end', endCompetition);
 router.post('/start', startCompetition);
-router.get('/competition-state', getCompetitionState)
+router.get('/competition-state', getCompetitionState);
 
 module.exports = router;
