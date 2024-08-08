@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import axios from "axios";
+import axiosInstance from "../axiosInstance"; // Import the Axios instance
 
 const useCompetitionState = () => {
   const [competitionState, setCompetitionState] = useState("");
@@ -10,7 +10,7 @@ const useCompetitionState = () => {
       const apiBaseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
       const stateAPI = `${apiBaseURL}/admin/competition-state`;
       try {
-        const response = await axios.get(stateAPI);
+        const response = await axiosInstance.get(stateAPI); // Use the Axios instance
         setCompetitionState(response.data.state);
         console.log("Competition State:", competitionState);
       } catch (error) {
@@ -20,8 +20,6 @@ const useCompetitionState = () => {
 
     fetchCompetitionState();
   }, []);
-
-  //
 
   return competitionState;
 };

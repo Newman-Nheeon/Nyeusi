@@ -32,17 +32,22 @@ const Login = () => {
       const response = await axios.post(apiURL, { login, password });
       setResponseLog(`Response received: ${JSON.stringify(response.data)}`); // Now setResponseLog is defined
       console.log("Login Successful");
-    
-      window.location.href = "/dashboard";
 
-  } catch (error) {
+      // Store the token in localStorage
+      const token = response.data.token;
+      console.log("Token received:", token);
+      localStorage.setItem('token', token);
+
+      // Redirect to the dashboard
+      window.location.href = "/dashboard";
+    } catch (error) {
       console.error("Login request failed with error:", error);
       const errorMessage = error.response && error.response.data && error.response.data.message
           ? error.response.data.message
           : "Login failed due to an unknown error.";
       console.error("Login Failed:", errorMessage);
-  }
-};
+    }
+  };
 
   const handleForgetPassword = async (e) => {
     e.preventDefault();

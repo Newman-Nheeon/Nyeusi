@@ -21,7 +21,7 @@ import {
 import { Pointer, icons } from "lucide-react";
 import ParticipantInfo from "./ParticipantInfo";
 import { Checkbox } from "./ui/checkbox";
-import axios from "axios";
+import axiosInstance from "../axiosInstance"; // Import the Axios instance
 
 const Headers = [
   {
@@ -133,7 +133,7 @@ const TableData = ({ participants, handleApprove, handleDecline }) => {
           ))}
         </TableHeader>
         <TableBody>
-          {participants?.map((info, i) => (
+          {currentItems.map((info, i) => (
             <TableRow
               key={i}
               style={{
@@ -166,6 +166,7 @@ const TableData = ({ participants, handleApprove, handleDecline }) => {
                 <p className="truncate w-[120px] flex gap-2 items-center">
                   {statusIcons.map((icon) => (
                     <img
+                      key={icon[info.status]}
                       src={`/assets/icons/${icon[info.status]}`}
                       alt={icon[info.status]}
                     />

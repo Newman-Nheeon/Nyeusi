@@ -1,13 +1,12 @@
 "use client";
 import cookie from "cookie";
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import StatsCard from "./StatsCard";
 import TableData from "./TableData";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import axios from "axios";
+import axiosInstance from "../axiosInstance"; // Import the Axios instance
 
 import {
   Select,
@@ -36,11 +35,11 @@ export default function Dashboard() {
   const competitionState = useCompetitionState();
 
   const fetchParticipants = async () => {
-    const apiBaseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
-    const apiURL = `${apiBaseURL}/admin/total-participant`;
+    const apiURL = `/total-participant`;
     setSelectedStatus("all");
     try {
-      const response = await axios.get(apiURL);
+      const response = await axiosInstance.get(apiURL);
+      console.log("Token used for fetching participants:", localStorage.getItem('token'));
       setParticipants(response.data.participants);
       setFilterParticipants(response.data.participants);
     } catch (error) {
@@ -55,14 +54,11 @@ export default function Dashboard() {
   const apiBaseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
   useEffect(() => {
-    const competitionState = async () => {
+    const fetchCompetitionState = async () => {
       try {
-        const response = await fetch(`${apiBaseURL}/admin/competition-state`);
-        if (!response.ok) {
-          throw new Error("Failed to fetch competition state");
-        }
-        const data = await response.json();
-        if (data.isActive === false) {
+        const response = await axiosInstance.get(`/competition-state`);
+        console.log("Token used for fetching competition state:", localStorage.getItem('token'));
+        if (response.data.isActive === false) {
           setStart(true);
           setEnd(false);
         } else {
@@ -75,7 +71,7 @@ export default function Dashboard() {
       }
     };
 
-    competitionState();
+    fetchCompetitionState();
   }, []);
 
   const handleStatusSelect = (value) => {
@@ -83,34 +79,31 @@ export default function Dashboard() {
   };
 
   const handleStart = async () => {
-    const startAPI = `${apiBaseURL}/admin/start`;
-
     try {
-      const response = await axios.post(startAPI);
-      setStart(response);
+      const response = await axiosInstance.post(`/start`);
+      setStart(response.data);
     } catch (error) {
-      console.error("Error starting competition");
+      console.error("Error starting competition:", error);
     }
   };
-  const handleEnd = async () => {
-    const endAPI = `${apiBaseURL}/admin/end`;
 
+  const handleEnd = async () => {
     try {
-      const endResponse = await fetch(endAPI, { method: "PATCH" });
-      if (endResponse.status == 200) {
+      const response = await axiosInstance.patch(`/end`);
+      if (response.status === 200) {
         alert("Competition ended");
       }
     } catch (error) {
-      console.error("Error ending competition");
+      console.error("Error ending competition:", error);
     }
   };
 
   const handleSearchFilter = async () => {
-    const filterAPI = `${apiBaseURL}/admin/total-participant?status=${selectedStatus}`;
+    const filterAPI = `/total-participant?status=${selectedStatus}`;
     try {
-      const filterResponse = await axios.get(filterAPI);
-      if (filterResponse.status == 200) {
-        if (search != "" || search != null) {
+      const filterResponse = await axiosInstance.get(filterAPI);
+      if (filterResponse.status === 200) {
+        if (search !== "" || search !== null) {
           setFilterParticipants(
             filterResponse.data.participants.filter(
               (participant) =>
@@ -133,11 +126,9 @@ export default function Dashboard() {
 
   // Function to handle approve of participant
   const handleApprove = async (participantID) => {
-    const apiBaseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
-    const apiURL = `${apiBaseURL}/admin/approve/${participantID}`;
     try {
-      const response = await fetch(apiURL, { method: "PATCH" });
-      if (response.status == 200) {
+      const response = await axiosInstance.patch(`/approve/${participantID}`);
+      if (response.status === 200) {
         fetchParticipants();
         alert("Participant approved successfully");
       }
@@ -145,13 +136,12 @@ export default function Dashboard() {
       console.error("Error accepting participants:", error);
     }
   };
+
   // Function to handle approve of participant
   const handleDecline = async (participantID) => {
-    const apiBaseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
-    const apiURL = `${apiBaseURL}/admin/decline/${participantID}`;
     try {
-      const response = await fetch(apiURL, { method: "PATCH" });
-      if (response.status == 200) {
+      const response = await axiosInstance.patch(`/decline/${participantID}`);
+      if (response.status === 200) {
         fetchParticipants();
         alert("Participant declined successfully");
       }

@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import axios from "axios";
+import axiosInstance from "../axiosInstance"; // Import the Axios instance
 
 const StatsCard = () => {
   const [totalParticipants, setTotalParticipants] = useState(0);
@@ -11,11 +11,10 @@ const StatsCard = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const apiBaseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
-      const apiURLTotal = `${apiBaseURL}/admin/total-participant`;
-      const apiURLApproved = `${apiBaseURL}/admin/count-approved`;
-      const apiURLPending = `${apiBaseURL}/admin/count-pending`;
-      const apiURLDeclined = `${apiBaseURL}/admin/count-declined`;
+      const apiURLTotal = `/total-participant`;
+      const apiURLApproved = `/count-approved`;
+      const apiURLPending = `/count-pending`;
+      const apiURLDeclined = `/count-declined`;
 
       try {
         const [
@@ -24,10 +23,10 @@ const StatsCard = () => {
           pendingEntriesResponse,
           declinedEntriesResponse,
         ] = await Promise.all([
-          axios.get(apiURLTotal),
-          axios.get(apiURLApproved),
-          axios.get(apiURLPending),
-          axios.get(apiURLDeclined),
+          axiosInstance.get(apiURLTotal),
+          axiosInstance.get(apiURLApproved),
+          axiosInstance.get(apiURLPending),
+          axiosInstance.get(apiURLDeclined),
         ]);
 
         console.log(
@@ -47,8 +46,7 @@ const StatsCard = () => {
           declinedEntriesResponse.data.declinedParticipants
         );
       } catch (error) {
-        `        console.error("Error fetching data:", error);
-`;
+        console.error("Error fetching data:", error);
       }
     };
 
