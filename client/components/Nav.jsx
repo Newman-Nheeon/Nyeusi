@@ -111,9 +111,9 @@ const Nav = () => {
             <Link href="/support" className="yellow_btn">
               SUPPORT US
             </Link>
-            <Link href="/register" className="outline_btn">
+            {/* <Link href="/register" className="outline_btn">
               REGISTER
-            </Link>
+            </Link> */}
 
             {}
           </div>
