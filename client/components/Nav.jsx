@@ -6,11 +6,11 @@ import { useState, useEffect } from "react";
 // import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 // , "ACTIVITIES", "BLOG", "", ''
 const navLinks = [
-  { href: "/about", text: "ABOUT" },
-  { href: "/activities", text: "ACTIVITIES" },
-  { href: "/activities", text: "BLOG" },
-  { href: "/activities", text: "NYEUNGANA" },
-  { href: "/activities", text: "LOYALTY" },
+  { href: "https://nyeusi.org/about-us/", text: "ABOUT" },
+  { href: "https://nyeusi.org/our-activities/", text: "ACTIVITIES" },
+  { href: "https://nyeusi.org/blog/", text: "BLOG" },
+  { href: "https://nyeusi.org/nyeungana/", text: "NYEUNGANA" },
+  { href: "https://nyeusi.org/loyalty/", text: "LOYALTY" },
 ];
 
 const Nav = () => {
@@ -69,19 +69,19 @@ const Nav = () => {
                   </Link>
                 ))}
                 <Link
-                  href="/support"
+                  href="https://nyeusi.org/support-us/"
                   className="yellow_btn w-40"
                   onClick={closeDropdown}
                 >
                   SUPPORT US
                 </Link>
-                <Link
+                {/* <Link
                   href="/register"
                   className="outline_btn"
                   onClick={closeDropdown}
                 >
                   REGISTER
-                </Link>
+                </Link> */}
               </div>
             )}
           </div>

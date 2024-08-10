@@ -1,7 +1,7 @@
 import Nav from "../components/Nav";
 import "../styles/globals.css";
 export const metadata = {
-  title: "Nyseuia",
+  title: "Nyeusi",
   description: "Discover Talents",
 };
 
