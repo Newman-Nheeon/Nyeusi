@@ -32,7 +32,8 @@ const VerifyEmail = () => {
             />
           </CardHeader>
           <CardDescription className="text-lg font-medium font-mont text-center w-[380px] mb-1">
-            We have sent a confirmation link to email
+            We have sent an email to the address you provide. Please
+            check your inbox. Note: you may need to check your spam box
           </CardDescription>
           <CardDescription className="text-sm font-mont text-center w-[370px]">
             Didn't get the mail? {""}
