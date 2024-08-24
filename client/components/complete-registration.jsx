@@ -223,6 +223,8 @@ const completeRegistration = () => {
     }));
   };
 
+
+
   return (
     <div
       className="outer_card"
@@ -320,15 +322,15 @@ const completeRegistration = () => {
                     >
                       <SelectTrigger className=" input">
                         <SelectValue
-                          placeholder="Select platform"
+                          placeholder="Select the social media plaform used"
                           className="text-slate-300"
                         />
                       </SelectTrigger>
                       <SelectContent className="bg-white">
                         <SelectGroup>
-                          <SelectLabel className="text-slate-300">
+                          {/* <SelectLabel className="text-slate-300">
                             Social Handle
-                          </SelectLabel>
+                          </SelectLabel> */}
 
                           {socialMediaOptions.map((social, i) => (
                             <SelectItem key={i} value={social.label}>
@@ -348,37 +350,70 @@ const completeRegistration = () => {
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 justify-center place-content-start gap-4 text-white">
+
                   <div className="flex flex-col space-y-1.5">
                     <Label htmlFor="picture" className="label">
                       Upload Profile Picture
                     </Label>
-                    <Input
-                      id="profileImage"
-                      name="profileImage"
-                      type="file"
-                      accept="image/*"
-                      className="input"
-                      onChange={handleChange}
-                    />
+                    <div className="relative">
+                      <Input
+                        id="profileImage"
+                        name="profileImage"
+                        type="file"
+                        accept="image/*"
+                        className="absolute inset-0 z-10 w-full h-full opacity-0 cursor-pointer"
+                        onChange={handleChange}
+                      />
+                      <div className="input-box-placeholder relative w-full h-10 bg-white border border-input border-gray-300 rounded-[5px] py-2 px-3 text-sm">
+                        {!formValues.profileImage && (
+                          <span className="text-gray-500 text-sm">
+                            Upload your profile picture...
+                          </span>
+                        )}
+                        {formValues.profileImage && (
+                          <span className="text-black text-sm">
+                            {formValues.profileImage.name}
+                          </span>
+                        )}
+                      </div>
+                    </div>
                     {submitted && !formValues.profileImage && (
-                      <span className="error_log">
+                      <span className="text-red-500 text-xs mt-1">
                         Please upload a profile Image
                       </span>
                     )}
                   </div>
 
+
+
+
+
                   <div className="flex flex-col space-y-1.5">
                     <Label htmlFor="picture" className="label">
                       Entry Image
                     </Label>
-                    <Input
-                      id="entryImage"
-                      name="entryImage"
-                      type="file"
-                      accept="image/*"
-                      className="input"
-                      onChange={handleChange}
-                    />
+                    <div className="relative">
+                      <Input
+                        id="entryImage"
+                        name="entryImage"
+                        type="file"
+                        accept="image/*"
+                        className="absolute inset-0 z-10 w-full h-full opacity-0 cursor-pointer"
+                        onChange={handleChange}
+                      />
+                      <div className="input-box-placeholder relative w-full h-10 bg-white border border-input border-gray-300 rounded-[5px] py-2 px-3 text-sm">
+                        {!formValues.entryImage && (
+                          <span className="text-gray-500 text-sm">
+                            Upload a screenshot of your post here..
+                          </span>
+                        )}
+                        {formValues.entryImage && (
+                          <span className="text-black text-sm">
+                            {formValues.profileImage.name}
+                          </span>
+                        )}
+                      </div>
+                    </div>
                     {submitted && !formValues.entryImage && (
                       <span className="error_log">
                         Please upload an entry Image
@@ -392,7 +427,7 @@ const completeRegistration = () => {
                     Comment
                   </Label>
                   <Textarea
-                    placeholder="Type your message here."
+                    placeholder="Provide any additional comment that you think might be useful here."
                     id="message"
                     className="input"
                     name="comment"
@@ -417,7 +452,19 @@ const completeRegistration = () => {
                       Accept terms and conditions
                     </a>
                   </label>
+
                 </div>
+
+                <span className="max-w-lg font-mont text-slate-400 pt-0 ">
+
+                  NB: Don't forget to use the compulsory hashtags - please see the
+                  <span className="text-sm font-regular cursor-pointer text-red-400 font-mont">
+                    <a href="https://nyeusi.org/give-black-december/" target="_blank">
+                      &nbsp;competition page&nbsp;
+                    </a>
+                  </span>
+                  for more details
+                </span>
               </div>
             </form>
           </CardContent>
