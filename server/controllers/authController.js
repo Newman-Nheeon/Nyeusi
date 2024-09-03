@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 const Admin = require('../models/admin');
 const logger = require('../logger');
 require('dotenv').config();
+const axios = require('axios');
 
 // Admin registration
 exports.registerAdmin = async (req, res) => {
@@ -42,10 +43,27 @@ exports.registerAdmin = async (req, res) => {
 
 // Admin login
 exports.loginAdmin = async (req, res) => {
-  const { login, password } = req.body;
+  const { login, password, captcha } = req.body;
 
   try {
     logger.info(`Login attempt: ${login}`);
+
+    // Verify the reCAPTCHA token
+    if (!captcha) {
+      logger.warn('reCAPTCHA token missing');
+      return res.status(400).json({ message: 'Please complete the reCAPTCHA' });
+    }
+
+    const secretKey = process.env.RECAPTCHA_SECRET_KEY;
+    const verificationURL = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${captcha}`;
+
+    const captchaResponse = await axios.post(verificationURL);
+    const { success } = captchaResponse.data;
+
+    if (!success) {
+      logger.warn('reCAPTCHA verification failed');
+      return res.status(400).json({ message: 'reCAPTCHA verification failed' });
+    }
 
     const admin = await Admin.findOne({ $or: [{ username: login }, { email: login }] });
     if (!admin) {
@@ -82,14 +100,15 @@ exports.loginAdmin = async (req, res) => {
         id: admin._id,
         username: admin.username,
         email: admin.email,
-        role: admin.role
-      }
+        role: admin.role,
+      },
     });
   } catch (error) {
     logger.error('Server error during login:', error);
     res.status(500).json({ message: 'Server error' });
   }
 };
+
 
 // Set New Password
 exports.setNewPassword = async (req, res) => {

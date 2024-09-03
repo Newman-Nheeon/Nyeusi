@@ -5,6 +5,8 @@ const checkSocialMediaHandle = require('../utils/checkSocialMedia');
 const axios = require('axios');
 const logger = require('../logger');
 
+
+// Submit email
 exports.submitEmail = async (req, res) => {
   logger.info('Checks started');
   const { email, captcha } = req.body;
@@ -59,6 +61,42 @@ logger.info('test 4');
     res.status(500).send({ message: 'Failed to register user. ' + error });
   }
 };
+
+// Resend Verification
+exports.resendVerificationToken = async (req, res) => {
+  const { email } = req.body;
+
+  if (!email) {
+    return res.status(400).send({ message: 'Email address is required' });
+  }
+
+  try {
+    const participant = await Participant.findOne({ email });
+
+    if (!participant) {
+      return res.status(404).send({ message: 'Participant not found' });
+    }
+
+    if (participant.isEmailVerified) {
+      return res.status(400).send({ message: 'Email is already verified.' });
+    }
+
+    // Generate a new verification token
+    const verificationToken = crypto.randomBytes(32).toString('hex');
+    participant.verificationToken = verificationToken;
+    await participant.save();
+
+    // Resend the verification email
+    await emailService.sendVerificationEmail(email, verificationToken);
+
+    res.send({ message: 'Verification email resent successfully.' });
+  } catch (error) {
+    logger.error('Error resending verification token:', error);
+    res.status(500).send({ message: 'Failed to resend verification token. ' + error });
+  }
+};
+
+
 
 exports.completeRegistration = async (req, res) => {
   const { email, firstName, lastName, stageName, socialMediaHandle, comment, termsAccepted, socialMediaPlatform, entrySocialPost } = req.body;

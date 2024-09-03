@@ -1,18 +1,40 @@
 "use client";
 
-import Link from "next/link";
-
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
-  CardTitle,
 } from "@/components/ui/card";
 
-const VerifyEmail = () => {
+const VerifyEmail = ({ email }) => {
+  const [emailSent, setEmailSent] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+
+  const handleResendVerification = async () => {
+    if (!email) {
+      setErrorMessage("No email address available to resend verification.");
+      return;
+    }
+
+    try {
+      const response = await axios.post(`${baseUrl}/resend-verification-token`, { email });
+
+      if (response.status === 200) {
+        setEmailSent(true);
+        setErrorMessage(""); // Clear any previous errors
+      }
+    } catch (error) {
+      setErrorMessage(
+        error.response?.data?.message || "Failed to resend verification email."
+      );
+      setEmailSent(false); // Reset if failed
+    }
+  };
+
   return (
     <div
       className="p-[12px] rounded-xl"
@@ -32,15 +54,31 @@ const VerifyEmail = () => {
             />
           </CardHeader>
           <CardDescription className="text-lg font-medium font-mont text-center w-[380px] mb-1">
-            We have sent an email to the address you provide. Please
-            check your inbox. Note: you may need to check your spam box
+            We have sent an email to the address you provided. Please
+            check your inbox. Note: you may need to check your spam box.
           </CardDescription>
           <CardDescription className="text-sm font-mont text-center w-[370px]">
-            Didn't get the mail? {""}
-            <Link href="/" className="text-yellow-500 font-semibold">
-              Click to resend Link
-            </Link>
+            {emailSent ? (
+              <span className="text-green-500 font-semibold">
+                Verification email resent successfully!
+              </span>
+            ) : (
+              <>
+                Didn't get the mail?{" "}
+                <span
+                  onClick={handleResendVerification}
+                  className="text-yellow-500 font-semibold cursor-pointer"
+                >
+                  Click to resend Link
+                </span>
+              </>
+            )}
           </CardDescription>
+          {errorMessage && (
+            <CardDescription className="text-sm font-mont text-center w-[370px] text-red-500 mt-2">
+              {errorMessage}
+            </CardDescription>
+          )}
         </CardContent>
       </Card>
     </div>

@@ -2,7 +2,6 @@
 
 import axios from "axios";
 import ReCAPTCHA from "react-google-recaptcha";
-import Head from "next/head";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -22,6 +21,7 @@ const submitEmail = () => {
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [formValues, setFormValues] = useState({ email: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false); // Loading state added
   const [requestLog, setRequestLog] = useState("");
   const [responseLog, setResponseLog] = useState("");
   const [errorLog, setErrorLog] = useState("");
@@ -43,6 +43,8 @@ const submitEmail = () => {
       return;
     }
 
+    setLoading(true); // Set loading to true when request starts
+
     const apiBaseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
     const apiURL = `${apiBaseURL}/submit-email`;
 
@@ -60,6 +62,8 @@ const submitEmail = () => {
         : error.message;
       setErrorLog(errorMessage);
       console.error("Error submitting email:", error);
+    } finally {
+      setLoading(false); // Set loading to false when request completes
     }
   };
 
@@ -95,7 +99,7 @@ const submitEmail = () => {
       }}
     >
       {!showConfirmation ? (
-        <Card className="w-auto bg-white  rounded-xl">
+        <Card className="w-auto bg-white rounded-xl">
           <CardHeader>
             <CardTitle className="text-2xl-semibold tracking-wide mb-[8px]">
               Join Nyeusi Music Competition
@@ -140,13 +144,17 @@ const submitEmail = () => {
             </form>
           </CardContent>
           <CardFooter className="flex-col justify-between">
-            <Button className="yellow_btn w-full" onClick={handleSubmit}>
-              Continue
+            <Button
+              className="yellow_btn w-full"
+              onClick={handleSubmit}
+              disabled={loading} // Disable button when loading
+            >
+              {loading ? "Submitting..." : "Continue"}
             </Button>
           </CardFooter>
         </Card>
       ) : (
-        <VerifyEmail />
+        <VerifyEmail email={formValues.email} />
       )}
     </div>
   );

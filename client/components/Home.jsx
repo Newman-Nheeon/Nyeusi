@@ -36,7 +36,7 @@ export default function Dashboard() {
 
   const fetchParticipants = async () => {
     const apiURL = `/total-participant`;
-    setSelectedStatus("all");
+    setSelectedStatus("All");
     try {
       const response = await axiosInstance.get(apiURL);
       console.log("Token used for fetching participants:", localStorage.getItem('token'));

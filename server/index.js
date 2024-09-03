@@ -2,7 +2,7 @@
 const dotenv = require('dotenv');
 const express = require('express');
 const mongoose = require("mongoose");
-// const cors = require('cors');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
 const morgan = require('morgan');
@@ -38,11 +38,11 @@ app.use(morgan('combined', {
 const userRoutes = require('./routes/users');
 const adminRoutes = require('./routes/admin');
 const connectDB = require('./config/db_connect');
-// const corsOptions = require('./config/corsConfig');
+const corsOptions = require('./config/corsConfig');
 
 // Middlewares
 app.use(express.json());
-// app.use(cors(corsOptions));
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
