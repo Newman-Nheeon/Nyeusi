@@ -209,6 +209,21 @@ const VotersHandle = ({ handleClose, participantId }) => {
                   </span>
                 )}
 
+                  <div className="grid w-full gap-1.5">
+                  <Label htmlFor="notice" className="label">
+                    Notice
+                  </Label>
+                  <textarea
+                    id="notice"
+                    className="input w-full bg-white border border-gray-300 rounded-md p-3 text-slate-600"
+                    readOnly
+                    rows={3} // Adjust the number of rows to match the text size
+                    style={{ height: "auto", overflow: "hidden" }} // Prevent scrolling
+                    value={`Please make sure you're following us before registering, otherwise log in to your social media account and follow us before registering. After following, return in 24 hours to allow our system time to update the follower list.`}
+                  />
+                </div>
+
+
                 {error && (
                   <span className="error_log">
                     {error.response &&

@@ -30,42 +30,48 @@ const submitEmail = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     setSubmitted(true);
-
+  
     if (!emailValid || !formValues.email || !captchaValue) {
       let errorMessage = "";
       if (!captchaValue) {
         errorMessage = "Please verify that you are not a robot";
       }
-      console.error(errorMessage);
       setErrorLog(errorMessage);
       return;
     }
-
-    setLoading(true); // Set loading to true when request starts
-
+  
+    setLoading(true);
+  
     const apiBaseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
     const apiURL = `${apiBaseURL}/submit-email`;
-
+  
     const emailData = { email: formValues.email, captcha: captchaValue };
-    setRequestLog(`Submitting email: ${JSON.stringify(emailData)}`);
-
+  
     try {
       const response = await axios.post(apiURL, emailData);
-      setResponseLog(`Response received: ${JSON.stringify(response.data)}`);
-      console.log("Verification link sent");
       setShowConfirmation(true);
     } catch (error) {
-      const errorMessage = error.response
-        ? JSON.stringify(error.response.data)
-        : error.message;
+      const errorMessage = error.response ? error.response.data.message : error.message;
       setErrorLog(errorMessage);
-      console.error("Error submitting email:", error);
+  
+      // Handle case when email is already verified
+      if (error.response && error.response.data.message === "Email already verified") {
+        setErrorLog(
+          <>
+            This email is already verified. Click{" "}
+            <a href={`/complete-registration?email=${formValues.email}`} className="text-blue-500">
+              here
+            </a>{" "}
+            to complete your registration.
+          </>
+        );
+      }
     } finally {
-      setLoading(false); // Set loading to false when request completes
+      setLoading(false);
     }
   };
+  
 
   const validateEmail = (value) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

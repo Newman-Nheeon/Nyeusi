@@ -6,11 +6,9 @@ import { useState, useEffect } from "react";
 // import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 // , "ACTIVITIES", "BLOG", "", ''
 const navLinks = [
-  { href: "https://nyeusi.org/about-us/", text: "ABOUT" },
-  { href: "https://nyeusi.org/our-activities/", text: "ACTIVITIES" },
-  { href: "https://nyeusi.org/blog/", text: "BLOG" },
-  { href: "https://nyeusi.org/nyeungana/", text: "NYEUNGANA" },
-  { href: "https://nyeusi.org/loyalty/", text: "LOYALTY" },
+  { href: "/", text: "SIGN UP" }, // Root page for sign-up
+  { href: "/vote", text: "VOTE" }, // Vote page
+  { href: "https://nyeusi.org", text: "HOME" }, // Official website
 ];
 
 const Nav = () => {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -73,6 +73,20 @@ const completeRegistration = () => {
   const [submitted, setSubmitted] = useState(false);
   const [selectedValue, setSelectedValue] = useState("");
   const [errorLog, setErrorLog] = useState("");
+  const [loading, setLoading] = useState(false);
+  
+
+  // Fetch email from URL query parameters on page load
+  useEffect(() => {
+    const queryParams = new URLSearchParams(window.location.search);
+    const emailParam = queryParams.get("email");
+    if (emailParam) {
+      setFormValues((prevState) => ({
+        ...prevState,
+        email: emailParam,
+      }));
+    }
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -87,6 +101,8 @@ const completeRegistration = () => {
 
       return;
     }
+
+    setLoading(true);
 
     const apiBaseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
     const apiURL = `${apiBaseURL}/complete-registration`;
@@ -125,13 +141,15 @@ const completeRegistration = () => {
         : error.message;
       console.error(`Error submitting registration: ${errorMessage}`);
       setErrorLog(errorMessage);
+    } finally {
+      setLoading(false); // Set loading to false once submission is complete
     }
   };
-
+  
   const validateForm = (values) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     let isValid = true;
-
+  
     if (!emailRegex.test(values.email)) {
       isValid = false;
       console.log("Invalid email:", values.email);
@@ -168,17 +186,14 @@ const completeRegistration = () => {
       isValid = false;
       console.log("upload entry image");
     }
-    // if (values.comment.trim() === "") {
-    //   isValid = false;
-    //   console.log("Comment is empty");
-    // }
     if (!values.termsAccepted) {
       isValid = false;
-      console.log("Terms Not accepted");
+      console.log("Terms not accepted");
     }
-
+  
     return isValid;
   };
+  
 
   const handleChange = (e) => {
     const { name, value, type, checked, files } = e.target;
@@ -257,13 +272,14 @@ const completeRegistration = () => {
                         name={field.id}
                         placeholder={field.placeholder}
                         className="input"
-                        value={formValues[field.label]}
+                        value={formValues[field.id]} // Corrected: Use field.id
                         helperText={
                           formValidation[field.id]
                             ? ""
                             : `Please provide a valid ${field.label.toLowerCase()}`
                         }
                         onChange={handleChange}
+                        readOnly={field.id === "email"} // Make email non-editable
                       />
                       {submitted && !formValues[field.id] && (
                         <span className="error_log">
@@ -351,32 +367,18 @@ const completeRegistration = () => {
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 justify-center place-content-start gap-4 text-white">
 
-                  <div className="flex flex-col space-y-1.5">
+                <div className="flex flex-col space-y-1.5">
                     <Label htmlFor="picture" className="label">
-                      Upload Profile Picture
+                      Upload Your Profile Picture
                     </Label>
-                    <div className="relative">
-                      <Input
-                        id="profileImage"
-                        name="profileImage"
-                        type="file"
-                        accept="image/*"
-                        className="absolute inset-0 z-10 w-full h-full opacity-0 cursor-pointer"
-                        onChange={handleChange}
-                      />
-                      <div className="input-box-placeholder relative w-full h-10 bg-white border border-input border-gray-300 rounded-[5px] py-2 px-3 text-sm">
-                        {!formValues.profileImage && (
-                          <span className="text-gray-500 text-sm">
-                            Upload your profile picture...
-                          </span>
-                        )}
-                        {formValues.profileImage && (
-                          <span className="text-black text-sm">
-                            {formValues.profileImage.name}
-                          </span>
-                        )}
-                      </div>
-                    </div>
+                    <Input
+                      id="profileImage"
+                      name="profileImage"
+                      type="file"
+                      accept="image/*"
+                      className="input"
+                      onChange={handleChange}
+                    />
                     {submitted && !formValues.profileImage && (
                       <span className="text-red-500 text-xs mt-1">
                         Please upload a profile Image
@@ -385,35 +387,18 @@ const completeRegistration = () => {
                   </div>
 
 
-
-
-
                   <div className="flex flex-col space-y-1.5">
                     <Label htmlFor="picture" className="label">
-                      Entry Image
+                     Upload a Screenshot of your Entry Post
                     </Label>
-                    <div className="relative">
-                      <Input
-                        id="entryImage"
-                        name="entryImage"
-                        type="file"
-                        accept="image/*"
-                        className="absolute inset-0 z-10 w-full h-full opacity-0 cursor-pointer"
-                        onChange={handleChange}
-                      />
-                      <div className="input-box-placeholder relative w-full h-10 bg-white border border-input border-gray-300 rounded-[5px] py-2 px-3 text-sm">
-                        {!formValues.entryImage && (
-                          <span className="text-gray-500 text-sm">
-                            Upload a screenshot of your post here..
-                          </span>
-                        )}
-                        {formValues.entryImage && (
-                          <span className="text-black text-sm">
-                            {formValues.profileImage.name}
-                          </span>
-                        )}
-                      </div>
-                    </div>
+                    <Input
+                      id="entryImage"
+                      name="entryImage"
+                      type="file"
+                      accept="image/*"
+                      className="input"
+                      onChange={handleChange}
+                    />
                     {submitted && !formValues.entryImage && (
                       <span className="error_log">
                         Please upload an entry Image
@@ -455,28 +440,51 @@ const completeRegistration = () => {
 
                 </div>
 
-                <span className="max-w-lg font-mont text-slate-400 pt-0 ">
-
-                  NB: Don't forget to use the compulsory hashtags - please see the
+                <div className="grid w-full gap-1.5">
+                  <Label htmlFor="notice" className="label">
+                    Notice
+                  </Label>
+                  <textarea
+                    id="notice"
+                    className="input w-full bg-white border border-gray-300 rounded-md p-3 text-slate-600"
+                    readOnly
+                    rows={5} // Adjust the number of rows to match the text size
+                    style={{ height: "auto", overflow: "hidden" }} // Prevent scrolling
+                    value={`Please make sure you're following us before registering, otherwise log in to your social media account and follow us before registering. After following, return in 24 hours to allow our system time to update the follower list. Don't forget to use the compulsory hashtags. Please see the competition page for more details.`}
+                  />
                   <span className="text-sm font-regular cursor-pointer text-red-400 font-mont">
                     <a href="https://nyeusi.org/give-black-december/" target="_blank">
-                      &nbsp;competition page&nbsp;
+                      &nbsp;Link to Competition Page&nbsp;
                     </a>
                   </span>
-                  for more details
-                </span>
+                </div>
+
+
               </div>
             </form>
           </CardContent>
           <CardFooter className="flex-col justify-between">
-            <Button
-              type="submit"
-              className="yellow_btn w-full mb-2"
-              onClick={handleSubmit}
-            >
-              Continue
-            </Button>
-            {errorLog && <div className="log error_log">{errorLog}</div>}
+          <Button
+                  type="submit"
+                  onClick={handleSubmit}
+                  className="yellow_btn w-full mb-2"
+                  disabled={loading} // Disable button when loading
+                >
+                  {loading ? "Submitting..." : "Continue"} {/* Show "Submitting..." when loading */}
+                </Button>
+                {errorLog && (
+                  <div
+                    className="log error_log text-red-500 mt-2"
+                    style={{
+                      maxWidth: "100%",
+                      whiteSpace: "pre-wrap",
+                      wordWrap: "break-word",
+                    }}
+                  >
+                    {errorLog}
+                  </div>
+                )}
+                
           </CardFooter>
         </Card>
       ) : (

@@ -5546,3 +5546,8 @@
 {"level":"info","message":"::1 - - [07/Sep/2024:09:21:45 +0000] \"POST /api/submit-email HTTP/1.1\" 200 38 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-07 10:21:45"}
 {"level":"info","message":"[CORS] Origin allowed: undefined","service":"user-service","timestamp":"2024-09-07 10:22:07"}
 {"level":"info","message":"::1 - - [07/Sep/2024:09:22:07 +0000] \"GET /api/verify-email?token=bdf829db90de6ca09a47d85bd4b37a0d36a334a0efb4f3f402c5da7d28d4e8ac HTTP/1.1\" 302 190 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-07 10:22:07"}
+{"level":"info","message":"Connected to MongoDB","service":"user-service","timestamp":"2024-09-07 10:26:28"}
+{"level":"info","message":"Default Admin Details: Username: superadmin, Email: superadmin@example.com","service":"user-service","timestamp":"2024-09-07 10:26:28"}
+{"level":"info","message":"Connected to database successfully","service":"user-service","timestamp":"2024-09-07 10:26:28"}
+{"level":"info","message":"Default super admin already exists with username: superadmin","service":"user-service","timestamp":"2024-09-07 10:26:29"}
+{"level":"info","message":"Server running on port 8080","service":"user-service","timestamp":"2024-09-07 10:26:29"}

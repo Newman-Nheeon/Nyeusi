@@ -11,6 +11,7 @@ import {
 
 const VerifyEmail = ({ email }) => {
   const [emailSent, setEmailSent] = useState(false);
+  const [loading, setLoading] = useState(false); // Loading state added
   const [errorMessage, setErrorMessage] = useState("");
   const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
 
@@ -19,6 +20,8 @@ const VerifyEmail = ({ email }) => {
       setErrorMessage("No email address available to resend verification.");
       return;
     }
+
+    setLoading(true); // Set loading to true when resend starts
 
     try {
       const response = await axios.post(`${baseUrl}/resend-verification-token`, { email });
@@ -32,6 +35,8 @@ const VerifyEmail = ({ email }) => {
         error.response?.data?.message || "Failed to resend verification email."
       );
       setEmailSent(false); // Reset if failed
+    } finally {
+      setLoading(false); // Set loading to false when request completes
     }
   };
 
@@ -69,7 +74,7 @@ const VerifyEmail = ({ email }) => {
                   onClick={handleResendVerification}
                   className="text-yellow-500 font-semibold cursor-pointer"
                 >
-                  Click to resend Link
+                  {loading ? "Resending link..." : "Click to resend Link"}
                 </span>
               </>
             )}
