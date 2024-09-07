@@ -116,15 +116,18 @@ exports.completeRegistration = async (req, res) => {
       return res.status(400).send('Participant is already fully registered.');
     }
 
-    if (!firstName || !lastName || !stageName || !socialMediaHandle || !entrySocialPost || !comment || termsAccepted === undefined || !socialMediaPlatform || !profileImagePath || !entryImagePath) {
+    if (!firstName || !lastName || !stageName || !socialMediaHandle || !entrySocialPost || termsAccepted === undefined || !socialMediaPlatform || !profileImagePath || !entryImagePath) {
       return res.status(400).send('All fields must be filled to complete registration.');
     }
 
     // Check if the social media handle exists for the given platform
     const handleExists = await checkSocialMediaHandle(socialMediaHandle, socialMediaPlatform);
-    if (!handleExists) {
-      return res.status(400).send('Social media handle does not exist on the specified platform.');
-    }
+if (!handleExists) {
+  return res.status(400).send(
+    `It looks like you are not currently following us on the selected social media platform.`
+  );
+}
+
 
     // Proceed with updating the user's registration details
     user.firstName = firstName;
@@ -132,7 +135,7 @@ exports.completeRegistration = async (req, res) => {
     user.stageName = stageName;
     user.socialMediaHandle = socialMediaHandle;
     user.entrySocialPost = entrySocialPost;
-    user.comment = comment;
+    user.comment = comment || "";
     user.termsAccepted = termsAccepted;
     user.socialMediaPlatform = socialMediaPlatform;
     user.profileImage = profileImagePath;
@@ -161,19 +164,17 @@ exports.verifyEmail = async (req, res) => {
     const user = await Participant.findOne({ verificationToken: token });
 
     if (!user) {
-      // Optional: Redirect to an error page if the token is invalid or expired
       return res.redirect(`${FRONTEND_URL}/verification-failed`);
     }
 
-    user.isEmailVerified = true; // Corrected field name
-    user.verificationToken = ''; // Clear the verification token
+    user.isEmailVerified = true; 
+    user.verificationToken = ''; 
     await user.save();
 
-    // Redirect to a success page instead of sending JSON
-    res.redirect(`${FRONTEND_URL}/verification?verified=true`);
+    // Redirect to complete registration page with email as a query parameter
+    res.redirect(`${FRONTEND_URL}/complete-registration?email=${user.email}`);
   } catch (error) {
-    logger.error('Error verifying email:', error); // Added logger.error for debugging
-    // Optional: Redirect to an error page in case of exception
+    logger.error('Error verifying email:', error);
     res.redirect(`${FRONTEND_URL}/verification-failed`);
   }
 };

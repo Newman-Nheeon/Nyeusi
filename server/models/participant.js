@@ -13,7 +13,7 @@ const participantSchema = new mongoose.Schema({
   lastName: String,
   profileImage: String, // Store the path or URL to the image
   entryImage: String, // Store the path or URL to the image
-  comment: String,
+  comment: { type: String, required: false },
   termsAccepted: { type: Boolean, default: false },
   totalVotes: { type: Number, default: 0 },
   status: { 

@@ -11,7 +11,10 @@ exports.submitVote = async (req, res) => {
     // Check if the social media handle exists for the given platform
     const handleExists = await checkSocialMediaHandle(voterHandle, voterPlatform);
     if (!handleExists) {
-      return res.status(400).send({ message: 'Voter social media handle does not exist on the specified platform.' });
+      return res.status(400).json({
+        success: false,
+        message: 'It looks like you are not currently following us on the selected social media platform.'
+      });
     }
 
     // Check if the voter has already voted for this participant

@@ -4945,3 +4945,604 @@
 {"level":"info","message":"Connected to database successfully","service":"user-service","timestamp":"2024-08-15 16:37:35"}
 {"level":"info","message":"Default super admin already exists with username: superadmin","service":"user-service","timestamp":"2024-08-15 16:37:36"}
 {"level":"info","message":"Server running on port 8080","service":"user-service","timestamp":"2024-08-15 16:37:36"}
+{"level":"info","message":"Connected to MongoDB","service":"user-service","timestamp":"2024-09-06 09:53:50"}
+{"level":"info","message":"Default Admin Details: Username: superadmin, Email: superadmin@example.com","service":"user-service","timestamp":"2024-09-06 09:53:50"}
+{"level":"info","message":"Connected to database successfully","service":"user-service","timestamp":"2024-09-06 09:53:50"}
+{"level":"info","message":"Default super admin already exists with username: superadmin","service":"user-service","timestamp":"2024-09-06 09:53:51"}
+{"level":"info","message":"Server running on port 8080","service":"user-service","timestamp":"2024-09-06 09:53:51"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 10:01:00"}
+{"level":"info","message":"::1 - - [06/Sep/2024:09:01:00 +0000] \"OPTIONS /api/submit-email HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 10:01:00"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 10:01:00"}
+{"level":"info","message":"Checks started","service":"user-service","timestamp":"2024-09-06 10:01:00"}
+{"level":"info","message":"Checks done","service":"user-service","timestamp":"2024-09-06 10:01:00"}
+{"level":"info","message":"Recaptcha checks","service":"user-service","timestamp":"2024-09-06 10:01:00"}
+{"level":"info","message":"is recaptchs sucessful","service":"user-service","timestamp":"2024-09-06 10:01:01"}
+{"level":"info","message":"test 1","service":"user-service","timestamp":"2024-09-06 10:01:01"}
+{"level":"info","message":"test 2","service":"user-service","timestamp":"2024-09-06 10:01:01"}
+{"level":"info","message":"test 3","service":"user-service","timestamp":"2024-09-06 10:01:01"}
+{"level":"info","message":"test 4","service":"user-service","timestamp":"2024-09-06 10:01:01"}
+{"level":"info","message":"test 5","service":"user-service","timestamp":"2024-09-06 10:01:04"}
+{"level":"info","message":"::1 - - [06/Sep/2024:09:01:04 +0000] \"POST /api/submit-email HTTP/1.1\" 200 38 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 10:01:04"}
+{"level":"info","message":"[CORS] Origin allowed: undefined","service":"user-service","timestamp":"2024-09-06 10:01:16"}
+{"level":"info","message":"::1 - - [06/Sep/2024:09:01:16 +0000] \"GET /api/verify-email?token=6b19a1f0855b086086de6d8c3b155a384ce4ec5aefcad25ef974af16629faa07 HTTP/1.1\" 302 140 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 10:01:16"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 10:20:43"}
+{"level":"info","message":"::1 - - [06/Sep/2024:09:20:43 +0000] \"OPTIONS /api/submit-email HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 10:20:43"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 10:20:43"}
+{"level":"info","message":"Checks started","service":"user-service","timestamp":"2024-09-06 10:20:43"}
+{"level":"info","message":"Checks done","service":"user-service","timestamp":"2024-09-06 10:20:43"}
+{"level":"info","message":"Recaptcha checks","service":"user-service","timestamp":"2024-09-06 10:20:43"}
+{"level":"info","message":"is recaptchs sucessful","service":"user-service","timestamp":"2024-09-06 10:20:44"}
+{"level":"info","message":"test 1","service":"user-service","timestamp":"2024-09-06 10:20:44"}
+{"level":"info","message":"test 2","service":"user-service","timestamp":"2024-09-06 10:20:44"}
+{"level":"info","message":"test 3","service":"user-service","timestamp":"2024-09-06 10:20:44"}
+{"level":"info","message":"test 4","service":"user-service","timestamp":"2024-09-06 10:20:44"}
+{"level":"info","message":"test 5","service":"user-service","timestamp":"2024-09-06 10:20:47"}
+{"level":"info","message":"::1 - - [06/Sep/2024:09:20:47 +0000] \"POST /api/submit-email HTTP/1.1\" 200 38 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 10:20:47"}
+{"level":"info","message":"[CORS] Origin allowed: undefined","service":"user-service","timestamp":"2024-09-06 10:21:00"}
+{"level":"info","message":"::1 - - [06/Sep/2024:09:21:01 +0000] \"GET /api/verify-email?token=648e8e873e21d6db664c534a8d404868d922f7f2ea6604e68106dae928523f72 HTTP/1.1\" 302 140 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 10:21:01"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 10:39:56"}
+{"level":"info","message":"::1 - - [06/Sep/2024:09:39:56 +0000] \"OPTIONS /api/submit-email HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 10:39:56"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 10:39:56"}
+{"level":"info","message":"Checks started","service":"user-service","timestamp":"2024-09-06 10:39:56"}
+{"level":"info","message":"Checks done","service":"user-service","timestamp":"2024-09-06 10:39:56"}
+{"level":"info","message":"Recaptcha checks","service":"user-service","timestamp":"2024-09-06 10:39:56"}
+{"level":"info","message":"is recaptchs sucessful","service":"user-service","timestamp":"2024-09-06 10:39:57"}
+{"level":"info","message":"test 1","service":"user-service","timestamp":"2024-09-06 10:39:57"}
+{"level":"info","message":"::1 - - [06/Sep/2024:09:39:57 +0000] \"POST /api/submit-email HTTP/1.1\" 400 40 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 10:39:57"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 10:40:37"}
+{"level":"info","message":"::1 - - [06/Sep/2024:09:40:37 +0000] \"OPTIONS /api/submit-email HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 10:40:37"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 10:40:37"}
+{"level":"info","message":"Checks started","service":"user-service","timestamp":"2024-09-06 10:40:37"}
+{"level":"info","message":"Checks done","service":"user-service","timestamp":"2024-09-06 10:40:37"}
+{"level":"info","message":"Recaptcha checks","service":"user-service","timestamp":"2024-09-06 10:40:37"}
+{"level":"info","message":"is recaptchs sucessful","service":"user-service","timestamp":"2024-09-06 10:40:38"}
+{"level":"info","message":"::1 - - [06/Sep/2024:09:40:38 +0000] \"POST /api/submit-email HTTP/1.1\" 400 75 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 10:40:38"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 10:40:50"}
+{"level":"info","message":"::1 - - [06/Sep/2024:09:40:50 +0000] \"OPTIONS /api/submit-email HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 10:40:50"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 10:40:50"}
+{"level":"info","message":"Checks started","service":"user-service","timestamp":"2024-09-06 10:40:50"}
+{"level":"info","message":"Checks done","service":"user-service","timestamp":"2024-09-06 10:40:50"}
+{"level":"info","message":"Recaptcha checks","service":"user-service","timestamp":"2024-09-06 10:40:50"}
+{"level":"info","message":"is recaptchs sucessful","service":"user-service","timestamp":"2024-09-06 10:40:50"}
+{"level":"info","message":"test 1","service":"user-service","timestamp":"2024-09-06 10:40:50"}
+{"level":"info","message":"test 2","service":"user-service","timestamp":"2024-09-06 10:40:50"}
+{"level":"info","message":"test 3","service":"user-service","timestamp":"2024-09-06 10:40:50"}
+{"level":"info","message":"test 4","service":"user-service","timestamp":"2024-09-06 10:40:50"}
+{"level":"info","message":"test 5","service":"user-service","timestamp":"2024-09-06 10:40:53"}
+{"level":"info","message":"::1 - - [06/Sep/2024:09:40:53 +0000] \"POST /api/submit-email HTTP/1.1\" 200 38 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 10:40:53"}
+{"level":"info","message":"[CORS] Origin allowed: undefined","service":"user-service","timestamp":"2024-09-06 10:41:15"}
+{"level":"info","message":"::1 - - [06/Sep/2024:09:41:15 +0000] \"GET /api/verify-email?token=698c680d4ba3e2405deea28dfa00f0ffd49913d6bc2a87cf2f8845e87e00d44d HTTP/1.1\" 302 140 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 10:41:15"}
+{"level":"info","message":"Connected to MongoDB","service":"user-service","timestamp":"2024-09-06 11:06:27"}
+{"level":"info","message":"Default Admin Details: Username: superadmin, Email: superadmin@example.com","service":"user-service","timestamp":"2024-09-06 11:06:27"}
+{"level":"info","message":"Connected to database successfully","service":"user-service","timestamp":"2024-09-06 11:06:27"}
+{"level":"info","message":"Default super admin already exists with username: superadmin","service":"user-service","timestamp":"2024-09-06 11:06:28"}
+{"level":"info","message":"Server running on port 8080","service":"user-service","timestamp":"2024-09-06 11:06:28"}
+{"level":"info","message":"Connected to MongoDB","service":"user-service","timestamp":"2024-09-06 11:10:13"}
+{"level":"info","message":"Default Admin Details: Username: superadmin, Email: superadmin@example.com","service":"user-service","timestamp":"2024-09-06 11:10:13"}
+{"level":"info","message":"Connected to database successfully","service":"user-service","timestamp":"2024-09-06 11:10:13"}
+{"level":"info","message":"Default super admin already exists with username: superadmin","service":"user-service","timestamp":"2024-09-06 11:10:14"}
+{"level":"info","message":"Server running on port 8080","service":"user-service","timestamp":"2024-09-06 11:10:14"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 11:21:19"}
+{"level":"info","message":"::1 - - [06/Sep/2024:10:21:19 +0000] \"OPTIONS /api/submit-email HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 11:21:19"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 11:21:19"}
+{"level":"info","message":"Checks started","service":"user-service","timestamp":"2024-09-06 11:21:19"}
+{"level":"info","message":"Checks done","service":"user-service","timestamp":"2024-09-06 11:21:19"}
+{"level":"info","message":"Recaptcha checks","service":"user-service","timestamp":"2024-09-06 11:21:19"}
+{"level":"info","message":"is recaptchs sucessful","service":"user-service","timestamp":"2024-09-06 11:21:20"}
+{"level":"info","message":"test 1","service":"user-service","timestamp":"2024-09-06 11:21:20"}
+{"level":"info","message":"test 2","service":"user-service","timestamp":"2024-09-06 11:21:20"}
+{"level":"info","message":"test 3","service":"user-service","timestamp":"2024-09-06 11:21:20"}
+{"level":"info","message":"test 4","service":"user-service","timestamp":"2024-09-06 11:21:20"}
+{"level":"info","message":"test 5","service":"user-service","timestamp":"2024-09-06 11:21:24"}
+{"level":"info","message":"::1 - - [06/Sep/2024:10:21:24 +0000] \"POST /api/submit-email HTTP/1.1\" 200 38 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 11:21:24"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 11:21:27"}
+{"level":"info","message":"::1 - - [06/Sep/2024:10:21:27 +0000] \"OPTIONS /api/resend-verification-token HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 11:21:27"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 11:21:27"}
+{"level":"info","message":"::1 - - [06/Sep/2024:10:21:32 +0000] \"POST /api/resend-verification-token HTTP/1.1\" 200 53 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 11:21:32"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 11:22:58"}
+{"level":"info","message":"::1 - - [06/Sep/2024:10:22:58 +0000] \"OPTIONS /api/submit-email HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 11:22:58"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 11:22:58"}
+{"level":"info","message":"Checks started","service":"user-service","timestamp":"2024-09-06 11:22:58"}
+{"level":"info","message":"Checks done","service":"user-service","timestamp":"2024-09-06 11:22:58"}
+{"level":"info","message":"Recaptcha checks","service":"user-service","timestamp":"2024-09-06 11:22:58"}
+{"level":"info","message":"is recaptchs sucessful","service":"user-service","timestamp":"2024-09-06 11:22:58"}
+{"level":"info","message":"test 1","service":"user-service","timestamp":"2024-09-06 11:22:58"}
+{"level":"info","message":"test 2","service":"user-service","timestamp":"2024-09-06 11:22:58"}
+{"level":"info","message":"::1 - - [06/Sep/2024:10:23:00 +0000] \"POST /api/submit-email HTTP/1.1\" 200 40 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 11:23:00"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 11:25:01"}
+{"level":"info","message":"::1 - - [06/Sep/2024:10:25:01 +0000] \"OPTIONS /api/submit-email HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 11:25:01"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 11:25:01"}
+{"level":"info","message":"Checks started","service":"user-service","timestamp":"2024-09-06 11:25:01"}
+{"level":"info","message":"Checks done","service":"user-service","timestamp":"2024-09-06 11:25:01"}
+{"level":"info","message":"Recaptcha checks","service":"user-service","timestamp":"2024-09-06 11:25:01"}
+{"level":"info","message":"is recaptchs sucessful","service":"user-service","timestamp":"2024-09-06 11:25:02"}
+{"level":"info","message":"test 1","service":"user-service","timestamp":"2024-09-06 11:25:02"}
+{"level":"info","message":"test 2","service":"user-service","timestamp":"2024-09-06 11:25:02"}
+{"level":"info","message":"::1 - - [06/Sep/2024:10:25:05 +0000] \"POST /api/submit-email HTTP/1.1\" 200 40 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 11:25:05"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 11:25:15"}
+{"level":"info","message":"::1 - - [06/Sep/2024:10:25:15 +0000] \"OPTIONS /api/resend-verification-token HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 11:25:15"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 11:25:15"}
+{"level":"info","message":"::1 - - [06/Sep/2024:10:25:17 +0000] \"POST /api/resend-verification-token HTTP/1.1\" 200 53 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 11:25:17"}
+{"level":"info","message":"[CORS] Origin allowed: undefined","service":"user-service","timestamp":"2024-09-06 11:25:27"}
+{"level":"info","message":"::1 - - [06/Sep/2024:10:25:27 +0000] \"GET /api/verify-email?token=187c047b78c1615d0ae7ad38676a02c92d6392291fc7f9dadc834c29733b2aa0 HTTP/1.1\" 302 190 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 11:25:27"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 11:26:54"}
+{"level":"info","message":"::1 - - [06/Sep/2024:10:26:54 +0000] \"OPTIONS /api/submit-email HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 11:26:54"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 11:26:54"}
+{"level":"info","message":"Checks started","service":"user-service","timestamp":"2024-09-06 11:26:54"}
+{"level":"info","message":"Checks done","service":"user-service","timestamp":"2024-09-06 11:26:54"}
+{"level":"info","message":"Recaptcha checks","service":"user-service","timestamp":"2024-09-06 11:26:54"}
+{"level":"info","message":"is recaptchs sucessful","service":"user-service","timestamp":"2024-09-06 11:26:54"}
+{"level":"info","message":"test 1","service":"user-service","timestamp":"2024-09-06 11:26:54"}
+{"level":"info","message":"::1 - - [06/Sep/2024:10:26:54 +0000] \"POST /api/submit-email HTTP/1.1\" 400 40 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 11:26:54"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 11:33:38"}
+{"level":"info","message":"::1 - - [06/Sep/2024:10:33:38 +0000] \"OPTIONS /api/submit-email HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 11:33:38"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 11:33:38"}
+{"level":"info","message":"Checks started","service":"user-service","timestamp":"2024-09-06 11:33:38"}
+{"level":"info","message":"Checks done","service":"user-service","timestamp":"2024-09-06 11:33:38"}
+{"level":"info","message":"Recaptcha checks","service":"user-service","timestamp":"2024-09-06 11:33:38"}
+{"level":"info","message":"is recaptchs sucessful","service":"user-service","timestamp":"2024-09-06 11:33:39"}
+{"level":"info","message":"test 1","service":"user-service","timestamp":"2024-09-06 11:33:39"}
+{"level":"info","message":"test 2","service":"user-service","timestamp":"2024-09-06 11:33:39"}
+{"level":"info","message":"test 3","service":"user-service","timestamp":"2024-09-06 11:33:39"}
+{"level":"info","message":"test 4","service":"user-service","timestamp":"2024-09-06 11:33:39"}
+{"level":"info","message":"test 5","service":"user-service","timestamp":"2024-09-06 11:33:41"}
+{"level":"info","message":"::1 - - [06/Sep/2024:10:33:41 +0000] \"POST /api/submit-email HTTP/1.1\" 200 38 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 11:33:41"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 11:33:45"}
+{"level":"info","message":"::1 - - [06/Sep/2024:10:33:45 +0000] \"OPTIONS /api/resend-verification-token HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 11:33:45"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 11:33:45"}
+{"level":"info","message":"::1 - - [06/Sep/2024:10:33:47 +0000] \"POST /api/resend-verification-token HTTP/1.1\" 200 53 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 11:33:47"}
+{"level":"info","message":"[CORS] Origin allowed: undefined","service":"user-service","timestamp":"2024-09-06 11:34:01"}
+{"level":"info","message":"::1 - - [06/Sep/2024:10:34:01 +0000] \"GET /api/verify-email?token=1556c22a53576e9cd09065982f49e7f199e35fa86ea44bec94943c103e433f8a HTTP/1.1\" 302 190 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 11:34:01"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 11:50:43"}
+{"level":"info","message":"::1 - - [06/Sep/2024:10:50:43 +0000] \"POST /api/complete-registration HTTP/1.1\" 400 51 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 11:50:43"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 11:51:23"}
+{"level":"info","message":"::1 - - [06/Sep/2024:10:51:23 +0000] \"POST /api/complete-registration HTTP/1.1\" 400 51 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 11:51:23"}
+{"level":"info","message":"Connected to MongoDB","service":"user-service","timestamp":"2024-09-06 11:53:02"}
+{"level":"info","message":"Default Admin Details: Username: superadmin, Email: superadmin@example.com","service":"user-service","timestamp":"2024-09-06 11:53:02"}
+{"level":"info","message":"Connected to database successfully","service":"user-service","timestamp":"2024-09-06 11:53:02"}
+{"level":"info","message":"Default super admin already exists with username: superadmin","service":"user-service","timestamp":"2024-09-06 11:53:03"}
+{"level":"info","message":"Server running on port 8080","service":"user-service","timestamp":"2024-09-06 11:53:03"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 12:03:58"}
+{"level":"info","message":"::1 - - [06/Sep/2024:11:03:59 +0000] \"POST /api/complete-registration HTTP/1.1\" 400 51 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 12:03:59"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 12:04:02"}
+{"level":"info","message":"::1 - - [06/Sep/2024:11:04:02 +0000] \"POST /api/complete-registration HTTP/1.1\" 400 51 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 12:04:02"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 12:04:10"}
+{"level":"info","message":"::1 - - [06/Sep/2024:11:04:10 +0000] \"POST /api/complete-registration HTTP/1.1\" 200 66 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 12:04:10"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 12:14:02"}
+{"level":"info","message":"::1 - - [06/Sep/2024:11:14:02 +0000] \"OPTIONS /api/submit-email HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 12:14:02"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 12:14:02"}
+{"level":"info","message":"Checks started","service":"user-service","timestamp":"2024-09-06 12:14:02"}
+{"level":"info","message":"Checks done","service":"user-service","timestamp":"2024-09-06 12:14:02"}
+{"level":"info","message":"Recaptcha checks","service":"user-service","timestamp":"2024-09-06 12:14:02"}
+{"level":"info","message":"is recaptchs sucessful","service":"user-service","timestamp":"2024-09-06 12:14:03"}
+{"level":"info","message":"test 1","service":"user-service","timestamp":"2024-09-06 12:14:03"}
+{"level":"info","message":"test 2","service":"user-service","timestamp":"2024-09-06 12:14:03"}
+{"level":"info","message":"test 3","service":"user-service","timestamp":"2024-09-06 12:14:03"}
+{"level":"info","message":"test 4","service":"user-service","timestamp":"2024-09-06 12:14:03"}
+{"level":"info","message":"test 5","service":"user-service","timestamp":"2024-09-06 12:14:05"}
+{"level":"info","message":"::1 - - [06/Sep/2024:11:14:05 +0000] \"POST /api/submit-email HTTP/1.1\" 200 38 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 12:14:05"}
+{"level":"info","message":"[CORS] Origin allowed: undefined","service":"user-service","timestamp":"2024-09-06 12:14:17"}
+{"level":"info","message":"::1 - - [06/Sep/2024:11:14:17 +0000] \"GET /api/verify-email?token=07ce47e10259b56bda348df03f4175dad575d9b619e95e42a901b57ca48ae903 HTTP/1.1\" 302 190 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 12:14:17"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 12:15:08"}
+{"level":"info","message":"::1 - - [06/Sep/2024:11:15:08 +0000] \"POST /api/complete-registration HTTP/1.1\" 400 51 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 12:15:08"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 12:15:12"}
+{"level":"info","message":"::1 - - [06/Sep/2024:11:15:12 +0000] \"POST /api/complete-registration HTTP/1.1\" 400 51 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 12:15:12"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 12:17:30"}
+{"level":"info","message":"::1 - - [06/Sep/2024:11:17:30 +0000] \"POST /api/complete-registration HTTP/1.1\" 400 51 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 12:17:30"}
+{"level":"info","message":"Connected to MongoDB","service":"user-service","timestamp":"2024-09-06 12:18:33"}
+{"level":"info","message":"Default Admin Details: Username: superadmin, Email: superadmin@example.com","service":"user-service","timestamp":"2024-09-06 12:18:33"}
+{"level":"info","message":"Connected to database successfully","service":"user-service","timestamp":"2024-09-06 12:18:33"}
+{"level":"info","message":"Default super admin already exists with username: superadmin","service":"user-service","timestamp":"2024-09-06 12:18:33"}
+{"level":"info","message":"Server running on port 8080","service":"user-service","timestamp":"2024-09-06 12:18:33"}
+{"level":"info","message":"Connected to MongoDB","service":"user-service","timestamp":"2024-09-06 12:18:48"}
+{"level":"info","message":"Default Admin Details: Username: superadmin, Email: superadmin@example.com","service":"user-service","timestamp":"2024-09-06 12:18:48"}
+{"level":"info","message":"Connected to database successfully","service":"user-service","timestamp":"2024-09-06 12:18:48"}
+{"level":"info","message":"Default super admin already exists with username: superadmin","service":"user-service","timestamp":"2024-09-06 12:18:48"}
+{"level":"info","message":"Server running on port 8080","service":"user-service","timestamp":"2024-09-06 12:18:48"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 12:19:44"}
+{"level":"info","message":"::1 - - [06/Sep/2024:11:19:44 +0000] \"POST /api/complete-registration HTTP/1.1\" 200 66 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 12:19:44"}
+{"level":"info","message":"Connected to MongoDB","service":"user-service","timestamp":"2024-09-06 12:20:54"}
+{"level":"info","message":"Default Admin Details: Username: superadmin, Email: superadmin@example.com","service":"user-service","timestamp":"2024-09-06 12:20:54"}
+{"level":"info","message":"Connected to database successfully","service":"user-service","timestamp":"2024-09-06 12:20:54"}
+{"level":"info","message":"Default super admin already exists with username: superadmin","service":"user-service","timestamp":"2024-09-06 12:20:54"}
+{"level":"info","message":"Server running on port 8080","service":"user-service","timestamp":"2024-09-06 12:20:54"}
+{"level":"info","message":"Connected to MongoDB","service":"user-service","timestamp":"2024-09-06 12:22:02"}
+{"level":"info","message":"Default Admin Details: Username: superadmin, Email: superadmin@example.com","service":"user-service","timestamp":"2024-09-06 12:22:02"}
+{"level":"info","message":"Connected to database successfully","service":"user-service","timestamp":"2024-09-06 12:22:02"}
+{"level":"info","message":"Default super admin already exists with username: superadmin","service":"user-service","timestamp":"2024-09-06 12:22:02"}
+{"level":"info","message":"Server running on port 8080","service":"user-service","timestamp":"2024-09-06 12:22:02"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 12:22:26"}
+{"level":"info","message":"::1 - - [06/Sep/2024:11:22:26 +0000] \"OPTIONS /api/submit-email HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 12:22:26"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 12:22:26"}
+{"level":"info","message":"Checks started","service":"user-service","timestamp":"2024-09-06 12:22:26"}
+{"level":"info","message":"Checks done","service":"user-service","timestamp":"2024-09-06 12:22:26"}
+{"level":"info","message":"Recaptcha checks","service":"user-service","timestamp":"2024-09-06 12:22:26"}
+{"level":"info","message":"is recaptchs sucessful","service":"user-service","timestamp":"2024-09-06 12:22:26"}
+{"level":"info","message":"test 1","service":"user-service","timestamp":"2024-09-06 12:22:26"}
+{"level":"info","message":"::1 - - [06/Sep/2024:11:22:26 +0000] \"POST /api/submit-email HTTP/1.1\" 400 40 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 12:22:26"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 12:24:06"}
+{"level":"info","message":"::1 - - [06/Sep/2024:11:24:06 +0000] \"OPTIONS /api/submit-email HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 12:24:06"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 12:24:06"}
+{"level":"info","message":"Checks started","service":"user-service","timestamp":"2024-09-06 12:24:06"}
+{"level":"info","message":"Checks done","service":"user-service","timestamp":"2024-09-06 12:24:06"}
+{"level":"info","message":"Recaptcha checks","service":"user-service","timestamp":"2024-09-06 12:24:06"}
+{"level":"info","message":"is recaptchs sucessful","service":"user-service","timestamp":"2024-09-06 12:24:07"}
+{"level":"info","message":"test 1","service":"user-service","timestamp":"2024-09-06 12:24:07"}
+{"level":"info","message":"test 2","service":"user-service","timestamp":"2024-09-06 12:24:07"}
+{"level":"info","message":"test 3","service":"user-service","timestamp":"2024-09-06 12:24:07"}
+{"level":"info","message":"test 4","service":"user-service","timestamp":"2024-09-06 12:24:07"}
+{"level":"info","message":"test 5","service":"user-service","timestamp":"2024-09-06 12:24:09"}
+{"level":"info","message":"::1 - - [06/Sep/2024:11:24:09 +0000] \"POST /api/submit-email HTTP/1.1\" 200 38 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 12:24:09"}
+{"level":"info","message":"[CORS] Origin allowed: undefined","service":"user-service","timestamp":"2024-09-06 12:24:18"}
+{"level":"info","message":"::1 - - [06/Sep/2024:11:24:19 +0000] \"GET /api/verify-email?token=a09aaf75fd4cb1f33bb167f688a157d6de3d4c224e0166ae62bf461075d97e27 HTTP/1.1\" 302 190 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 12:24:19"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 12:24:43"}
+{"level":"info","message":"::1 - - [06/Sep/2024:11:24:43 +0000] \"POST /api/complete-registration HTTP/1.1\" 400 221 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 12:24:43"}
+{"level":"info","message":"Connected to MongoDB","service":"user-service","timestamp":"2024-09-06 12:26:43"}
+{"level":"info","message":"Default Admin Details: Username: superadmin, Email: superadmin@example.com","service":"user-service","timestamp":"2024-09-06 12:26:43"}
+{"level":"info","message":"Connected to database successfully","service":"user-service","timestamp":"2024-09-06 12:26:43"}
+{"level":"info","message":"Default super admin already exists with username: superadmin","service":"user-service","timestamp":"2024-09-06 12:26:44"}
+{"level":"info","message":"Server running on port 8080","service":"user-service","timestamp":"2024-09-06 12:26:44"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 12:27:17"}
+{"level":"info","message":"::1 - - [06/Sep/2024:11:27:18 +0000] \"POST /api/complete-registration HTTP/1.1\" 400 221 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 12:27:18"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 12:30:52"}
+{"level":"info","message":"::1 - - [06/Sep/2024:11:30:53 +0000] \"POST /api/complete-registration HTTP/1.1\" 400 221 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 12:30:53"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 12:37:05"}
+{"level":"info","message":"::1 - - [06/Sep/2024:11:37:05 +0000] \"POST /api/complete-registration HTTP/1.1\" 400 221 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 12:37:05"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 12:38:15"}
+{"level":"info","message":"::1 - - [06/Sep/2024:11:38:15 +0000] \"POST /api/complete-registration HTTP/1.1\" 400 221 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 12:38:15"}
+{"level":"info","message":"Connected to MongoDB","service":"user-service","timestamp":"2024-09-06 12:41:07"}
+{"level":"info","message":"Default Admin Details: Username: superadmin, Email: superadmin@example.com","service":"user-service","timestamp":"2024-09-06 12:41:07"}
+{"level":"info","message":"Connected to database successfully","service":"user-service","timestamp":"2024-09-06 12:41:07"}
+{"level":"info","message":"Default super admin already exists with username: superadmin","service":"user-service","timestamp":"2024-09-06 12:41:08"}
+{"level":"info","message":"Server running on port 8080","service":"user-service","timestamp":"2024-09-06 12:41:08"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 12:41:16"}
+{"level":"info","message":"::1 - - [06/Sep/2024:11:41:16 +0000] \"POST /api/complete-registration HTTP/1.1\" 400 87 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 12:41:16"}
+{"level":"info","message":"Connected to MongoDB","service":"user-service","timestamp":"2024-09-06 12:42:26"}
+{"level":"info","message":"Default Admin Details: Username: superadmin, Email: superadmin@example.com","service":"user-service","timestamp":"2024-09-06 12:42:26"}
+{"level":"info","message":"Connected to database successfully","service":"user-service","timestamp":"2024-09-06 12:42:26"}
+{"level":"info","message":"Default super admin already exists with username: superadmin","service":"user-service","timestamp":"2024-09-06 12:42:27"}
+{"level":"info","message":"Server running on port 8080","service":"user-service","timestamp":"2024-09-06 12:42:27"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 12:42:52"}
+{"level":"info","message":"::1 - - [06/Sep/2024:11:42:52 +0000] \"POST /api/complete-registration HTTP/1.1\" 400 230 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 12:42:52"}
+{"level":"info","message":"Connected to MongoDB","service":"user-service","timestamp":"2024-09-06 12:43:34"}
+{"level":"info","message":"Default Admin Details: Username: superadmin, Email: superadmin@example.com","service":"user-service","timestamp":"2024-09-06 12:43:34"}
+{"level":"info","message":"Connected to database successfully","service":"user-service","timestamp":"2024-09-06 12:43:34"}
+{"level":"info","message":"Default super admin already exists with username: superadmin","service":"user-service","timestamp":"2024-09-06 12:43:34"}
+{"level":"info","message":"Server running on port 8080","service":"user-service","timestamp":"2024-09-06 12:43:34"}
+{"level":"info","message":"Connected to MongoDB","service":"user-service","timestamp":"2024-09-06 12:44:23"}
+{"level":"info","message":"Default Admin Details: Username: superadmin, Email: superadmin@example.com","service":"user-service","timestamp":"2024-09-06 12:44:23"}
+{"level":"info","message":"Connected to database successfully","service":"user-service","timestamp":"2024-09-06 12:44:23"}
+{"level":"info","message":"Default super admin already exists with username: superadmin","service":"user-service","timestamp":"2024-09-06 12:44:23"}
+{"level":"info","message":"Server running on port 8080","service":"user-service","timestamp":"2024-09-06 12:44:23"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 12:50:14"}
+{"level":"info","message":"::1 - - [06/Sep/2024:11:50:14 +0000] \"POST /api/complete-registration HTTP/1.1\" 400 87 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 12:50:14"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:01:35"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:01:35 +0000] \"POST /api/complete-registration HTTP/1.1\" 400 87 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:01:35"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:01:43"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:01:43 +0000] \"POST /api/complete-registration HTTP/1.1\" 200 66 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:01:43"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:01:55"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:01:55 +0000] \"GET /api/participant HTTP/1.1\" 200 2 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:01:55"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:01:55"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:01:55 +0000] \"GET /api/participant HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:01:55"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:29"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:29 +0000] \"OPTIONS /api/admin/login HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:29"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:29"}
+{"level":"info","message":"Login attempt: superadmin@example.com","service":"user-service","timestamp":"2024-09-06 13:02:29"}
+{"level":"info","message":"Admin found: superadmin","service":"user-service","timestamp":"2024-09-06 13:02:29"}
+{"level":"info","message":"Password comparison result: true","service":"user-service","timestamp":"2024-09-06 13:02:29"}
+{"level":"info","message":"Login successful","service":"user-service","timestamp":"2024-09-06 13:02:29"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:29 +0000] \"POST /api/admin/login HTTP/1.1\" 200 331 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:29"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:36"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:36 +0000] \"OPTIONS /api/admin/total-participant HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:36"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:36"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:36 +0000] \"OPTIONS /api/admin/count-approved HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:36"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:36"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:36 +0000] \"OPTIONS /api/admin/count-declined HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:36"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:36"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:36 +0000] \"OPTIONS /api/admin/count-pending HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:36"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:36"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:36 +0000] \"OPTIONS /api/admin/total-participant?status=all HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:36"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:36"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:36 +0000] \"OPTIONS /api/admin/competition-state HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:36"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:36"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:36 +0000] \"OPTIONS /api/admin/total-participant HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:36"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:36"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:36 +0000] \"OPTIONS /api/admin/total-participant HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:36"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:36"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:36 +0000] \"OPTIONS /api/admin/count-approved HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:36"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:36"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:36 +0000] \"OPTIONS /api/admin/count-pending HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:36"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:36"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:36 +0000] \"OPTIONS /api/admin/count-declined HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:36"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:36"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:36 +0000] \"OPTIONS /api/admin/competition-state HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:36"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:36"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:36 +0000] \"OPTIONS /api/admin/competition-state HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:36"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:36"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:36 +0000] \"OPTIONS /api/admin/total-participant?status=all HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:36"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:36"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:36 +0000] \"OPTIONS /api/admin/total-participant?status=All HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:36"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:36"}
+{"level":"info","message":"Token received: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YjY0NzgxMGJmZjM2ZDgzYzkxZjFiYSIsImlhdCI6MTcyNTYyNDE0OSwiZXhwIjoxNzI1NjI3NzQ5fQ.EyNrAiWHuy0CvoE8rwwlgEYupZ5DyrO3eXiJkAJ8Qd8","service":"user-service","timestamp":"2024-09-06 13:02:36"}
+{"level":"info","message":"Token decoded: {\"id\":\"66b647810bff36d83c91f1ba\",\"iat\":1725624149,\"exp\":1725627749}","service":"user-service","timestamp":"2024-09-06 13:02:36"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:36"}
+{"level":"info","message":"Token received: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YjY0NzgxMGJmZjM2ZDgzYzkxZjFiYSIsImlhdCI6MTcyNTYyNDE0OSwiZXhwIjoxNzI1NjI3NzQ5fQ.EyNrAiWHuy0CvoE8rwwlgEYupZ5DyrO3eXiJkAJ8Qd8","service":"user-service","timestamp":"2024-09-06 13:02:36"}
+{"level":"info","message":"Token decoded: {\"id\":\"66b647810bff36d83c91f1ba\",\"iat\":1725624149,\"exp\":1725627749}","service":"user-service","timestamp":"2024-09-06 13:02:36"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:36"}
+{"level":"info","message":"Token received: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YjY0NzgxMGJmZjM2ZDgzYzkxZjFiYSIsImlhdCI6MTcyNTYyNDE0OSwiZXhwIjoxNzI1NjI3NzQ5fQ.EyNrAiWHuy0CvoE8rwwlgEYupZ5DyrO3eXiJkAJ8Qd8","service":"user-service","timestamp":"2024-09-06 13:02:36"}
+{"level":"info","message":"Token decoded: {\"id\":\"66b647810bff36d83c91f1ba\",\"iat\":1725624149,\"exp\":1725627749}","service":"user-service","timestamp":"2024-09-06 13:02:36"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:36"}
+{"level":"info","message":"Token received: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YjY0NzgxMGJmZjM2ZDgzYzkxZjFiYSIsImlhdCI6MTcyNTYyNDE0OSwiZXhwIjoxNzI1NjI3NzQ5fQ.EyNrAiWHuy0CvoE8rwwlgEYupZ5DyrO3eXiJkAJ8Qd8","service":"user-service","timestamp":"2024-09-06 13:02:36"}
+{"level":"info","message":"Token decoded: {\"id\":\"66b647810bff36d83c91f1ba\",\"iat\":1725624149,\"exp\":1725627749}","service":"user-service","timestamp":"2024-09-06 13:02:36"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"Token received: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YjY0NzgxMGJmZjM2ZDgzYzkxZjFiYSIsImlhdCI6MTcyNTYyNDE0OSwiZXhwIjoxNzI1NjI3NzQ5fQ.EyNrAiWHuy0CvoE8rwwlgEYupZ5DyrO3eXiJkAJ8Qd8","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"Token decoded: {\"id\":\"66b647810bff36d83c91f1ba\",\"iat\":1725624149,\"exp\":1725627749}","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:37 +0000] \"OPTIONS /api/admin/competition-state HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"Token received: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YjY0NzgxMGJmZjM2ZDgzYzkxZjFiYSIsImlhdCI6MTcyNTYyNDE0OSwiZXhwIjoxNzI1NjI3NzQ5fQ.EyNrAiWHuy0CvoE8rwwlgEYupZ5DyrO3eXiJkAJ8Qd8","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"Token decoded: {\"id\":\"66b647810bff36d83c91f1ba\",\"iat\":1725624149,\"exp\":1725627749}","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"Admin authenticated: superadmin","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"Admin authenticated: superadmin","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"Admin authenticated: superadmin","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"Admin authenticated: superadmin","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:37 +0000] \"GET /api/admin/total-participant HTTP/1.1\" 200 595 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:37 +0000] \"GET /api/admin/count-approved HTTP/1.1\" 200 26 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"Token received: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YjY0NzgxMGJmZjM2ZDgzYzkxZjFiYSIsImlhdCI6MTcyNTYyNDE0OSwiZXhwIjoxNzI1NjI3NzQ5fQ.EyNrAiWHuy0CvoE8rwwlgEYupZ5DyrO3eXiJkAJ8Qd8","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"Token decoded: {\"id\":\"66b647810bff36d83c91f1ba\",\"iat\":1725624149,\"exp\":1725627749}","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"Token received: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YjY0NzgxMGJmZjM2ZDgzYzkxZjFiYSIsImlhdCI6MTcyNTYyNDE0OSwiZXhwIjoxNzI1NjI3NzQ5fQ.EyNrAiWHuy0CvoE8rwwlgEYupZ5DyrO3eXiJkAJ8Qd8","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"Token decoded: {\"id\":\"66b647810bff36d83c91f1ba\",\"iat\":1725624149,\"exp\":1725627749}","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:37 +0000] \"GET /api/admin/count-declined HTTP/1.1\" 200 26 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"Token received: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YjY0NzgxMGJmZjM2ZDgzYzkxZjFiYSIsImlhdCI6MTcyNTYyNDE0OSwiZXhwIjoxNzI1NjI3NzQ5fQ.EyNrAiWHuy0CvoE8rwwlgEYupZ5DyrO3eXiJkAJ8Qd8","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"Token decoded: {\"id\":\"66b647810bff36d83c91f1ba\",\"iat\":1725624149,\"exp\":1725627749}","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:37 +0000] \"GET /api/admin/competition-state HTTP/1.1\" 200 17 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"Admin authenticated: superadmin","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"Token received: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YjY0NzgxMGJmZjM2ZDgzYzkxZjFiYSIsImlhdCI6MTcyNTYyNDE0OSwiZXhwIjoxNzI1NjI3NzQ5fQ.EyNrAiWHuy0CvoE8rwwlgEYupZ5DyrO3eXiJkAJ8Qd8","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"Token decoded: {\"id\":\"66b647810bff36d83c91f1ba\",\"iat\":1725624149,\"exp\":1725627749}","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"Admin authenticated: superadmin","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"Admin authenticated: superadmin","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:37 +0000] \"GET /api/admin/total-participant?status=All HTTP/1.1\" 200 595 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"Token received: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YjY0NzgxMGJmZjM2ZDgzYzkxZjFiYSIsImlhdCI6MTcyNTYyNDE0OSwiZXhwIjoxNzI1NjI3NzQ5fQ.EyNrAiWHuy0CvoE8rwwlgEYupZ5DyrO3eXiJkAJ8Qd8","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"Token decoded: {\"id\":\"66b647810bff36d83c91f1ba\",\"iat\":1725624149,\"exp\":1725627749}","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"Admin authenticated: superadmin","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:37 +0000] \"GET /api/admin/total-participant HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:37 +0000] \"GET /api/admin/count-approved HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"Token received: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YjY0NzgxMGJmZjM2ZDgzYzkxZjFiYSIsImlhdCI6MTcyNTYyNDE0OSwiZXhwIjoxNzI1NjI3NzQ5fQ.EyNrAiWHuy0CvoE8rwwlgEYupZ5DyrO3eXiJkAJ8Qd8","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"Token decoded: {\"id\":\"66b647810bff36d83c91f1ba\",\"iat\":1725624149,\"exp\":1725627749}","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"Admin authenticated: superadmin","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:37 +0000] \"GET /api/admin/count-declined HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"Admin authenticated: superadmin","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:37 +0000] \"GET /api/admin/competition-state HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"Token received: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YjY0NzgxMGJmZjM2ZDgzYzkxZjFiYSIsImlhdCI6MTcyNTYyNDE0OSwiZXhwIjoxNzI1NjI3NzQ5fQ.EyNrAiWHuy0CvoE8rwwlgEYupZ5DyrO3eXiJkAJ8Qd8","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"Token decoded: {\"id\":\"66b647810bff36d83c91f1ba\",\"iat\":1725624149,\"exp\":1725627749}","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:37 +0000] \"GET /api/admin/total-participant HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"Token received: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YjY0NzgxMGJmZjM2ZDgzYzkxZjFiYSIsImlhdCI6MTcyNTYyNDE0OSwiZXhwIjoxNzI1NjI3NzQ5fQ.EyNrAiWHuy0CvoE8rwwlgEYupZ5DyrO3eXiJkAJ8Qd8","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"Token decoded: {\"id\":\"66b647810bff36d83c91f1ba\",\"iat\":1725624149,\"exp\":1725627749}","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"Admin authenticated: superadmin","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"Admin authenticated: superadmin","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"Admin authenticated: superadmin","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:37 +0000] \"GET /api/admin/count-pending HTTP/1.1\" 200 25 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"Token received: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YjY0NzgxMGJmZjM2ZDgzYzkxZjFiYSIsImlhdCI6MTcyNTYyNDE0OSwiZXhwIjoxNzI1NjI3NzQ5fQ.EyNrAiWHuy0CvoE8rwwlgEYupZ5DyrO3eXiJkAJ8Qd8","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"Token decoded: {\"id\":\"66b647810bff36d83c91f1ba\",\"iat\":1725624149,\"exp\":1725627749}","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:37 +0000] \"GET /api/admin/competition-state HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"Token received: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YjY0NzgxMGJmZjM2ZDgzYzkxZjFiYSIsImlhdCI6MTcyNTYyNDE0OSwiZXhwIjoxNzI1NjI3NzQ5fQ.EyNrAiWHuy0CvoE8rwwlgEYupZ5DyrO3eXiJkAJ8Qd8","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"Token decoded: {\"id\":\"66b647810bff36d83c91f1ba\",\"iat\":1725624149,\"exp\":1725627749}","service":"user-service","timestamp":"2024-09-06 13:02:37"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:38 +0000] \"GET /api/admin/total-participant HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:38"}
+{"level":"info","message":"Admin authenticated: superadmin","service":"user-service","timestamp":"2024-09-06 13:02:38"}
+{"level":"info","message":"Admin authenticated: superadmin","service":"user-service","timestamp":"2024-09-06 13:02:38"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:38 +0000] \"GET /api/admin/count-pending HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:38"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:38 +0000] \"GET /api/admin/competition-state HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:38"}
+{"level":"info","message":"Admin authenticated: superadmin","service":"user-service","timestamp":"2024-09-06 13:02:38"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:38 +0000] \"GET /api/admin/total-participant?status=all HTTP/1.1\" 200 41 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:38"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:38"}
+{"level":"info","message":"Token received: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YjY0NzgxMGJmZjM2ZDgzYzkxZjFiYSIsImlhdCI6MTcyNTYyNDE0OSwiZXhwIjoxNzI1NjI3NzQ5fQ.EyNrAiWHuy0CvoE8rwwlgEYupZ5DyrO3eXiJkAJ8Qd8","service":"user-service","timestamp":"2024-09-06 13:02:38"}
+{"level":"info","message":"Token decoded: {\"id\":\"66b647810bff36d83c91f1ba\",\"iat\":1725624149,\"exp\":1725627749}","service":"user-service","timestamp":"2024-09-06 13:02:38"}
+{"level":"info","message":"Admin authenticated: superadmin","service":"user-service","timestamp":"2024-09-06 13:02:39"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:39 +0000] \"GET /api/admin/total-participant?status=all HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:39"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:59 +0000] \"OPTIONS /api/admin/total-participant HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:59 +0000] \"OPTIONS /api/admin/count-approved HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:59 +0000] \"OPTIONS /api/admin/count-pending HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:59 +0000] \"OPTIONS /api/admin/total-participant?status=all HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:59 +0000] \"OPTIONS /api/admin/total-participant HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:59 +0000] \"OPTIONS /api/admin/count-approved HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:59 +0000] \"OPTIONS /api/admin/count-pending HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:59 +0000] \"OPTIONS /api/admin/count-declined HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:59 +0000] \"OPTIONS /api/admin/competition-state HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:59 +0000] \"OPTIONS /api/admin/competition-state HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:59 +0000] \"OPTIONS /api/admin/total-participant?status=all HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:59 +0000] \"OPTIONS /api/admin/total-participant?status=All HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"Token received: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YjY0NzgxMGJmZjM2ZDgzYzkxZjFiYSIsImlhdCI6MTcyNTYyNDE0OSwiZXhwIjoxNzI1NjI3NzQ5fQ.EyNrAiWHuy0CvoE8rwwlgEYupZ5DyrO3eXiJkAJ8Qd8","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"Token decoded: {\"id\":\"66b647810bff36d83c91f1ba\",\"iat\":1725624149,\"exp\":1725627749}","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"Token received: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YjY0NzgxMGJmZjM2ZDgzYzkxZjFiYSIsImlhdCI6MTcyNTYyNDE0OSwiZXhwIjoxNzI1NjI3NzQ5fQ.EyNrAiWHuy0CvoE8rwwlgEYupZ5DyrO3eXiJkAJ8Qd8","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"Token decoded: {\"id\":\"66b647810bff36d83c91f1ba\",\"iat\":1725624149,\"exp\":1725627749}","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:59 +0000] \"OPTIONS /api/admin/count-declined HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:59 +0000] \"OPTIONS /api/admin/competition-state HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:59 +0000] \"OPTIONS /api/admin/total-participant HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:59 +0000] \"OPTIONS /api/admin/competition-state HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"Token received: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YjY0NzgxMGJmZjM2ZDgzYzkxZjFiYSIsImlhdCI6MTcyNTYyNDE0OSwiZXhwIjoxNzI1NjI3NzQ5fQ.EyNrAiWHuy0CvoE8rwwlgEYupZ5DyrO3eXiJkAJ8Qd8","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"Token decoded: {\"id\":\"66b647810bff36d83c91f1ba\",\"iat\":1725624149,\"exp\":1725627749}","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"Token received: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YjY0NzgxMGJmZjM2ZDgzYzkxZjFiYSIsImlhdCI6MTcyNTYyNDE0OSwiZXhwIjoxNzI1NjI3NzQ5fQ.EyNrAiWHuy0CvoE8rwwlgEYupZ5DyrO3eXiJkAJ8Qd8","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"Token decoded: {\"id\":\"66b647810bff36d83c91f1ba\",\"iat\":1725624149,\"exp\":1725627749}","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"Token received: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YjY0NzgxMGJmZjM2ZDgzYzkxZjFiYSIsImlhdCI6MTcyNTYyNDE0OSwiZXhwIjoxNzI1NjI3NzQ5fQ.EyNrAiWHuy0CvoE8rwwlgEYupZ5DyrO3eXiJkAJ8Qd8","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"Token decoded: {\"id\":\"66b647810bff36d83c91f1ba\",\"iat\":1725624149,\"exp\":1725627749}","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"Token received: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YjY0NzgxMGJmZjM2ZDgzYzkxZjFiYSIsImlhdCI6MTcyNTYyNDE0OSwiZXhwIjoxNzI1NjI3NzQ5fQ.EyNrAiWHuy0CvoE8rwwlgEYupZ5DyrO3eXiJkAJ8Qd8","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"Token decoded: {\"id\":\"66b647810bff36d83c91f1ba\",\"iat\":1725624149,\"exp\":1725627749}","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"Admin authenticated: superadmin","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"Admin authenticated: superadmin","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"Admin authenticated: superadmin","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"Admin authenticated: superadmin","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"Admin authenticated: superadmin","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:59 +0000] \"GET /api/admin/total-participant HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"Token received: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YjY0NzgxMGJmZjM2ZDgzYzkxZjFiYSIsImlhdCI6MTcyNTYyNDE0OSwiZXhwIjoxNzI1NjI3NzQ5fQ.EyNrAiWHuy0CvoE8rwwlgEYupZ5DyrO3eXiJkAJ8Qd8","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"Token decoded: {\"id\":\"66b647810bff36d83c91f1ba\",\"iat\":1725624149,\"exp\":1725627749}","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:59 +0000] \"GET /api/admin/count-approved HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"Token received: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YjY0NzgxMGJmZjM2ZDgzYzkxZjFiYSIsImlhdCI6MTcyNTYyNDE0OSwiZXhwIjoxNzI1NjI3NzQ5fQ.EyNrAiWHuy0CvoE8rwwlgEYupZ5DyrO3eXiJkAJ8Qd8","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"Token decoded: {\"id\":\"66b647810bff36d83c91f1ba\",\"iat\":1725624149,\"exp\":1725627749}","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:59 +0000] \"GET /api/admin/count-pending HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:59 +0000] \"GET /api/admin/total-participant?status=all HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"Token received: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YjY0NzgxMGJmZjM2ZDgzYzkxZjFiYSIsImlhdCI6MTcyNTYyNDE0OSwiZXhwIjoxNzI1NjI3NzQ5fQ.EyNrAiWHuy0CvoE8rwwlgEYupZ5DyrO3eXiJkAJ8Qd8","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"Token decoded: {\"id\":\"66b647810bff36d83c91f1ba\",\"iat\":1725624149,\"exp\":1725627749}","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"Token received: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YjY0NzgxMGJmZjM2ZDgzYzkxZjFiYSIsImlhdCI6MTcyNTYyNDE0OSwiZXhwIjoxNzI1NjI3NzQ5fQ.EyNrAiWHuy0CvoE8rwwlgEYupZ5DyrO3eXiJkAJ8Qd8","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"Token decoded: {\"id\":\"66b647810bff36d83c91f1ba\",\"iat\":1725624149,\"exp\":1725627749}","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:02:59 +0000] \"GET /api/admin/count-declined HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"Token received: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YjY0NzgxMGJmZjM2ZDgzYzkxZjFiYSIsImlhdCI6MTcyNTYyNDE0OSwiZXhwIjoxNzI1NjI3NzQ5fQ.EyNrAiWHuy0CvoE8rwwlgEYupZ5DyrO3eXiJkAJ8Qd8","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"Token decoded: {\"id\":\"66b647810bff36d83c91f1ba\",\"iat\":1725624149,\"exp\":1725627749}","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"Admin authenticated: superadmin","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"Admin authenticated: superadmin","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"Admin authenticated: superadmin","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"Admin authenticated: superadmin","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"Admin authenticated: superadmin","service":"user-service","timestamp":"2024-09-06 13:02:59"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:03:00 +0000] \"GET /api/admin/total-participant?status=All HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:03:00"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:03:00"}
+{"level":"info","message":"Token received: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YjY0NzgxMGJmZjM2ZDgzYzkxZjFiYSIsImlhdCI6MTcyNTYyNDE0OSwiZXhwIjoxNzI1NjI3NzQ5fQ.EyNrAiWHuy0CvoE8rwwlgEYupZ5DyrO3eXiJkAJ8Qd8","service":"user-service","timestamp":"2024-09-06 13:03:00"}
+{"level":"info","message":"Token decoded: {\"id\":\"66b647810bff36d83c91f1ba\",\"iat\":1725624149,\"exp\":1725627749}","service":"user-service","timestamp":"2024-09-06 13:03:00"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:03:00 +0000] \"GET /api/admin/total-participant HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:03:00"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:03:00"}
+{"level":"info","message":"Token received: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YjY0NzgxMGJmZjM2ZDgzYzkxZjFiYSIsImlhdCI6MTcyNTYyNDE0OSwiZXhwIjoxNzI1NjI3NzQ5fQ.EyNrAiWHuy0CvoE8rwwlgEYupZ5DyrO3eXiJkAJ8Qd8","service":"user-service","timestamp":"2024-09-06 13:03:00"}
+{"level":"info","message":"Token decoded: {\"id\":\"66b647810bff36d83c91f1ba\",\"iat\":1725624149,\"exp\":1725627749}","service":"user-service","timestamp":"2024-09-06 13:03:00"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:03:00 +0000] \"GET /api/admin/count-approved HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:03:00"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:03:00 +0000] \"GET /api/admin/count-pending HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:03:00"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:03:00 +0000] \"GET /api/admin/total-participant?status=all HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:03:00"}
+{"level":"info","message":"Admin authenticated: superadmin","service":"user-service","timestamp":"2024-09-06 13:03:00"}
+{"level":"info","message":"Admin authenticated: superadmin","service":"user-service","timestamp":"2024-09-06 13:03:00"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:03:00 +0000] \"GET /api/admin/count-declined HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:03:00"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:03:00 +0000] \"GET /api/admin/total-participant HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:03:00"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:03:00"}
+{"level":"info","message":"Token received: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YjY0NzgxMGJmZjM2ZDgzYzkxZjFiYSIsImlhdCI6MTcyNTYyNDE0OSwiZXhwIjoxNzI1NjI3NzQ5fQ.EyNrAiWHuy0CvoE8rwwlgEYupZ5DyrO3eXiJkAJ8Qd8","service":"user-service","timestamp":"2024-09-06 13:03:00"}
+{"level":"info","message":"Token decoded: {\"id\":\"66b647810bff36d83c91f1ba\",\"iat\":1725624149,\"exp\":1725627749}","service":"user-service","timestamp":"2024-09-06 13:03:00"}
+{"level":"info","message":"Admin authenticated: superadmin","service":"user-service","timestamp":"2024-09-06 13:03:00"}
+{"level":"info","message":"Admin authenticated: superadmin","service":"user-service","timestamp":"2024-09-06 13:03:00"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:03:00 +0000] \"GET /api/admin/competition-state HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:03:00"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:03:00"}
+{"level":"info","message":"Token received: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YjY0NzgxMGJmZjM2ZDgzYzkxZjFiYSIsImlhdCI6MTcyNTYyNDE0OSwiZXhwIjoxNzI1NjI3NzQ5fQ.EyNrAiWHuy0CvoE8rwwlgEYupZ5DyrO3eXiJkAJ8Qd8","service":"user-service","timestamp":"2024-09-06 13:03:00"}
+{"level":"info","message":"Token decoded: {\"id\":\"66b647810bff36d83c91f1ba\",\"iat\":1725624149,\"exp\":1725627749}","service":"user-service","timestamp":"2024-09-06 13:03:00"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:03:00 +0000] \"GET /api/admin/total-participant HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:03:00"}
+{"level":"info","message":"Admin authenticated: superadmin","service":"user-service","timestamp":"2024-09-06 13:03:00"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:03:00 +0000] \"GET /api/admin/competition-state HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:03:00"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:03:00"}
+{"level":"info","message":"Token received: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YjY0NzgxMGJmZjM2ZDgzYzkxZjFiYSIsImlhdCI6MTcyNTYyNDE0OSwiZXhwIjoxNzI1NjI3NzQ5fQ.EyNrAiWHuy0CvoE8rwwlgEYupZ5DyrO3eXiJkAJ8Qd8","service":"user-service","timestamp":"2024-09-06 13:03:00"}
+{"level":"info","message":"Token decoded: {\"id\":\"66b647810bff36d83c91f1ba\",\"iat\":1725624149,\"exp\":1725627749}","service":"user-service","timestamp":"2024-09-06 13:03:00"}
+{"level":"info","message":"Admin authenticated: superadmin","service":"user-service","timestamp":"2024-09-06 13:03:00"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:03:00 +0000] \"GET /api/admin/competition-state HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:03:00"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:03:00"}
+{"level":"info","message":"Token received: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YjY0NzgxMGJmZjM2ZDgzYzkxZjFiYSIsImlhdCI6MTcyNTYyNDE0OSwiZXhwIjoxNzI1NjI3NzQ5fQ.EyNrAiWHuy0CvoE8rwwlgEYupZ5DyrO3eXiJkAJ8Qd8","service":"user-service","timestamp":"2024-09-06 13:03:00"}
+{"level":"info","message":"Token decoded: {\"id\":\"66b647810bff36d83c91f1ba\",\"iat\":1725624149,\"exp\":1725627749}","service":"user-service","timestamp":"2024-09-06 13:03:00"}
+{"level":"info","message":"Admin authenticated: superadmin","service":"user-service","timestamp":"2024-09-06 13:03:01"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:03:01 +0000] \"GET /api/admin/competition-state HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:03:01"}
+{"level":"info","message":"[CORS] Origin allowed: undefined","service":"user-service","timestamp":"2024-09-06 13:03:03"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:03:03 +0000] \"GET /uploads/profileImage-1725624103364.jpg HTTP/1.1\" 200 162422 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:03:03"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:03:06"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:03:06 +0000] \"OPTIONS /api/admin/approve/66dae657f25d41048bdf129c HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:03:06"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:03:06"}
+{"level":"info","message":"Token received: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YjY0NzgxMGJmZjM2ZDgzYzkxZjFiYSIsImlhdCI6MTcyNTYyNDE0OSwiZXhwIjoxNzI1NjI3NzQ5fQ.EyNrAiWHuy0CvoE8rwwlgEYupZ5DyrO3eXiJkAJ8Qd8","service":"user-service","timestamp":"2024-09-06 13:03:06"}
+{"level":"info","message":"Token decoded: {\"id\":\"66b647810bff36d83c91f1ba\",\"iat\":1725624149,\"exp\":1725627749}","service":"user-service","timestamp":"2024-09-06 13:03:06"}
+{"level":"info","message":"Admin authenticated: superadmin","service":"user-service","timestamp":"2024-09-06 13:03:06"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:03:06 +0000] \"PATCH /api/admin/approve/66dae657f25d41048bdf129c HTTP/1.1\" 200 617 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:03:06"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:03:08"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:03:08 +0000] \"OPTIONS /api/admin/total-participant HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:03:08"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:03:08"}
+{"level":"info","message":"Token received: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YjY0NzgxMGJmZjM2ZDgzYzkxZjFiYSIsImlhdCI6MTcyNTYyNDE0OSwiZXhwIjoxNzI1NjI3NzQ5fQ.EyNrAiWHuy0CvoE8rwwlgEYupZ5DyrO3eXiJkAJ8Qd8","service":"user-service","timestamp":"2024-09-06 13:03:08"}
+{"level":"info","message":"Token decoded: {\"id\":\"66b647810bff36d83c91f1ba\",\"iat\":1725624149,\"exp\":1725627749}","service":"user-service","timestamp":"2024-09-06 13:03:08"}
+{"level":"info","message":"Admin authenticated: superadmin","service":"user-service","timestamp":"2024-09-06 13:03:08"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:03:08 +0000] \"GET /api/admin/total-participant HTTP/1.1\" 200 596 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:03:08"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:03:34"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:03:35 +0000] \"GET /api/participant HTTP/1.1\" 200 557 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:03:35"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:03:35"}
+{"level":"info","message":"[CORS] Origin allowed: undefined","service":"user-service","timestamp":"2024-09-06 13:03:35"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:03:35 +0000] \"GET /uploads/profileImage-1725624103364.jpg HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:03:35"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:03:35 +0000] \"GET /api/participant HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:03:35"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:03:36"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:03:36 +0000] \"GET /api/participant HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:03:36"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:03:36"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:03:37 +0000] \"GET /api/participant HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:03:37"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:03:42"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:03:42 +0000] \"OPTIONS /api/vote HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:03:42"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:03:42"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:03:42 +0000] \"POST /api/vote HTTP/1.1\" 400 117 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:03:42"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:06:19"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:06:19 +0000] \"GET /api/participant HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:06:19"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:06:19"}
+{"level":"info","message":"[CORS] Origin allowed: undefined","service":"user-service","timestamp":"2024-09-06 13:06:19"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:06:19 +0000] \"GET /uploads/profileImage-1725624103364.jpg HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:06:19"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:06:19 +0000] \"GET /api/participant HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:06:19"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:06:21"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:06:21 +0000] \"GET /api/participant HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:06:21"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:06:21"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:06:21 +0000] \"GET /api/participant HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:06:21"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:06:35"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:06:35 +0000] \"OPTIONS /api/vote HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:06:35"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:06:35"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:06:35 +0000] \"POST /api/vote HTTP/1.1\" 400 117 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:06:35"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:10:19"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:10:19 +0000] \"GET /api/participant HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:10:19"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:10:19"}
+{"level":"info","message":"[CORS] Origin allowed: undefined","service":"user-service","timestamp":"2024-09-06 13:10:19"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:10:19 +0000] \"GET /uploads/profileImage-1725624103364.jpg HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:10:19"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:10:19 +0000] \"GET /api/participant HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:10:19"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:10:28"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:10:28 +0000] \"GET /api/participant HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:10:28"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:10:28"}
+{"level":"info","message":"[CORS] Origin allowed: undefined","service":"user-service","timestamp":"2024-09-06 13:10:28"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:10:28 +0000] \"GET /uploads/profileImage-1725624103364.jpg HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:10:28"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:10:28 +0000] \"GET /api/participant HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:10:28"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:10:32"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:10:32 +0000] \"GET /api/participant HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:10:32"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-06 13:10:32"}
+{"level":"info","message":"::1 - - [06/Sep/2024:12:10:32 +0000] \"GET /api/participant HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-06 13:10:32"}
+{"level":"info","message":"Connected to MongoDB","service":"user-service","timestamp":"2024-09-07 10:12:45"}
+{"level":"info","message":"Default Admin Details: Username: superadmin, Email: superadmin@example.com","service":"user-service","timestamp":"2024-09-07 10:12:45"}
+{"level":"info","message":"Connected to database successfully","service":"user-service","timestamp":"2024-09-07 10:12:45"}
+{"level":"info","message":"Default super admin already exists with username: superadmin","service":"user-service","timestamp":"2024-09-07 10:12:47"}
+{"level":"info","message":"Server running on port 8080","service":"user-service","timestamp":"2024-09-07 10:12:47"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-07 10:21:41"}
+{"level":"info","message":"::1 - - [07/Sep/2024:09:21:41 +0000] \"OPTIONS /api/submit-email HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-07 10:21:41"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-09-07 10:21:41"}
+{"level":"info","message":"Checks started","service":"user-service","timestamp":"2024-09-07 10:21:41"}
+{"level":"info","message":"Checks done","service":"user-service","timestamp":"2024-09-07 10:21:41"}
+{"level":"info","message":"Recaptcha checks","service":"user-service","timestamp":"2024-09-07 10:21:41"}
+{"level":"info","message":"is recaptchs sucessful","service":"user-service","timestamp":"2024-09-07 10:21:42"}
+{"level":"info","message":"test 1","service":"user-service","timestamp":"2024-09-07 10:21:42"}
+{"level":"info","message":"test 2","service":"user-service","timestamp":"2024-09-07 10:21:42"}
+{"level":"info","message":"test 3","service":"user-service","timestamp":"2024-09-07 10:21:42"}
+{"level":"info","message":"test 4","service":"user-service","timestamp":"2024-09-07 10:21:42"}
+{"level":"info","message":"test 5","service":"user-service","timestamp":"2024-09-07 10:21:45"}
+{"level":"info","message":"::1 - - [07/Sep/2024:09:21:45 +0000] \"POST /api/submit-email HTTP/1.1\" 200 38 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-07 10:21:45"}
+{"level":"info","message":"[CORS] Origin allowed: undefined","service":"user-service","timestamp":"2024-09-07 10:22:07"}
+{"level":"info","message":"::1 - - [07/Sep/2024:09:22:07 +0000] \"GET /api/verify-email?token=bdf829db90de6ca09a47d85bd4b37a0d36a334a0efb4f3f402c5da7d28d4e8ac HTTP/1.1\" 302 190 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0\"","service":"user-service","timestamp":"2024-09-07 10:22:07"}
