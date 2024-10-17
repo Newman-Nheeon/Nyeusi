@@ -47,6 +47,9 @@ app.use(bodyParser.json());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Routes
+app.get('/', (req, res) => {
+  res.send('API running');
+});
 app.use('/api', userRoutes);
 app.use('/api/admin', adminRoutes);
 app.get('/verification-successful', (req, res) => { res.send("verification successful"); });
