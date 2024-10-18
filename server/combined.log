@@ -1,0 +1,22 @@
+{"level":"info","message":"Connected to MongoDB","service":"user-service","timestamp":"2024-10-18 16:13:58"}
+{"level":"info","message":"Default Admin Details: Username: superadmin, Email: superadmin@example.com","service":"user-service","timestamp":"2024-10-18 16:13:58"}
+{"level":"info","message":"Connected to database successfully","service":"user-service","timestamp":"2024-10-18 16:13:58"}
+{"level":"info","message":"Default super admin already exists with username: superadmin","service":"user-service","timestamp":"2024-10-18 16:13:59"}
+{"level":"info","message":"Server running on port 8080","service":"user-service","timestamp":"2024-10-18 16:13:59"}
+{"level":"info","message":"Connected to MongoDB","service":"user-service","timestamp":"2024-10-18 16:15:34"}
+{"level":"info","message":"Default Admin Details: Username: superadmin, Email: superadmin@example.com","service":"user-service","timestamp":"2024-10-18 16:15:34"}
+{"level":"info","message":"Connected to database successfully","service":"user-service","timestamp":"2024-10-18 16:15:34"}
+{"level":"info","message":"Default super admin already exists with username: superadmin","service":"user-service","timestamp":"2024-10-18 16:15:34"}
+{"level":"info","message":"Server running on port 8080","service":"user-service","timestamp":"2024-10-18 16:15:34"}
+{"level":"info","message":"[CORS] Request received from origin: http://localhost:3000","service":"user-service","timestamp":"2024-10-18 16:15:56"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-10-18 16:15:56"}
+{"level":"info","message":"::1 - - [18/Oct/2024:15:15:56 +0000] \"OPTIONS /api/submit-email HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0\"","service":"user-service","timestamp":"2024-10-18 16:15:56"}
+{"level":"info","message":"[CORS] Request received from origin: http://localhost:3000","service":"user-service","timestamp":"2024-10-18 16:15:56"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-10-18 16:15:56"}
+{"level":"info","message":"Checks started","service":"user-service","timestamp":"2024-10-18 16:15:56"}
+{"level":"info","message":"Checks done","service":"user-service","timestamp":"2024-10-18 16:15:56"}
+{"level":"info","message":"Recaptcha checks","service":"user-service","timestamp":"2024-10-18 16:15:56"}
+{"level":"info","message":"is recaptchs sucessful","service":"user-service","timestamp":"2024-10-18 16:15:56"}
+{"level":"info","message":"test 1","service":"user-service","timestamp":"2024-10-18 16:15:56"}
+{"level":"info","message":"test 2","service":"user-service","timestamp":"2024-10-18 16:15:56"}
+{"level":"info","message":"::1 - - [18/Oct/2024:15:15:59 +0000] \"POST /api/submit-email HTTP/1.1\" 200 40 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0\"","service":"user-service","timestamp":"2024-10-18 16:15:59"}
