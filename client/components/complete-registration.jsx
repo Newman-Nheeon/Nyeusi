@@ -434,7 +434,7 @@ const completeRegistration = () => {
                     className="text-sm font-regular cursor-pointer text-red-400 font-mont"
                   >
                     <a href="https://nyeusi.org/terms-and-conditions/">
-                      Accept terms and conditions
+                      Accept Terms and Conditions
                     </a>
                   </label>
 
@@ -450,11 +450,11 @@ const completeRegistration = () => {
                     readOnly
                     rows={5} // Adjust the number of rows to match the text size
                     style={{ height: "auto", overflow: "hidden" }} // Prevent scrolling
-                    value={`Please make sure you're following us before registering, otherwise log in to your social media account and follow us before registering. After following, return in 24 hours to allow our system time to update the follower list. Don't forget to use the compulsory hashtags. Please see the competition page for more details.`}
+                    value={`Please make sure you're following us before registering, otherwise log in to your social media account and follow us. After following, return in 24 hours to allow our system time to update the follower list. Don't forget to use the compulsory hashtags. Please see the competition page for more details.`}
                   />
                   <span className="text-sm font-regular cursor-pointer text-red-400 font-mont">
                     <a href="https://nyeusi.org/give-black-december/" target="_blank">
-                      &nbsp;Link to Competition Page&nbsp;
+                      &nbsp;Click here to read the Competition rules&nbsp;
                     </a>
                   </span>
                 </div>
