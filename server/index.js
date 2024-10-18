@@ -6,7 +6,6 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
 const morgan = require('morgan');
-const bcrypt = require('bcryptjs');
 const logger = require('./logger');
 const Admin = require('./models/admin');
 const { saveToCSV } = require('./utils/csv');
@@ -22,11 +21,6 @@ const PORT = process.env.PORT || 8080;
 const app = express();
 dotenv.config();
 
-// app.use((req, res, next) => {
-//   logger.info(`[Request] ${req.method} ${req.url} - Origin: ${req.headers.origin}`);
-//   next();
-// });
-
 // Setup Morgan to use Winston for logging
 app.use(morgan('combined', {
   stream: {
@@ -34,26 +28,58 @@ app.use(morgan('combined', {
   }
 }));
 
+// CORS configuration
+const allowedOrigins = [process.env.FRONTEND_PROD_URL, 'http://localhost:3000'].filter(Boolean); // Allow production URL and localhost for development
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (origin) {
+      logger.info(`[CORS] Request received from origin: ${origin}`);
+    } else {
+      logger.info(`[CORS] No origin provided (possible server-to-server request).`);
+    }
+
+    if (allowedOrigins.includes(origin) || !origin) {
+      logger.info(`[CORS] Origin allowed: ${origin}`);
+      callback(null, true); // Allow if the origin is in the allowed list or if it's a server-to-server request (no origin)
+    } else {
+      logger.warn(`[CORS] Origin not allowed: ${origin}`);
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,  // Allow credentials like cookies
+  optionsSuccessStatus: 200  // Legacy browsers choke on 204
+};
+
+// Apply CORS middleware
+app.use(cors(corsOptions));
+
+// Middleware
+app.use(express.json());
+app.use(bodyParser.json());
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
 // Imports
 const userRoutes = require('./routes/users');
 const adminRoutes = require('./routes/admin');
 const connectDB = require('./config/db_connect');
-const corsOptions = require('./config/corsConfig');
-
-// Middlewares
-app.use(express.json());
-app.use(cors(corsOptions));
-app.use(bodyParser.json());
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Routes
 app.get('/', (req, res) => {
   res.send('API running');
 });
+
 app.use('/api', userRoutes);
 app.use('/api/admin', adminRoutes);
-app.get('/verification-successful', (req, res) => { res.send("verification successful"); });
-app.get('/verified', (req, res) => { res.send("Already Verified"); });
+
+app.get('/verification-successful', (req, res) => {
+  res.send("Verification successful");
+});
+
+app.get('/verified', (req, res) => {
+  res.send("Already Verified");
+});
+
 app.get('/scrape', async (req, res) => {
   const username = req.query.username;
   if (!username) {
@@ -106,8 +132,6 @@ mongoose.connection.on('open', async () => {
   await createDefaultSuperAdmin();
   app.listen(PORT, () => logger.info(`Server running on port ${PORT}`));
 });
-
-
 
 mongoose.connection.on('error', err => {
   logger.error('Database connection error:', err);
