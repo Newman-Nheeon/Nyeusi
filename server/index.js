@@ -65,7 +65,7 @@ const adminRoutes = require('./routes/admin');
 const connectDB = require('./config/db_connect');
 
 // Routes
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
   res.send('API running');
 });
 
