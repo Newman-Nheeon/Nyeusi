@@ -437,26 +437,25 @@ const completeRegistration = () => {
                       Accept Terms and Conditions
                     </a>
                   </label>
-
+                  
+                  
                 </div>
+                {submitted && !formValues.termsAccepted && (
+                      <span className="error_log">
+                        Please Accept the Terms and Conditions
+                      </span>
+                    )}
 
                 <div className="grid w-full gap-1.5">
-                  <Label htmlFor="notice" className="label">
-                    Notice
-                  </Label>
-                  <textarea
-                    id="notice"
-                    className="input w-full bg-white border border-gray-300 rounded-md p-3 text-slate-600"
-                    readOnly
-                    rows={5} // Adjust the number of rows to match the text size
-                    style={{ height: "auto", overflow: "hidden" }} // Prevent scrolling
-                    value={`Please make sure you're following us before registering, otherwise log in to your social media account and follow us. After following, return in 24 hours to allow our system time to update the follower list. Don't forget to use the compulsory hashtags. Please see the competition page for more details.`}
-                  />
-                  <span className="text-sm font-regular cursor-pointer text-red-400 font-mont">
+
+                  <p>
+                  Don't forget to use the compulsory hashtags. Please see the <span className="text-sm font-regular cursor-pointer text-red-400 font-mont">
                     <a href="https://nyeusi.org/give-black-december/" target="_blank">
-                      &nbsp;Click here to read the Competition rules&nbsp;
+                      &nbsp;Competition Page&nbsp;
                     </a>
-                  </span>
+                  </span> for more details
+                  </p>
+                  
                 </div>
 
 

@@ -124,7 +124,7 @@ exports.completeRegistration = async (req, res) => {
     const handleExists = await checkSocialMediaHandle(socialMediaHandle, socialMediaPlatform);
 if (!handleExists) {
   return res.status(400).send(
-    `It looks like you are not currently following us on the selected social media platform.`
+    `Please make sure you're following us before registering, otherwise log in to your social media account and follow us. After following, return in 24 hours to allow our system time to update the follower list`
   );
 }
 

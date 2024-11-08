@@ -12,6 +12,9 @@ import {
 } from "@/components/ui/card";
 import VotersHandle from "./voters";
 
+const apiBaseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
+const baseURL = process.env.NEXT_PUBLIC_BASE_URL;
+
 const VoteCard = () => {
   const [showHandle, setShowHandle] = useState(false);
   const [data, setData] = useState(null);
@@ -33,7 +36,7 @@ const VoteCard = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const apiBaseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
+      
       const apiURL = `${apiBaseURL}/participant`;
 
       try {
@@ -72,16 +75,16 @@ const VoteCard = () => {
               key={i}
             >
               {/* Your card content */}
-              <CardHeader className="px-0 pt-0 pb-0" key={i}>
-                <img
-                  src={`http://localhost:8080/${participant.profileImage}`}
-                  alt={participant.firstName}
-                  className="object-cover rounded-t-xl w-[300px] h-[175px]"
-                />
-                <CardDescription className="sm:w-[235px] w-full text-base font-semibold font-mont px-2 pt-2">
-                  {participant.stageName}
-                </CardDescription>
-              </CardHeader>
+                <CardHeader className="px-0 pt-0 pb-0" key={i}>
+                  <img
+                    src={`${baseURL}/${participant?.profileImage}`}
+                    alt={participant.firstName}
+                    className="object-cover rounded-t-xl w-[300px] h-[175px]"
+                  />
+                  <CardDescription className="sm:w-[235px] w-full text-base font-semibold font-mont px-2 pt-2">
+                    {participant.stageName}
+                  </CardDescription>
+                </CardHeader>
 
               <CardContent className="flex-col justify-between px-2 pt-0 pb-0">
                 <p className="text-sm">{participant.totalVotes} votes</p>

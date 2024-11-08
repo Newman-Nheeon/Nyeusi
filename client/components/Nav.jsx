@@ -57,7 +57,7 @@ const Nav = () => {
                     {link.text}
                   </Link>
                 ))}
-                <button className="yellow_btn">SUPPORT US</button>
+                <button className="yellow_btn">SUPPORT</button>
               </div>
             ) : (
               <div className="flex flex-col items-center gap-5 text-white">
@@ -71,7 +71,7 @@ const Nav = () => {
                   className="yellow_btn w-40"
                   onClick={closeDropdown}
                 >
-                  SUPPORT US
+                  SUPPORT
                 </Link>
                 {/* <Link
                   href="/register"
@@ -95,7 +95,7 @@ const Nav = () => {
                 {link.text}
               </Link>
             ))}
-            <Link href="/support" className="yellow_btn">
+            <Link href="https://nyeusi.org/support-us/" className="yellow_btn">
               SUPPORT US
             </Link>
           </div>
@@ -106,7 +106,7 @@ const Nav = () => {
                 {link.text}
               </Link>
             ))}
-            <Link href="/support" className="yellow_btn">
+            <Link href="https://nyeusi.org/support-us/" className="yellow_btn">
               SUPPORT US
             </Link>
             {/* <Link href="/register" className="outline_btn">
