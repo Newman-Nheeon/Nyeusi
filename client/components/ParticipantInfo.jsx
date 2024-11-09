@@ -18,7 +18,6 @@ const socialIcons = [
   },
 ];
 
-const baseURL = process.env.NEXT_PUBLIC_BASE_URL;
 
 const ParticipantInfo = ({
   handleClose,
@@ -58,7 +57,7 @@ const ParticipantInfo = ({
         <CardContent className="flex gap-8">
           <div className="">
             <img
-              src={`${baseURL}/${selectedParticipant?.profileImage}`}
+              src={selectedParticipant?.profileImage}
               alt="image"
               className="inline-block h-28 w-28 ring-2 ring-white object-cover"
             />
