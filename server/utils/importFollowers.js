@@ -1,4 +1,4 @@
-require('dotenv').config(); // Ensure this is at the top
+require('dotenv').config();
 const mongoose = require('mongoose');
 const fs = require('fs');
 const csvParser = require('csv-parser');
@@ -16,22 +16,42 @@ mongoose.connect(process.env.DB_URI, { useNewUrlParser: true, useUnifiedTopology
 
 const importFollowersFromCSV = (filePath, platform) => {
   const followers = [];
-  fs.createReadStream(filePath)
-    .pipe(csvParser())
-    .on('data', (data) => followers.push({ platform, username: data.username }))
-    .on('end', async () => {
-      try {
-        await Follower.insertMany(followers);
-        logger.info(`${followers.length} followers imported successfully for ${platform}`);
-      } catch (err) {
-        logger.error('Failed to import followers:', err);
-      }
-      mongoose.disconnect();
-    });
+  return new Promise((resolve, reject) => {
+    fs.createReadStream(filePath)
+      .pipe(csvParser())
+      .on('data', (data) => followers.push({ platform, username: data.username }))
+      .on('end', async () => {
+        try {
+          for (const follower of followers) {
+            const existingFollower = await Follower.findOne({ platform: follower.platform, username: follower.username });
+            if (!existingFollower) {
+              await Follower.create(follower);
+            }
+          }
+          logger.info(`${followers.length} followers processed successfully for ${platform}`);
+          resolve();
+        } catch (err) {
+          logger.error(`Failed to import followers for ${platform}:`, err);
+          reject(err);
+        }
+      });
+  });
 };
 
-// Correctly specify the path to your CSV file
-const filePath = path.join(__dirname, '../followers/followers.csv');
-const platform = 'instagram';
+const platforms = ['instagram', 'tiktok', 'facebook'];
 
-importFollowersFromCSV(filePath, platform);
+(async () => {
+  for (const platform of platforms) {
+    const filePath = path.join(__dirname, `../followers/${platform}_followers.csv`);
+    if (fs.existsSync(filePath)) {
+      try {
+        await importFollowersFromCSV(filePath, platform);
+      } catch (err) {
+        logger.error(`Error importing data for ${platform}:`, err);
+      }
+    } else {
+      logger.error(`CSV file for ${platform} not found at path: ${filePath}`);
+    }
+  }
+  mongoose.disconnect();
+})();

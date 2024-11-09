@@ -6,6 +6,7 @@ const axios = require('axios');
 const logger = require('../logger');
 
 
+
 // Submit email
 exports.submitEmail = async (req, res) => {
   logger.info('Checks started');
@@ -100,8 +101,11 @@ exports.resendVerificationToken = async (req, res) => {
 
 exports.completeRegistration = async (req, res) => {
   const { email, firstName, lastName, stageName, socialMediaHandle, comment, termsAccepted, socialMediaPlatform, entrySocialPost } = req.body;
-  const profileImagePath = req.files.profileImage ? req.files.profileImage[0].path : null;
-  const entryImagePath = req.files.entryImage ? req.files.entryImage[0].path : null;
+  console.log('Uploaded files:', req.files); // Debugging
+
+  // Extract the correct path based on the structure of `req.files`
+  const profileImagePath = req.files.profileImage ? (req.files.profileImage[0].location || `https://${process.env.AWS_BUCKET}.s3.${process.env.AWS_REGION}.amazonaws.com/${req.files.profileImage[0].key}`) : null;
+  const entryImagePath = req.files.entryImage ? (req.files.entryImage[0].location || `https://${process.env.AWS_BUCKET}.s3.${process.env.AWS_REGION}.amazonaws.com/${req.files.entryImage[0].key}`) : null;
 
   try {
     const user = await Participant.findOne({ email });
@@ -120,15 +124,6 @@ exports.completeRegistration = async (req, res) => {
       return res.status(400).send('All fields must be filled to complete registration.');
     }
 
-    // Check if the social media handle exists for the given platform
-    const handleExists = await checkSocialMediaHandle(socialMediaHandle, socialMediaPlatform);
-if (!handleExists) {
-  return res.status(400).send(
-    `Please make sure you're following us before registering, otherwise log in to your social media account and follow us. After following, return in 24 hours to allow our system time to update the follower list`
-  );
-}
-
-
     // Proceed with updating the user's registration details
     user.firstName = firstName;
     user.lastName = lastName;
@@ -146,10 +141,11 @@ if (!handleExists) {
     await user.save();
     res.send('Registration complete. Thank you for completing your registration.');
   } catch (error) {
-    logger.error('Error completing registration:', error);
+    console.error('Error completing registration:', error); // Improved logging
     res.status(500).send('Error completing registration.');
   }
 };
+
 
 
 
