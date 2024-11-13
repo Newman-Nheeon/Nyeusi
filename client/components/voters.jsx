@@ -26,7 +26,7 @@ import { useState, useEffect } from "react";
 const socialMediaOptions = [
   { value: "facebook", label: "facebook" },
   { value: "instagram", label: "instagram" },
-  { value: "tiktok", label: "tikTok" },
+  { value: "tiktok", label: "tiktok" },
 ];
 
 const VotersHandle = ({ handleClose, participantId }) => {

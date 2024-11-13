@@ -17,7 +17,7 @@ const baseURL = process.env.NEXT_PUBLIC_BASE_URL;
 
 const VoteCard = () => {
   const [showHandle, setShowHandle] = useState(false);
-  const [data, setData] = useState(null);
+  const [data, setData] = useState([]);
   const [isloading, setIsLoading] = useState(true);
   const [requestLog, setRequestLog] = useState("");
   const [responseLog, setResponseLog] = useState("");
@@ -36,7 +36,6 @@ const VoteCard = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      
       const apiURL = `${apiBaseURL}/participant`;
 
       try {
@@ -67,6 +66,8 @@ const VoteCard = () => {
         <p className="text-white">Loading.....</p>
       ) : errorLog ? (
         <p className="text-red-600">Error: {errorLog}.....</p>
+      ) : data.length === 0 ? (
+        <p className="text-white">There are currently no participants registered.</p>
       ) : (
         <div className="flex justify-center flex-wrap gap-12">
           {data.map((participant, i) => (
@@ -74,17 +75,16 @@ const VoteCard = () => {
               className="bg-white lg:w-[235px] w-auto rounded-xl flex-col justify-between"
               key={i}
             >
-              {/* Your card content */}
-                <CardHeader className="px-0 pt-0 pb-0" key={i}>
-                  <img
-                    src={participant?.profileImage}
-                    alt={participant.firstName}
-                    className="object-cover rounded-t-xl w-[300px] h-[175px]"
-                  />
-                  <CardDescription className="sm:w-[235px] w-full text-base font-semibold font-mont px-2 pt-2">
-                    {participant.stageName}
-                  </CardDescription>
-                </CardHeader>
+              <CardHeader className="px-0 pt-0 pb-0" key={i}>
+                <img
+                  src={participant?.profileImage}
+                  alt={participant.firstName}
+                  className="object-cover rounded-t-xl w-[300px] h-[175px]"
+                />
+                <CardDescription className="sm:w-[235px] w-full text-base font-semibold font-mont px-2 pt-2">
+                  {participant.stageName}
+                </CardDescription>
+              </CardHeader>
 
               <CardContent className="flex-col justify-between px-2 pt-0 pb-0">
                 <p className="text-sm">{participant.totalVotes} votes</p>

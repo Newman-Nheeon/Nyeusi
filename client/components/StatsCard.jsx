@@ -11,10 +11,10 @@ const StatsCard = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const apiURLTotal = `/total-participant`;
-      const apiURLApproved = `/count-approved`;
-      const apiURLPending = `/count-pending`;
-      const apiURLDeclined = `/count-declined`;
+      const apiURLTotal = `admin/total-participant`;
+      const apiURLApproved = `admin/count-approved`;
+      const apiURLPending = `admin/count-pending`;
+      const apiURLDeclined = `admin/count-declined`;
 
       try {
         const [

@@ -14,18 +14,16 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useState, useRef } from "react";
-import Dashboard from "./Home";
-
-
+import { useRouter } from "next/navigation"; // Import useRouter from next/navigation
 
 const Login = () => {
   const [password, setPassword] = useState("");
   const [login, setLogin] = useState("");
-  const [loggedIn, setLoggedIn] = useState(false);
   const [responseLog, setResponseLog] = useState("");
   const [captchaValue, setCapchaValue] = useState(null);
   const recaptchaRef = useRef();
   const [errorLog, setErrorLog] = useState(""); // State to hold error messages
+  const router = useRouter(); // Initialize useRouter
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -39,7 +37,11 @@ const Login = () => {
     const apiURL = `${apiBaseURL}/admin/login`;
 
     try {
-      const response = await axios.post(apiURL, { login, password, captcha: captchaValue });
+      const response = await axios.post(apiURL, {
+        login,
+        password,
+        captcha: captchaValue,
+      });
       setResponseLog(`Response received: ${JSON.stringify(response.data)}`);
       console.log("Login Successful");
 
@@ -48,8 +50,11 @@ const Login = () => {
       console.log("Token received:", token);
       localStorage.setItem("token", token);
 
+      // Check if token is correctly saved
+      console.log("Token in localStorage:", localStorage.getItem("token"));
+
       // Redirect to the dashboard
-      window.location.href = "/dashboard";
+      router.push("/dashboard"); // Use router.push for client-side navigation
     } catch (error) {
       console.error("Login request failed with error:", error);
       const errorMessage =
@@ -82,9 +87,7 @@ const Login = () => {
     }
   };
 
-  return loggedIn ? (
-    <Dashboard />
-  ) : (
+  return (
     <div
       className="p-[12px] rounded-xl shadow-2xl"
       style={{
@@ -109,7 +112,7 @@ const Login = () => {
                 <Input
                   name="email"
                   placeholder="Enter email"
-                  className="input "
+                  className="input"
                   onChange={(e) => setLogin(e.target.value)}
                 />
               </div>
@@ -120,7 +123,7 @@ const Login = () => {
                 <Input
                   type="password"
                   placeholder="Enter password"
-                  className="input "
+                  className="input"
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>

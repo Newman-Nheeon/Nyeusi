@@ -1,23 +1,5 @@
-import React, { useState, useEffect } from "react";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "./ui/card";
-import axios from "axios";
-
-const socialIcons = [
-  {
-    instagram: "instagrams.svg",
-    tiktok: "tiktoks.svg",
-    facebook: "facebooks.svg ",
-    entryPost: "link.svg ",
-    email: "gmail.svg",
-  },
-];
-
+import React from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 
 const ParticipantInfo = ({
   handleClose,
@@ -25,16 +7,6 @@ const ParticipantInfo = ({
   handleApprove,
   handleDecline,
 }) => {
-  // const handleApprove = async (participantID) => {
-  //   const apiBaseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
-  //   const apiURL = `${apiBaseURL}/admin/approve/${participantID}`;
-  //   try {
-  //     const response = await fetch(apiURL, { method: "PATCH" });
-  //   } catch (error) {
-  //     console.error("Error accepting participants:", error);
-  //   }
-  // };
-
   return (
     <div>
       <Card className="card">
@@ -45,7 +17,7 @@ const ParticipantInfo = ({
             </CardTitle>
             <img
               src="/assets/icons/close.svg"
-              alt="menu"
+              alt="close"
               width={24}
               height={24}
               className="cursor-pointer"
@@ -58,7 +30,7 @@ const ParticipantInfo = ({
           <div className="">
             <img
               src={selectedParticipant?.profileImage}
-              alt="image"
+              alt="profile"
               className="inline-block h-28 w-28 ring-2 ring-white object-cover"
             />
           </div>
@@ -92,10 +64,6 @@ const ParticipantInfo = ({
               <div className="flex gap-2">
                 <p className="text-base font-semibold">Social Media Handle:</p>
                 <p>{selectedParticipant?.socialMediaHandle}</p>
-              </div>
-              <div className="flex gap-2">
-                <p className="text-base font-semibold">Stage Name:</p>
-                <p>{selectedParticipant?.stageName}</p>
               </div>
               <div className="flex gap-2">
                 <p className="text-base font-semibold">Comment:</p>
