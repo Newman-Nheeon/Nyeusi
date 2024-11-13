@@ -38,7 +38,7 @@ const importFollowersFromCSV = (filePath, platform) => {
   });
 };
 
-const platforms = ['instagram', 'tiktok', 'facebook'];
+const platforms = [ 'tiktok', 'instagram','facebook'];
 
 (async () => {
   for (const platform of platforms) {

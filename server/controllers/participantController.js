@@ -157,28 +157,41 @@ exports.completeRegistration = async (req, res) => {
 
 
 
-
-
-
 exports.verifyEmail = async (req, res) => {
   const FRONTEND_URL = process.env.FRONTEND_URL;
-  const { token } = req.query;
+  const { token, email } = req.query;
 
   try {
-    const user = await Participant.findOne({ verificationToken: token });
+    // Find the user by email
+    const user = await Participant.findOne({ email });
 
+    // If no user is found, redirect to verification failed page
     if (!user) {
       return res.redirect(`${FRONTEND_URL}/verification-failed`);
     }
 
-    user.isEmailVerified = true; 
-    user.verificationToken = ''; 
+    // Check if the email is already verified
+    if (user.isEmailVerified) {
+      // Redirect directly to complete registration page
+      return res.redirect(`${FRONTEND_URL}/complete-registration?email=${user.email}`);
+    }
+
+    // If the token does not match, redirect to verification failed
+    if (user.verificationToken !== token) {
+      return res.redirect(`${FRONTEND_URL}/verification-failed`);
+    }
+
+    // If email is not verified, mark it as verified and clear the token
+    user.isEmailVerified = true;
+    user.verificationToken = ''; // Clear the token after verification
     await user.save();
 
-    // Redirect to complete registration page with email as a query parameter
+    // Redirect to complete registration page
     res.redirect(`${FRONTEND_URL}/complete-registration?email=${user.email}`);
   } catch (error) {
-    logger.error('Error verifying email:', error);
+    logger.error("Error verifying email:", error);
     res.redirect(`${FRONTEND_URL}/verification-failed`);
   }
 };
+
+
