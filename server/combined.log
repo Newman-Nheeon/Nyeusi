@@ -1560,3 +1560,92 @@
 {"level":"info","message":"[CORS] Request received from origin: http://localhost:3000","service":"user-service","timestamp":"2024-11-08 14:56:08"}
 {"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-11-08 14:56:08"}
 {"level":"info","message":"::1 - - [08/Nov/2024:13:56:08 +0000] \"POST /api/vote HTTP/1.1\" 400 242 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0\"","service":"user-service","timestamp":"2024-11-08 14:56:08"}
+{"level":"info","message":"Connected to MongoDB","service":"user-service","timestamp":"2024-11-19 13:37:53"}
+{"level":"info","message":"Default Admin Details: Username: superadmin, Email: superadmin@example.com","service":"user-service","timestamp":"2024-11-19 13:37:53"}
+{"level":"info","message":"Connected to database successfully","service":"user-service","timestamp":"2024-11-19 13:37:53"}
+{"level":"info","message":"Default super admin already exists with username: superadmin","service":"user-service","timestamp":"2024-11-19 13:37:54"}
+{"level":"info","message":"Server running on port 8080","service":"user-service","timestamp":"2024-11-19 13:37:54"}
+{"level":"info","message":"[CORS] Request received from origin: http://localhost:3000","service":"user-service","timestamp":"2024-11-19 13:39:58"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-11-19 13:39:58"}
+{"level":"info","message":"::1 - - [19/Nov/2024:12:39:58 +0000] \"OPTIONS /api/submit-email HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0\"","service":"user-service","timestamp":"2024-11-19 13:39:58"}
+{"level":"info","message":"[CORS] Request received from origin: http://localhost:3000","service":"user-service","timestamp":"2024-11-19 13:39:58"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-11-19 13:39:58"}
+{"level":"info","message":"Checks started","service":"user-service","timestamp":"2024-11-19 13:39:58"}
+{"level":"info","message":"Checks done","service":"user-service","timestamp":"2024-11-19 13:39:58"}
+{"level":"info","message":"Recaptcha checks","service":"user-service","timestamp":"2024-11-19 13:39:58"}
+{"level":"info","message":"is recaptchs sucessful","service":"user-service","timestamp":"2024-11-19 13:39:59"}
+{"level":"info","message":"test 1","service":"user-service","timestamp":"2024-11-19 13:39:59"}
+{"level":"info","message":"::1 - - [19/Nov/2024:12:39:59 +0000] \"POST /api/submit-email HTTP/1.1\" 400 40 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0\"","service":"user-service","timestamp":"2024-11-19 13:39:59"}
+{"level":"info","message":"[CORS] Request received from origin: http://localhost:3000","service":"user-service","timestamp":"2024-11-19 13:40:08"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-11-19 13:40:08"}
+{"level":"info","message":"::1 - - [19/Nov/2024:12:40:08 +0000] \"OPTIONS /api/submit-email HTTP/1.1\" 200 0 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0\"","service":"user-service","timestamp":"2024-11-19 13:40:08"}
+{"level":"info","message":"[CORS] Request received from origin: http://localhost:3000","service":"user-service","timestamp":"2024-11-19 13:40:08"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-11-19 13:40:08"}
+{"level":"info","message":"Checks started","service":"user-service","timestamp":"2024-11-19 13:40:08"}
+{"level":"info","message":"Checks done","service":"user-service","timestamp":"2024-11-19 13:40:08"}
+{"level":"info","message":"Recaptcha checks","service":"user-service","timestamp":"2024-11-19 13:40:08"}
+{"level":"info","message":"is recaptchs sucessful","service":"user-service","timestamp":"2024-11-19 13:40:08"}
+{"level":"info","message":"::1 - - [19/Nov/2024:12:40:08 +0000] \"POST /api/submit-email HTTP/1.1\" 400 75 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0\"","service":"user-service","timestamp":"2024-11-19 13:40:08"}
+{"level":"info","message":"[CORS] Request received from origin: http://localhost:3000","service":"user-service","timestamp":"2024-11-19 13:40:18"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-11-19 13:40:18"}
+{"level":"info","message":"::1 - - [19/Nov/2024:12:40:18 +0000] \"GET /api/participant HTTP/1.1\" 200 1187 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0\"","service":"user-service","timestamp":"2024-11-19 13:40:18"}
+{"level":"info","message":"[CORS] Request received from origin: http://localhost:3000","service":"user-service","timestamp":"2024-11-19 13:40:18"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-11-19 13:40:18"}
+{"level":"info","message":"::1 - - [19/Nov/2024:12:40:18 +0000] \"GET /api/participant HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0\"","service":"user-service","timestamp":"2024-11-19 13:40:18"}
+{"level":"info","message":"[CORS] Request received from origin: http://localhost:3000","service":"user-service","timestamp":"2024-11-19 13:40:35"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-11-19 13:40:35"}
+{"level":"info","message":"::1 - - [19/Nov/2024:12:40:35 +0000] \"GET /api/participant HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0\"","service":"user-service","timestamp":"2024-11-19 13:40:35"}
+{"level":"info","message":"[CORS] Request received from origin: http://localhost:3000","service":"user-service","timestamp":"2024-11-19 13:40:35"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-11-19 13:40:35"}
+{"level":"info","message":"::1 - - [19/Nov/2024:12:40:36 +0000] \"GET /api/participant HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0\"","service":"user-service","timestamp":"2024-11-19 13:40:36"}
+{"level":"info","message":"[CORS] Request received from origin: http://localhost:3000","service":"user-service","timestamp":"2024-11-19 13:40:44"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-11-19 13:40:44"}
+{"level":"info","message":"::1 - - [19/Nov/2024:12:40:44 +0000] \"GET /api/participant HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0\"","service":"user-service","timestamp":"2024-11-19 13:40:44"}
+{"level":"info","message":"[CORS] Request received from origin: http://localhost:3000","service":"user-service","timestamp":"2024-11-19 13:40:44"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-11-19 13:40:44"}
+{"level":"info","message":"::1 - - [19/Nov/2024:12:40:44 +0000] \"GET /api/participant HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0\"","service":"user-service","timestamp":"2024-11-19 13:40:44"}
+{"level":"info","message":"[CORS] Request received from origin: http://localhost:3000","service":"user-service","timestamp":"2024-11-19 13:45:23"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-11-19 13:45:23"}
+{"level":"info","message":"::1 - - [19/Nov/2024:12:45:23 +0000] \"GET /api/participant HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0\"","service":"user-service","timestamp":"2024-11-19 13:45:23"}
+{"level":"info","message":"[CORS] Request received from origin: http://localhost:3000","service":"user-service","timestamp":"2024-11-19 13:45:23"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-11-19 13:45:23"}
+{"level":"info","message":"::1 - - [19/Nov/2024:12:45:24 +0000] \"GET /api/participant HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0\"","service":"user-service","timestamp":"2024-11-19 13:45:24"}
+{"level":"info","message":"[CORS] Request received from origin: http://localhost:3000","service":"user-service","timestamp":"2024-11-19 13:45:27"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-11-19 13:45:27"}
+{"level":"info","message":"::1 - - [19/Nov/2024:12:45:27 +0000] \"GET /api/participant HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0\"","service":"user-service","timestamp":"2024-11-19 13:45:27"}
+{"level":"info","message":"[CORS] Request received from origin: http://localhost:3000","service":"user-service","timestamp":"2024-11-19 13:45:27"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-11-19 13:45:27"}
+{"level":"info","message":"::1 - - [19/Nov/2024:12:45:27 +0000] \"GET /api/participant HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0\"","service":"user-service","timestamp":"2024-11-19 13:45:27"}
+{"level":"info","message":"[CORS] Request received from origin: http://localhost:3000","service":"user-service","timestamp":"2024-11-19 13:47:18"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-11-19 13:47:18"}
+{"level":"info","message":"::1 - - [19/Nov/2024:12:47:18 +0000] \"GET /api/participant HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0\"","service":"user-service","timestamp":"2024-11-19 13:47:18"}
+{"level":"info","message":"[CORS] Request received from origin: http://localhost:3000","service":"user-service","timestamp":"2024-11-19 13:47:18"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-11-19 13:47:18"}
+{"level":"info","message":"::1 - - [19/Nov/2024:12:47:18 +0000] \"GET /api/participant HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0\"","service":"user-service","timestamp":"2024-11-19 13:47:18"}
+{"level":"info","message":"[CORS] Request received from origin: http://localhost:3000","service":"user-service","timestamp":"2024-11-19 13:48:32"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-11-19 13:48:32"}
+{"level":"info","message":"::1 - - [19/Nov/2024:12:48:32 +0000] \"GET /api/participant HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0\"","service":"user-service","timestamp":"2024-11-19 13:48:32"}
+{"level":"info","message":"[CORS] Request received from origin: http://localhost:3000","service":"user-service","timestamp":"2024-11-19 13:48:32"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-11-19 13:48:32"}
+{"level":"info","message":"::1 - - [19/Nov/2024:12:48:33 +0000] \"GET /api/participant HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0\"","service":"user-service","timestamp":"2024-11-19 13:48:33"}
+{"level":"info","message":"[CORS] Request received from origin: http://localhost:3000","service":"user-service","timestamp":"2024-11-19 13:48:56"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-11-19 13:48:56"}
+{"level":"info","message":"::1 - - [19/Nov/2024:12:48:56 +0000] \"GET /api/participant HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0\"","service":"user-service","timestamp":"2024-11-19 13:48:56"}
+{"level":"info","message":"[CORS] Request received from origin: http://localhost:3000","service":"user-service","timestamp":"2024-11-19 13:48:56"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-11-19 13:48:56"}
+{"level":"info","message":"::1 - - [19/Nov/2024:12:48:56 +0000] \"GET /api/participant HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0\"","service":"user-service","timestamp":"2024-11-19 13:48:56"}
+{"level":"info","message":"[CORS] Request received from origin: http://localhost:3000","service":"user-service","timestamp":"2024-11-19 14:06:54"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-11-19 14:06:54"}
+{"level":"info","message":"::1 - - [19/Nov/2024:13:06:54 +0000] \"GET /api/participant HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0\"","service":"user-service","timestamp":"2024-11-19 14:06:54"}
+{"level":"info","message":"[CORS] Request received from origin: http://localhost:3000","service":"user-service","timestamp":"2024-11-19 14:06:54"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-11-19 14:06:54"}
+{"level":"info","message":"::1 - - [19/Nov/2024:13:06:54 +0000] \"GET /api/participant HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0\"","service":"user-service","timestamp":"2024-11-19 14:06:54"}
+{"level":"info","message":"[CORS] Request received from origin: http://localhost:3000","service":"user-service","timestamp":"2024-11-19 14:12:21"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-11-19 14:12:21"}
+{"level":"info","message":"::1 - - [19/Nov/2024:13:12:21 +0000] \"GET /api/participant HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0\"","service":"user-service","timestamp":"2024-11-19 14:12:21"}
+{"level":"info","message":"[CORS] Request received from origin: http://localhost:3000","service":"user-service","timestamp":"2024-11-19 14:12:21"}
+{"level":"info","message":"[CORS] Origin allowed: http://localhost:3000","service":"user-service","timestamp":"2024-11-19 14:12:21"}
+{"level":"info","message":"::1 - - [19/Nov/2024:13:12:21 +0000] \"GET /api/participant HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0\"","service":"user-service","timestamp":"2024-11-19 14:12:21"}
+{"level":"info","message":"Connected to MongoDB","service":"user-service","timestamp":"2024-11-19 14:40:35"}
+{"level":"info","message":"Default Admin Details: Username: superadmin, Email: superadmin@example.com","service":"user-service","timestamp":"2024-11-19 14:40:35"}
+{"level":"info","message":"Default super admin already exists with username: superadmin","service":"user-service","timestamp":"2024-11-19 14:40:36"}

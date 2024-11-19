@@ -24,9 +24,9 @@ import { Label } from "@/components/ui/label";
 import { useState, useEffect } from "react";
 
 const socialMediaOptions = [
-  { value: "facebook", label: "facebook" },
-  { value: "instagram", label: "instagram" },
-  { value: "tiktok", label: "tiktok" },
+  // { value: "facebook", label: "facebook" },
+  { value: "instagram", label: "Instagram" },
+  { value: "tiktok", label: "Tiktok" },
 ];
 
 const VotersHandle = ({ handleClose, participantId }) => {
@@ -210,13 +210,13 @@ const VotersHandle = ({ handleClose, participantId }) => {
                 )}
 
                   <div className="grid w-full gap-1.5">
-                  <p>
+                  {/* <p>
                   Don't forget to use the compulsory hashtags. Please see the <span className="text-sm font-regular cursor-pointer text-red-400 font-mont">
                     <a href="https://nyeusi.org/give-black-december/" target="_blank">
                       &nbsp;Competition Page&nbsp;
                     </a>
                   </span> for more details
-                  </p>
+                  </p> */}
                 </div>
 
 
