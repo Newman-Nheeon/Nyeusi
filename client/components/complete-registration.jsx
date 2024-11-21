@@ -230,13 +230,16 @@ const completeRegistration = () => {
     }
   };
 
-  const handleSocialMediaSelect = (event) => {
-    setSelectedValue(event);
+  const handleSocialMediaSelect = (value) => {
+    const selectedOption = socialMediaOptions.find((option) => option.label === value);
+    setSelectedValue(value); // Keep label for display
     setFormValues((prevState) => ({
       ...prevState,
-      socialMediaPlatform: event,
+      socialMediaPlatform: selectedOption.value, // Use lowercase value for submission
     }));
   };
+  
+  
 
 
 
@@ -333,21 +336,15 @@ const completeRegistration = () => {
                     <Label htmlFor="socialMediaPlatform" className="label ">
                       Social Media Platform
                     </Label>
-                    <Select
-                      onValueChange={(event) => handleSocialMediaSelect(event)}
-                    >
-                      <SelectTrigger className=" input">
+                    <Select onValueChange={(event) => handleSocialMediaSelect(event)}>
+                      <SelectTrigger className="input">
                         <SelectValue
-                          placeholder="Select the social media plaform used"
+                          placeholder="Select the social media platform used"
                           className="text-slate-300"
                         />
                       </SelectTrigger>
                       <SelectContent className="bg-white">
                         <SelectGroup>
-                          {/* <SelectLabel className="text-slate-300">
-                            Social Handle
-                          </SelectLabel> */}
-
                           {socialMediaOptions.map((social, i) => (
                             <SelectItem key={i} value={social.label}>
                               {social.label}
@@ -356,6 +353,7 @@ const completeRegistration = () => {
                         </SelectGroup>
                       </SelectContent>
                     </Select>
+
 
                     {submitted && !formValues.socialMediaPlatform && (
                       <span className="error_log">
