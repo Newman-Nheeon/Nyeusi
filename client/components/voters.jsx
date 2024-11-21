@@ -61,6 +61,8 @@ const VotersHandle = ({ handleClose, participantId }) => {
       voterPlatform: formValues.voterPlatform,
       participantId: participantId,
     };
+    
+    
 
     try {
       const response = await axios.post(apiURL, voteData);
@@ -124,13 +126,17 @@ const VotersHandle = ({ handleClose, participantId }) => {
     handleClose();
   };
 
-  const handleSocialMediaSelect = (event) => {
-    setSelectedValue(event);
+  const handleSocialMediaSelect = (value) => {
+    const selectedOption = socialMediaOptions.find((option) => option.label === value);
+    setSelectedValue(value); // Keep the label for display
     setFormValues((prevState) => ({
       ...prevState,
-      voterPlatform: event,
+      voterPlatform: selectedOption.value, // Use lowercase value for backend submission
     }));
   };
+  
+  
+  
   return (
     <div
       className="p-[12px] rounded-xl shadow-2xl"
@@ -165,16 +171,14 @@ const VotersHandle = ({ handleClose, participantId }) => {
                 <Label htmlFor="voterPlatform" className="label">
                   Social Media Platform
                 </Label>
-                <Select
-                  onValueChange={(event) => handleSocialMediaSelect(event)}
-                >
+
+                <Select onValueChange={(event) => handleSocialMediaSelect(event)}>
                   <SelectTrigger className=" input">
                     <SelectValue placeholder="Select platform" />
                   </SelectTrigger>
                   <SelectContent className="bg-white">
                     <SelectGroup>
                       <SelectLabel>Social Handle</SelectLabel>
-
                       {socialMediaOptions.map((social, i) => (
                         <SelectItem key={i} value={social.label}>
                           {social.label}
@@ -183,6 +187,7 @@ const VotersHandle = ({ handleClose, participantId }) => {
                     </SelectGroup>
                   </SelectContent>
                 </Select>
+
                 {submitted && !formValues.voterPlatform && (
                   <span className="error_log">
                     Please select a social media platform
