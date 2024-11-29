@@ -6,36 +6,43 @@ const upload = require('../utils/file');
 const verifyJWT = require('../config/verifyJWT');
 const { totalParticipant } = require('../controllers/adminController');
 
-// Participant Routes
-// ------------------
+// Middleware to enforce time restrictions based on end date
+function enforceEndDate(end) {
+  return (req, res, next) => {
+    const now = new Date();
+    const endTime = new Date(end);
 
-// Complete registration with file upload (profile image and entry image)
+    if (now > endTime) {
+      return res.status(403).json({ error: 'This action is no longer available.' });
+    }
+    next();
+  };
+}
+
+// Define deadlines
+const registrationDeadline = '2024-12-15T23:59:59';
+const votingDeadline = '2024-12-30T23:59:59';
+
+// Complete registration endpoint
 router.post(
   '/complete-registration',
+  enforceEndDate(registrationDeadline),
   upload.fields([{ name: 'profileImage', maxCount: 1 }, { name: 'entryImage', maxCount: 1 }]),
   userController.completeRegistration
 );
 
-// Email verification via token
+// Vote submission endpoint
+router.post(
+  '/vote',
+  enforceEndDate(votingDeadline), 
+  submitVote
+);
+
+// Other routes remain unchanged
 router.get('/verify-email', userController.verifyEmail);
-
-// Submit email for registration (includes captcha verification)
 router.post('/submit-email', userController.submitEmail);
-
-// Resend verification token if the email is not received
 router.post('/resend-verification-token', userController.resendVerificationToken);
-
-// Voting Routes
-// -------------
-// Submit a vote for a participant
-router.post('/vote', submitVote);
-
-// Show approved participants
 router.get('/participant', showApprovedParticipants);
-
-// Admin Routes
-// ------------
-// Retrieve the total number of participants (secure route)
 router.get('/total-participant', verifyJWT, totalParticipant);
 
 module.exports = router;

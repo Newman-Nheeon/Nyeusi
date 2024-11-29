@@ -2,9 +2,8 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect } from "react";
-// import { signIn, signOut, useSession, getProviders } from "next-auth/react";
-// , "ACTIVITIES", "BLOG", "", ''
+import { useState } from "react";
+
 const navLinks = [
   { href: "/", text: "SIGN UP" }, // Root page for sign-up
   { href: "/vote", text: "VOTE" }, // Vote page
@@ -33,7 +32,7 @@ const Nav = () => {
       </Link>
 
       {/*Mobile Navigation*/}
-      <div className="lg:hidden flex relative  z-10">
+      <div className="lg:hidden flex relative z-10">
         <img
           src="/assets/icons/menu.svg"
           alt="menu"
@@ -44,42 +43,39 @@ const Nav = () => {
 
         {/* Render dropdown menu if toggleDropdown is true */}
         {toggleDropdown && (
-          <div className="dropdown ">
+          <div className="dropdown">
             {isUserLoggedIn ? (
               <div className="dropdown" onClick={closeDropdown}>
                 {navLinks.map((link, index) => (
                   <Link
                     key={index}
                     href={link.href}
-                    className="cursor-pointer"
+                    className="cursor-pointer text-white gilam-bold"
                     onClick={closeDropdown}
                   >
                     {link.text}
                   </Link>
                 ))}
-                <button className="yellow_btn">SUPPORT</button>
+                <button className="yellow_btn gilam-bold">SUPPORT</button>
               </div>
             ) : (
               <div className="flex flex-col items-center gap-5 text-white">
                 {navLinks.map((link, index) => (
-                  <Link key={index} href={link.href}>
+                  <Link
+                    key={index}
+                    href={link.href}
+                    className="gilam-bold text-white"
+                  >
                     {link.text}
                   </Link>
                 ))}
                 <Link
                   href="https://nyeusi.org/support-us/"
-                  className="yellow_btn w-40"
+                  className="yellow_btn w-40 gilam-bold"
                   onClick={closeDropdown}
                 >
                   SUPPORT
                 </Link>
-                {/* <Link
-                  href="/register"
-                  className="outline_btn"
-                  onClick={closeDropdown}
-                >
-                  REGISTER
-                </Link> */}
               </div>
             )}
           </div>
@@ -91,29 +87,38 @@ const Nav = () => {
         {isUserLoggedIn ? (
           <div className="flex items-center gap-5 text-white">
             {navLinks.map((link, index) => (
-              <Link key={index} href={link.href}>
+              <Link
+                key={index}
+                href={link.href}
+                className="gilam-bold text-white"
+              >
                 {link.text}
               </Link>
             ))}
-            <Link href="https://nyeusi.org/support-us/" className="yellow_btn">
+            <Link
+              href="https://nyeusi.org/support-us/"
+              className="yellow_btn gilam-bold"
+            >
               SUPPORT US
             </Link>
           </div>
         ) : (
           <div className="flex items-center gap-5 text-white">
             {navLinks.map((link, index) => (
-              <Link key={index} href={link.href}>
+              <Link
+                key={index}
+                href={link.href}
+                className="gilam-bold text-white"
+              >
                 {link.text}
               </Link>
             ))}
-            <Link href="https://nyeusi.org/support-us/" className="yellow_btn">
+            <Link
+              href="https://nyeusi.org/support-us/"
+              className="yellow_btn gilam-bold"
+            >
               SUPPORT US
             </Link>
-            {/* <Link href="/register" className="outline_btn">
-              REGISTER
-            </Link> */}
-
-            {}
           </div>
         )}
       </div>
