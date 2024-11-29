@@ -13,7 +13,7 @@ function enforceEndDate(end) {
     const endTime = new Date(end);
 
     if (now > endTime) {
-      return res.status(403).json({ error: 'This action is no longer available.' });
+      return res.status(403).json({ error: 'This action is no longer available' });
     }
     next();
   };
